@@ -46,8 +46,14 @@ namespace Cobra.Infrastructure.Setup
                              ValidIssuer = siteSettings.Security.Tokens.Issuer,
                              ValidateAudience = true,
                              ValidAudience = siteSettings.Security.Tokens.Audience,
+                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(siteSettings.Security.Tokens.Key)),
                              ValidateIssuerSigningKey = true,
-                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(siteSettings.Security.Tokens.Key))
+                             // Verifica se um token recebido ainda é válido
+                             ValidateLifetime = true,
+                             // Tempo de tolerância para a expiração de um token (utilizado
+                             // caso haja problemas de sincronismo de horário entre diferentes
+                             // computadores envolvidos no processo de comunicação)
+                             ClockSkew = TimeSpan.Zero
                          };
                      });
             return services;

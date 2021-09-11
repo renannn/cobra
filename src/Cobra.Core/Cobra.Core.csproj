@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.46" />
 
   <PropertyGroup>
@@ -22,6 +22,9 @@
     <ProjectReference Include="..\Cobra.Entities\Cobra.Entities.csproj" />
   </ItemGroup>
 
+  <Import Project="..\..\Model\Model.projitems" Label="Shared" />
+
   <Import Project="..\Models\Models.projitems" Label="Shared" />
+  
 
 </Project>

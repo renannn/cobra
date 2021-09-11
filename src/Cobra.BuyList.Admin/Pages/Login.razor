@@ -1,0 +1,28 @@
+﻿@page "/login"
+
+<h3>Login</h3>
+
+<div class="container">
+	<h1>Log in to JWT Autentication</h1>
+	<div class="form-group">
+		<label for="Usuario">Usuario</label>
+		<input type="text" name="Usuario" placeholder="Usuário" class="form-control" @bind="Usuario"/>
+	</div>
+	<div class="form-group">
+		<label for="Password">Senha</label>
+		<input type="password" name="Senha" class="form-control" @bind="Password"/>
+	</div>
+	<button @onclick="SubmitAuth">Entrar</button>
+</div>
+
+@code {
+	
+	public string Usuario { get; set; }
+	public string Password { get; set; }
+
+	 void SubmitAuth()
+	{
+		Console.WriteLine($"{Usuario} e {Password}");
+	}
+
+}

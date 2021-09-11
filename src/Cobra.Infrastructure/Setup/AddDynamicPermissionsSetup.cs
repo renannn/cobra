@@ -1,4 +1,5 @@
 ﻿using Cobra.Infrastructure.Services.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,13 +12,9 @@ namespace Cobra.Infrastructure.Setup
             services.AddScoped<IAuthorizationHandler, DynamicPermissionsAuthorizationHandler>();
             services.AddAuthorization(opts =>
             {
-                opts.AddPolicy(
-                    name: ConstantPolicies.DynamicPermission,
-                    configurePolicy: policy =>
-                    {
-                        policy.RequireAuthenticatedUser();
-                        policy.Requirements.Add(new DynamicPermissionRequirement());
-                    });
+                opts.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                  .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                  .RequireAuthenticatedUser().Build());
             });
 
             return services;

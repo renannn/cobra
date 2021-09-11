@@ -8,9 +8,13 @@ namespace Cobra.Models.Identity
         [Display(Name = "Nome de usuário")]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "(*)")]
         [Display(Name = "Senha")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public string RefreshToken { get; set; }
+
+        [Required(ErrorMessage = "(*)")]
+        public string GrantType { get; set; }
     }
 }

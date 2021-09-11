@@ -42,6 +42,16 @@ namespace Cobra.BuyList.Api
                     .AddMediatR(typeof(Startup))
                     .AddControllers();
 
+            // Ativando o uso de cache via Redis
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration =
+                    _configuration.GetConnectionString("ConexaoRedis");
+                options.InstanceName = "APIProdutos";
+            });
+
+
+
             services.AddCommonWeb();
             services.AddFeatureManagement();
 

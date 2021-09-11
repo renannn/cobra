@@ -26,10 +26,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cobra.Infrastructure", "src
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ModelsIdentity", "src\Models\ModelsIdentity.shproj", "{5F2D9249-3A25-4B4E-BE6B-6187088C9A56}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Model", "Model\Model.shproj", "{916F36CF-D40D-48B7-87E7-CD4A8E9F5E5C}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Model\Model.projitems*{31fdc665-9f9c-42e9-8ccf-8b4c4b95e465}*SharedItemsImports = 5
 		src\Models\Models.projitems*{31fdc665-9f9c-42e9-8ccf-8b4c4b95e465}*SharedItemsImports = 5
 		src\Models\Models.projitems*{5f2d9249-3a25-4b4e-be6b-6187088c9a56}*SharedItemsImports = 13
+		Model\Model.projitems*{81fd1389-45f7-44a0-b027-f5ad55644a31}*SharedItemsImports = 5
+		Model\Model.projitems*{916f36cf-d40d-48b7-87e7-cd4a8e9f5e5c}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +82,7 @@ Global
 		{88545F4D-D33A-44E8-8707-1154D0314294} = {1B5C9816-9C03-4345-8781-A444F4F1D9A0}
 		{7A07D4C9-C72D-43A4-91EA-06823D3B983F} = {1B5C9816-9C03-4345-8781-A444F4F1D9A0}
 		{5F2D9249-3A25-4B4E-BE6B-6187088C9A56} = {1B5C9816-9C03-4345-8781-A444F4F1D9A0}
+		{916F36CF-D40D-48B7-87E7-CD4A8E9F5E5C} = {1B5C9816-9C03-4345-8781-A444F4F1D9A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2CF2F34-6BF3-4080-BBB7-00498E738E9A}

@@ -5,18 +5,18 @@ using Cobra.Infrastructure.Services.Contracts.Identity;
 using Cobra.Infrastructure.Services.Identity;
 using Cobra.Models.Identity;
 using Cobra.SharedKernel.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cobra.BuyList.Api.Endpoints.v1.Autenticacao
 {
+    [AllowAnonymous]
     public class Autentication : BaseAsyncEndpoint
         .WithRequest<LoginRequest>
         .WithResponse<TokenResult>
@@ -50,67 +50,26 @@ namespace Cobra.BuyList.Api.Endpoints.v1.Autenticacao
         public override async Task<ActionResult<TokenResult>> HandleAsync(LoginRequest request, CancellationToken cancellationToken = default)
         {
             if (Request == null) return Unauthorized();
+
             try
             {
-
+                if (await _jwt.ValidateCredentialsAsync(request))
+                {
+                    return await _jwt.BuildJWTTokenAsync(request);
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+                        Authenticated = false,
+                        Message = "Falha ao autenticar"
+                    });
+                }
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
-
-            var validUser = await AuthenticateAsync(request);
-            string tokenString;
-            if (validUser != null)
-            {
-                tokenString = await _jwt.BuildJWTTokenAsync(validUser);
-            }
-            else
-            {
-                return Unauthorized();
-            }
-            return Ok(new { Token = tokenString });
         }
-        private async Task<User> AuthenticateAsync(LoginRequest login)
-        {
-            var user = await _userManager.FindByNameAsync(login.Username);
-
-            if (user == null)
-            {
-                throw new Exception("O nome de usuário ou senha inseridos não é válido.");
-            }
-
-           if (user.BlockedState == BlockedState.IsBlocked)
-            {
-                throw new Exception("Sua conta foi bloqueada.");
-            }
-
-            if (user.IsDisabled)
-            {
-                throw new Exception("Sua conta foi desativada.");
-            }
-
-            if (_siteOptions.Value.EnableEmailConfirmation &&
-                !await _userManager.IsEmailConfirmedAsync(user))
-            {
-                throw new Exception("Por favor, confirme seu e-mail!");
-            }
-
-            var result = await _signInManager.PasswordSignInAsync(
-                                   login.Username,
-                                   login.Password,
-                                   false,
-                                   lockoutOnFailure: true);
-            if (result.Succeeded)
-            {
-                return user;
-            }
-            else
-            {
-                throw new Exception("Senha incorreta");
-            }
-
-        }
-
     }
 }

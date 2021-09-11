@@ -42,7 +42,7 @@ namespace Cobra.Infrastructure.Setup
                 setApplicationCookieOptions(provider, identityOptionsCookies, siteSettings);
             });
 
-            services.enableImmediateLogout();
+            services.EnableImmediateLogout();
 
             return services;
         }
@@ -60,7 +60,7 @@ namespace Cobra.Infrastructure.Setup
             });
         }
 
-        private static void enableImmediateLogout(this IServiceCollection services)
+        private static void EnableImmediateLogout(this IServiceCollection services)
         {
             services.Configure<SecurityStampValidatorOptions>(options =>
             {
