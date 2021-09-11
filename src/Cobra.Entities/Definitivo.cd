@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cobra.Entities.Domains.BrandImage" Collapsed="true">
+    <Position X="28" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Images\BrandImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Domains.BuyListItemImage" Collapsed="true">
+    <Position X="30.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Images\BuyListItemImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Image" Collapsed="true">
+    <Position X="31.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Images\Image.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.InspectionItemImage" Collapsed="true">
+    <Position X="32.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Images\InspectionItemImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Domains.ModelImage" Collapsed="true">
+    <Position X="34.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Images\ModelImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Domains.AddressType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAgAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\AddressType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Bank" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\Bank.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Brand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAJAAAAgAAAAAAAA=</HashCode>
+      <FileName>Domains\Brand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Category" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAIAAAAgAAAAAAAA=</HashCode>
+      <FileName>Domains\Category.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Condition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="46" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAEAAAAAEQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\Condition.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.Country" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAgAAAAAAAAAAaAAAAAAIAAAAAAIEAAAAA=</HashCode>
+      <FileName>Domains\Country.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.EmailType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAgAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\EmailType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.PaymentFieldMethodType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAACABEAQgAAAAAIAAAACAAAAAAAA=</HashCode>
+      <FileName>Domains\PaymentFieldMethodType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.PaymentMethodType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\PaymentMethodType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.PhoneType" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="46" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAIAAAAAAIAAAAAA=</HashCode>
+      <FileName>Domains\PhoneType.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Domains.RegionalState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\RegionalState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.Address" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAMBEAQAAwAAAwAAIEAAAIAAAAAAAA=</HashCode>
+      <FileName>Administration\Address.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.AppDataProtectionKey" Collapsed="true">
+    <Position X="40.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Administration\AppDataProtectionKey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.AppLogItem" Collapsed="true">
+    <Position X="42.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAgAAKAAAAAAAAAAAAAAAAAAIIACAAAIAAAAAA=</HashCode>
+      <FileName>Administration\AppLogItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.AppSqlCache" Collapsed="true">
+    <Position X="46" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAkAAIAAAA=</HashCode>
+      <FileName>Administration\AppSqlCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.Email" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAgAAAAAAIEAAAAgAAAAgAA=</HashCode>
+      <FileName>Administration\Email.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.Phone" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAgAAAAAAAAEAQAAwAAAAQAYEAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\Phone.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.Role" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAICAAAAAgAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\Role.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.RoleClaim" Collapsed="true">
+    <Position X="39" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\RoleClaim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.Testimony" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAgAAAAAAIEAAAAACAAAAAA=</HashCode>
+      <FileName>Administration\Testimony.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.UsedPassword" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAggAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\UsedPassword.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.UserClaim" Collapsed="true">
+    <Position X="46" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\UserClaim.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.UserLogin" Collapsed="true">
+    <Position X="47.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\UserLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.UserRole" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="37.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\UserRole.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Administration.UserToken" Collapsed="true">
+    <Position X="39" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Administration\UserToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Administration.User" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEMAIAAAAAAAACIAAAAAQABiAAAIEAAAAQBgABAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.BuyList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAgQAAAAAAAAAwAAAAAAIAAAAAAAIAAAAA=</HashCode>
+      <FileName>Crm\Buylist\BuyList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.BuyListItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEQAgAAAAAAAAAIAAAgAAAIAAAAAAgAAEAAA=</HashCode>
+      <FileName>Crm\Buylist\BuyListItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.Inspection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="40.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAAQBAAAAgAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Crm\Inspection\Inspection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.InspectionItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAQAAAAEAAAAIAAAAAAAAAAEgA=</HashCode>
+      <FileName>Crm\Inspection\InspectionItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.MensagemUser" Collapsed="true">
+    <Position X="28" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Crm\Message\MensagemUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Crm.Message" Collapsed="true">
+    <Position X="30.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <FileName>Crm\Message\Message.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.MessageBuyList" Collapsed="true">
+    <Position X="30.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Crm\Message\MessageBuyList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Crm.MessageBuyListItem" Collapsed="true">
+    <Position X="32.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Crm\Message\MessageBuyListItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.Crm.Payment" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="47.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAgAAgAAAIAAAAAAIAAAAAA=</HashCode>
+      <FileName>Crm\Payment\Payment.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.PaymentMethod" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="39" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAIAAAAwAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Crm\Payment\PaymentMethod.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.PaymentValueField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="42.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgIQAAAAA=</HashCode>
+      <FileName>Crm\Payment\PaymentValueField.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.Model" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="44.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAoAgAAAAAAAAQAAAAAAIAAAAAAAAAQAAA=</HashCode>
+      <FileName>Crm\Model.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.Crm.ModelPrice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="46" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAIQgAAAAAKAAAAAAAAAECAA=</HashCode>
+      <FileName>Crm\ModelPrice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cobra.Entities.AuditableEntity.AppShadowProperties" Collapsed="true">
+    <Position X="44.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAgAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuditableEntity\AuditableShadowProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cobra.Entities.AuditableEntity.AuditableShadowProperties" Collapsed="true">
+    <Position X="47.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAIAAAAGIggAAEAAAAgAEAAkIAAJAAgQgAAEQQAgA=</HashCode>
+      <FileName>AuditableEntity\AuditableShadowProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

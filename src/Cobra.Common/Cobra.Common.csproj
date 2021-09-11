@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.46" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <NoWarn>RCS1090</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" /> 
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" />
+    <PackageReference Include="System.Drawing.Common" />
+    <PackageReference Include="Microsoft.SyndicationFeed.ReaderWriter" />
+    <PackageReference Include="MailKit" />
+    <PackageReference Include="HtmlAgilityPack" />
+    <PackageReference Include="IPAddressRange" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" />
+    <PackageReference Include="Ben.Demystifier" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cobra.SharedKernel\Cobra.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

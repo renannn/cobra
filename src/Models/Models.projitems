@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>5f2d9249-3a25-4b4e-be6b-6187088c9a56</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Models</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\AgeStatViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ChangePasswordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ChangeUserPasswordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\DynamicRoleClaimsManagerViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\ChangePasswordNotificationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\EmailsBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\PasswordResetViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\RegisterEmailConfirmationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\TwoFactorSendCodeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\UserProfileUpdateNotificationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ForgotPasswordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ModelIdViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\OnlineUsersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\PagedAppLogItemsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\PagedUsersListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\RegisterViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ResetPasswordViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\RoleAndUsersCountViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\RoleViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\SearchUsersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\SortOrder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\TodayBirthDaysViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\UserCardItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\UserProfileViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\VerifyCodeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\ViewModelConstants.cs" />
+  </ItemGroup>
+</Project>

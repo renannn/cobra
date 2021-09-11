@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PackageReference Update="AngleSharp" Version="0.13.0" />
+    <PackageReference Update="Ardalis.ApiEndpoints" Version="3.1.0" />
+    <PackageReference Update="Ardalis.EFCore.Extensions" Version="1.1.0" />
+    <PackageReference Update="Ardalis.GuardClauses" Version="3.1.0" />
+    <PackageReference Update="Ardalis.ListStartupServices" Version="1.1.3" />
+    <PackageReference Update="Ardalis.Result" Version="3.1.1" />
+    <PackageReference Update="Ardalis.Specification" Version="5.1.0" />
+    <PackageReference Update="Ardalis.Specification.EntityFrameworkCore" Version="5.1.0" />
+    <PackageReference Update="AspNetCore.HealthChecks.Kafka" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.MongoDb" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.RabbitMQ" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.Sqlite" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.SqlServer" Version="5.0.2" />
+    <PackageReference Update="AspNetCore.HealthChecks.System" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.UI" Version="5.0.1" />
+    <PackageReference Update="AspnetCore.HealthChecks.UI.Client" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="5.0.1" />
+    <PackageReference Update="AspNetCore.HealthChecks.Uris" Version="5.0.1" />
+    <PackageReference Update="Autofac" Version="6.2.0" />
+    <PackageReference Update="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Update="AutoMapper" Version="10.1.1" />
+    <PackageReference Update="AutoMapper.Contrib.Autofac.DependencyInjection" Version="5.4.0" />
+    <PackageReference Update="Ben.Demystifier" Version="0.4.1" />
+    <PackageReference Update="cloudscribe.Web.Pagination" Version="3.1.0" />
+    <PackageReference Update="coverlet.collector" Version="1.3.0" />
+    <PackageReference Update="coverlet.msbuild" Version="3.0.3" />
+    <PackageReference Update="EntityFrameworkCore.Exceptions.Common" Version="3.1.4" />
+    <PackageReference Update="EntityFrameworkCore.Exceptions.SqlServer" Version="3.1.4" />
+    <PackageReference Update="HtmlAgilityPack" Version="1.11.34" />
+    <PackageReference Update="IPAddressRange" Version="4.2.0" />
+    <PackageReference Update="LinqKit.Microsoft.EntityFrameworkCore" Version="5.0.24" />
+    <PackageReference Update="MailKit" Version="2.14.0" />
+    <PackageReference Update="MediatR" Version="9.0.0" />
+    <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Update="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" />
+    <PackageReference Update="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"  />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.5" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.7" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.Testing" Version="5.0.8" />
+    <PackageReference Update="Microsoft.AspNetCore.SignalR.Client" Version="5.0.1" />
+    <PackageReference Update="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.1" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.5" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="all" Version="5.0.5" />
+    <PackageReference Update="Microsoft.Extensions.Caching.SqlServer" Version="5.0.1" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Diagnostics.HealthChecks" Version="5.0.7" />
+    <PackageReference Update="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Http.Polly" Version="5.0.1" />
+    <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="5.0.9" />
+    <PackageReference Update="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Logging.Debug" Version="5.0.0" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageReference Update="Microsoft.FeatureManagement.AspNetCore" Version="2.3.0" />
+    <PackageReference Update="Microsoft.IdentityModel.Tokens" Version="6.12.0" />
+    <PackageReference Update="Microsoft.Net.Http.Headers" Version="2.2.8"  />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" />
+    <PackageReference Update="Microsoft.SyndicationFeed.ReaderWriter" Version="1.0.2" />
+    <PackageReference Update="Microsoft.TypeScript.MSBuild" Version="4.1.2"/>
+    <PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Update="Microsoft.VisualStudio.Web.CodeGeneration.Design" PrivateAssets="All" Version="5.0.2" />
+    <PackageReference Update="Microsoft.Web.LibraryManager.Build" Version="2.1.113" />
+    <PackageReference Update="Moq" Version="4.15.2" />
+    <PackageReference Update="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Update="ReportGenerator" Version="4.8.4" />
+    <PackageReference Update="Serilog" Version="2.10.1-dev-01343" />
+    <PackageReference Update="Serilog.AspNetCore" Version="4.1.1-dev-00229" />
+    <PackageReference Update="Serilog.Extensions.Logging" Version="3.0.2-dev-10289" />
+    <PackageReference Update="Serilog.Sinks.Console" Version="4.0.0-dev-00839" />
+    <PackageReference Update="Serilog.Sinks.File" Version="5.0.0-dev-00880" />
+    <PackageReference Update="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00771" />
+    <PackageReference Update="SQLite" Version="3.13.0" />
+    <PackageReference Update="Swashbuckle.AspNetCore" Version="6.1.3" />
+    <PackageReference Update="Swashbuckle.AspNetCore.Annotations" Version="6.1.3" />
+    <PackageReference Update="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Update="System.Drawing.Common" Version="5.0.2" />
+    <PackageReference Update="xunit" Version="2.4.1" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
+  </ItemGroup>
+</Project>

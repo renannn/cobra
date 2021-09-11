@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.46" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="ProjectAggregate\Handlers\" />
+    <Folder Include="ProjectAggregate\Events\" />
+    <Folder Include="ProjectAggregate\Specifications\" />
+  </ItemGroup>
+
+  <ItemGroup>
+  <PackageReference Include="Ardalis.ApiEndpoints" />
+  <PackageReference Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cobra.Common\Cobra.Common.csproj" />
+    <ProjectReference Include="..\Cobra.Entities\Cobra.Entities.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\Models\Models.projitems" Label="Shared" />
+
+</Project>
