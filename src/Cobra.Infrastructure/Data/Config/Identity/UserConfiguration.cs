@@ -33,10 +33,6 @@ namespace Cobra.Infrastructure.Data.Config.Identity
                    .WithOne(x => x.User)
                    .HasForeignKey(x => x.UserId);
 
-            builder.HasMany(x => x.Testimonies)
-                   .WithOne(x => x.User)
-                   .HasForeignKey(x => x.UserId);
-
             builder.HasMany(x => x.UserUsedPasswords)
                    .WithOne(x => x.User)
                    .HasForeignKey(x => x.UserId);

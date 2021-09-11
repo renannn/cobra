@@ -1,5 +1,4 @@
-﻿using Cobra.Entities.Administration;
-using Cobra.Entities.Domains;
+﻿using Cobra.Entities.Domains;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

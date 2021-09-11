@@ -10,6 +10,7 @@ namespace Cobra.Entities.Administration
         public Guid Id { get; set; }
         public string Value { get; set; }
         public string Observation { get; set; }
+        public bool Main { get; set; }
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
         public short EmailTypeId { get; set; }

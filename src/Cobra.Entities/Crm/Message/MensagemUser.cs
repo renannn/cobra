@@ -11,8 +11,6 @@ namespace Cobra.Entities.Crm
         public string Value { get; set; }
         public DateTime? CreatedDateTime { get; set; }
         public Guid SenderUserId { get; set; }
-        public virtual User SenderUser { get; set; }
         public Guid TargetUserId { get; set; }
-        public virtual User TargetUser { get; set; }
     }
 }

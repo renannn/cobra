@@ -3,6 +3,7 @@ using Cobra.Entities.Domains;
 using Cobra.SharedKernel;
 using Cobra.SharedKernel.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace Cobra.Entities.Crm
 {
@@ -13,7 +14,6 @@ namespace Cobra.Entities.Crm
         public string Description { get; set; }
         public virtual PaymentMethodType PaymentMethodType { get; set; }
         public short PaymentMethodTypeId { get; set; }
-        //public virtual List<ValuesPaymentField> Values { get; set; }
         public virtual User User { get; set; }
         public Guid UserId { get; set; }
         public DateTime? CreatedDateTime { get; set; }

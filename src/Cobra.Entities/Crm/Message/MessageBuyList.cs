@@ -11,5 +11,7 @@ namespace Cobra.Entities.Crm
         public DateTime? CreatedDateTime { get; set; }
         public Guid BuyListId { get; set; }
         public virtual BuyList BuyList { get; set; }
+        public Guid SenderUserId { get; set; }
+        public Guid TargetUserId { get; set; }
     }
 }

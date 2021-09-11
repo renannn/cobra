@@ -13,6 +13,7 @@ namespace Cobra.Entities.Administration
         public string Street { get; set; }
         public string Number { get; set; }
         public string Complement { get; set; }
+        public bool Main { get; set; }
         public long CityId { get; set; }
         public virtual City City { get; set; }
         public virtual RegionalState State {  get; set; }

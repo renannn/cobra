@@ -10,6 +10,7 @@ namespace Cobra.Entities.Administration
         public Guid Id { get; set; }
         public string Name { get; set; }
         public short CountryId { get; set; }
+        public bool Main { get; set; }
         public virtual Country Country { get; set; }
         public string RegionCode { get; set; }
         public string Number { get; set; }

@@ -13,9 +13,7 @@ namespace Cobra.Entities.Crm
         public DateTime? CreatedDateTime { get; set; }
         public virtual User User { get; set; }
         public Guid UserId { get; set; }
-        //public virtual PaymentMethod PaymentMethod { get; set; }
-        public Guid PaymentMethodId { get; set; }
-        //public virtual BuyList BuyList { get; set; }
         public Guid BuyListId { get; set; }
+        public Guid PaymentMethodId { get; set; }
     }
 }

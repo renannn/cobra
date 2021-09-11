@@ -9,6 +9,7 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         public void Configure(EntityTypeBuilder<MessageBuyListItem> builder)
         {
             builder.ToTable("tbl_users_buylists_itens_messagens", "dbo");
+             
         }
     }
 }
