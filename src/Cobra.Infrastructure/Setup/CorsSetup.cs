@@ -10,8 +10,8 @@ namespace Cobra.Infrastructure.Setup
                 .AddCors(o => o.AddPolicy("MyPolicy", builder =>
                 {
                     builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
                 }));
         }
     }

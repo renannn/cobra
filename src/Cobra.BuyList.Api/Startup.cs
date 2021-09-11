@@ -50,13 +50,9 @@ namespace Cobra.BuyList.Api
                 options.InstanceName = "APIProdutos";
             });
 
-
-
             services.AddCommonWeb();
             services.AddFeatureManagement();
-
             services.AddCloudscribePagination();
-
             services.AddMemoryCacheService();
         }
 
@@ -89,6 +85,7 @@ namespace Cobra.BuyList.Api
                .UseAuthentication()
                .UseAuthorization()
                .UseNoBrowserCache()
+               .UseCors("MyPolicy")
                .UseEndpoints(endpoints =>
                {
                    endpoints.MapDefaultControllerRoute();

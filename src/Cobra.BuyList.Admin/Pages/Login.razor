@@ -1,28 +1,72 @@
-﻿@page "/login"
+﻿ @page "/login"
 
-<h3>Login</h3>
+ @inject ILoginApi _loginApi
 
-<div class="container">
-	<h1>Log in to JWT Autentication</h1>
-	<div class="form-group">
-		<label for="Usuario">Usuario</label>
-		<input type="text" name="Usuario" placeholder="Usuário" class="form-control" @bind="Usuario"/>
+<div class="pt-5">
+	<div class="container">
+		<Alert Color="Color.Danger" @bind-Visible="@Erro">
+			<AlertDescription>
+				@ErrorMessage
+			</AlertDescription>
+			<AlertMessage>
+				Alert Link.
+			</AlertMessage>
+			<CloseButton />
+		</Alert>
+		<div class="row">
+			<div class="col-md-5 mx-auto">
+				<div class="card card-body">
+					<h1 class="text-center"> Bem vindo. </h1>  
+					<div class="form-group required">
+						<label for="username"> Entre seu Usuário </label>
+						<TextEdit id="username" Placeholder="Nome de Usuário" Class="form-control text-lowercase" @bind-Text="UserName" />
+					</div>
+					<div class="form-group required">  
+						
+						<label class="d-flex flex-row align-items-center" for="password"> 
+							Entre sua Senha
+							<Link class="ml-auto border-link small-xl" To="login/recoverypassword">
+								Esqueceu sua Senha?
+							</Link>
+						</label>  
+						<TextEdit id="password" Placeholder="Senha" Role="TextRole.Password" Class="form-control text-lowercase" @bind-Text="Password" />
+					</div>
+
+					<div class="form-group pt-1">
+						<Button class="btn btn-primary btn-block" Clicked="@onLoginButtonCliquedAsync">Entrar</Button>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="form-group">
-		<label for="Password">Senha</label>
-		<input type="password" name="Senha" class="form-control" @bind="Password"/>
-	</div>
-	<button @onclick="SubmitAuth">Entrar</button>
 </div>
 
 @code {
-	
-	public string Usuario { get; set; }
+
+	bool Erro = false;
+	string ErrorMessage = "";
+
+	public string UserName { get; set; }
 	public string Password { get; set; }
 
-	 void SubmitAuth()
+	async Task onLoginButtonCliquedAsync()
 	{
-		Console.WriteLine($"{Usuario} e {Password}");
+		try
+		{
+			Erro = false;
+			ErrorMessage = "";
+			var loginResponse = await _loginApi.AuthAsync(new LoginRequest()
+			{
+				Username = UserName,
+				Password = Password,
+				GrantType = "password"
+			});
+		}
+		catch (Exception ex)
+		{
+			Erro = true;
+			ErrorMessage = ex.Message;
+		}
 	}
-
 }

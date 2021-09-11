@@ -2,11 +2,11 @@
 using Cobra.Models.Identity;
 using Refit;
 
-namespace Cobra.BuyList.Admin.Interfaces
+namespace Cobra.BuyList.Admin.DataAccess
 {
     public interface ILoginApi
     {
         [Post("/v1/auth")]
-        Task<TokenResult> Auth(LoginRequest model);
+        Task<TokenResult> AuthAsync(LoginRequest model);
     }
 }

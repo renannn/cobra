@@ -59,8 +59,8 @@ namespace Cobra.Infrastructure.Services.Identity
                         if (resultadoLogin.Succeeded)
                         {
                             await AuthenticateAsync(userIdentity);
+                            credenciaisValidas = true;
                         }
-                        credenciaisValidas = true;
                     }
                 }
             }
