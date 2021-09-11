@@ -11,6 +11,7 @@ namespace Cobra.Entities.Domains
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool Temporary { get; set; }
         public virtual List<Model> Models { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
     }

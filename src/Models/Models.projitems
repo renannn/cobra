@@ -20,7 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\TwoFactorSendCodeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\Emails\UserProfileUpdateNotificationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\ForgotPasswordViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Identity\LoginViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\ModelIdViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\OnlineUsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\PagedAppLogItemsViewModel.cs" />
@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Identity\SearchUsersViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\SortOrder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\TodayBirthDaysViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Identity\TokenResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\UserCardItemViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\UserProfileViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Identity\VerifyCodeViewModel.cs" />

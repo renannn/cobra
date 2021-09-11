@@ -2,7 +2,7 @@
 
 namespace Cobra.Models.Identity
 {
-    public class LoginViewModel
+    public class LoginRequest
     {
         [Required(ErrorMessage = "(*)")]
         [Display(Name = "Nome de usuário")]
