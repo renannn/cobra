@@ -1,5 +1,4 @@
 ﻿using Cobra.BuyList.Admin.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using System;

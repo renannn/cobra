@@ -131,14 +131,16 @@ namespace Cobra.Infrastructure.Services.Identity
                 Expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
                 AccessToken = token,
                 RefreshToken = Guid.NewGuid().ToString().Replace("-", String.Empty),
-                Message = "OK"
+                Message = "OK",
+                Nome = $"{userIdentity.Name} {userIdentity.Surname}",
+                Username = userIdentity.UserName
             };
 
             // Armazena o refresh token em cache através do Redis 
             var refreshTokenData = new RefreshTokenData
             {
                 RefreshToken = resultado.RefreshToken,
-                Username = credenciais.Username
+                Username = credenciais.Username,
             };
 
             // Calcula o tempo máximo de validade do refresh token

@@ -1,41 +1,37 @@
-﻿ @page "/login"
+﻿@page "/login"
 
- @inject ILoginApi _loginApi
+@inject IAuthenticationService _authenticationService
+@inject NavigationManager _navigationManager
 
 <div class="pt-5">
 	<div class="container">
-		<Alert Color="Color.Danger" @bind-Visible="@Erro">
-			<AlertDescription>
-				@ErrorMessage
-			</AlertDescription>
-			<AlertMessage>
-				Alert Link.
-			</AlertMessage>
-			<CloseButton />
-		</Alert>
 		<div class="row">
 			<div class="col-md-5 mx-auto">
 				<div class="card card-body">
-					<h1 class="text-center"> Bem vindo. </h1>  
-					<div class="form-group required">
-						<label for="username"> Entre seu Usuário </label>
-						<TextEdit id="username" Placeholder="Nome de Usuário" Class="form-control text-lowercase" @bind-Text="UserName" />
-					</div>
-					<div class="form-group required">  
-						
-						<label class="d-flex flex-row align-items-center" for="password"> 
-							Entre sua Senha
-							<Link class="ml-auto border-link small-xl" To="login/recoverypassword">
-								Esqueceu sua Senha?
-							</Link>
-						</label>  
-						<TextEdit id="password" Placeholder="Senha" Role="TextRole.Password" Class="form-control text-lowercase" @bind-Text="Password" />
-					</div>
+					<EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+						<DataAnnotationsValidator />
+						<h1 class="text-center"> Bem vindo. </h1>
+						<div class="form-group required">
+							<label for="username"> Entre seu Usuário </label>
+							<input id="username" Placeholder="Nome de Usuário" Class="form-control text-lowercase" @bind="model.Username" />
+							<ValidationMessage For="@(() => model.Username)" />
+						</div>
+						<div class="form-group required">
 
-					<div class="form-group pt-1">
-						<Button class="btn btn-primary btn-block" Clicked="@onLoginButtonCliquedAsync">Entrar</Button>
-					</div>
+							<label class="d-flex flex-row align-items-center" for="password">
+								Entre sua Senha
+								<a class="ml-auto border-link small-xl" href="/login/recoverypassword">
+									Esqueceu sua Senha?
+								</a>
+							</label>
+							<input id="password" type="password" Placeholder="Senha" Role="TextRole.Password" Class="form-control text-lowercase" @bind="model.Password" />
+							<ValidationMessage For="@(() => model.Password)" />
+						</div>
 
+						<div class="form-group pt-1">
+							<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+						</div>
+					</EditForm>
 				</div>
 			</div>
 		</div>
@@ -44,29 +40,44 @@
 
 @code {
 
-	bool Erro = false;
-	string ErrorMessage = "";
+	private LoginForm model = new LoginForm();
 
-	public string UserName { get; set; }
-	public string Password { get; set; }
-
-	async Task onLoginButtonCliquedAsync()
+	private async void OnValidSubmit()
 	{
-		try
+		await _authenticationService.AuthWithPasswordAsync(new LoginRequest
 		{
-			Erro = false;
-			ErrorMessage = "";
-			var loginResponse = await _loginApi.AuthAsync(new LoginRequest()
-			{
-				Username = UserName,
-				Password = Password,
-				GrantType = "password"
-			});
-		}
-		catch (Exception ex)
+			Username = model.Username,
+			Password = model.Password
+		});
+
+		if (_authenticationService.IsAuthenticatedUsingToken)
 		{
-			Erro = true;
-			ErrorMessage = ex.Message;
+			var returnUrl = _navigationManager.QueryString("returnUrl") ?? "";
+			_navigationManager.NavigateTo(returnUrl);
 		}
 	}
+
+
+	//async Task onLoginButtonCliquedAsync()
+	//{
+	//	try
+	//	{
+	//		Erro = false;
+	//		ErrorMessage = "";
+	//		var loginResponse = await _loginApi.AuthAsync(new LoginRequest()
+	//		{
+	//			Username = UserName,
+	//			Password = Password,
+	//			GrantType = "password"
+	//		});
+
+
+	//	}
+	//	catch (Exception ex)
+	//	{
+	//		Erro = true;
+	//		ErrorMessage = ex.Message;
+	//	}
+		//}
+
 }

@@ -4,9 +4,6 @@ using System;
 using System.Threading.Tasks;
 using Refit;
 using Cobra.BuyList.Admin.DataAccess;
-using Blazorise;
-using Blazorise.Bootstrap;
-using Blazorise.Icons.FontAwesome;
 using Cobra.BuyList.Admin.Interfaces;
 using Cobra.BuyList.Admin.Services;
 
@@ -20,14 +17,6 @@ namespace Cobra.BuyList.Admin
 
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
-
-            builder.Services
-                 .AddBlazorise(options =>
-                 {
-                     options.ChangeTextOnKeyPress = true;
-                 })
-                 .AddBootstrapProviders()
-                 .AddFontAwesomeIcons();
 
             builder.Services
                 .AddScoped<IAuthenticationService, AuthenticationService>()
