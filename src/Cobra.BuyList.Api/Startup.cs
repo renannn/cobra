@@ -1,15 +1,18 @@
 using Autofac;
 using Cobra.Common;
 using Cobra.Infrastructure.Autofac;
+using Cobra.Infrastructure.Data;
 using Cobra.Infrastructure.Services.Identity;
 using Cobra.Infrastructure.Setup;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
+using System;
 
 namespace Cobra.BuyList.Api
 {
@@ -75,6 +78,7 @@ namespace Cobra.BuyList.Api
                    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                    .UseHsts();
             }
+
             app.SetupSwagger(_services)
                .UserHealthCheck()
                .UseHealthCheckUI(_env)
