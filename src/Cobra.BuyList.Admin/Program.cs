@@ -21,7 +21,7 @@ namespace Cobra.BuyList.Admin
             builder.Services
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ILocalStorageService, LocalStorageService>();
-
+             
             builder.Services.AddRefitClient<ILoginApi>().ConfigureHttpClient(c =>
             {
                 c.BaseAddress = apiUri;

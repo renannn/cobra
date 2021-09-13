@@ -26,6 +26,8 @@ namespace Cobra.BuyList.Admin.Services
             get => _token?.Authenticated ?? false;
         }
 
+        public TokenResult Token => _token;
+
         public async Task AuthWithPasswordAsync(LoginRequest loginRequest)
         {
             try
@@ -48,7 +50,7 @@ namespace Cobra.BuyList.Admin.Services
             }
         }
 
-        public async Task AuthWithRefreshTokenAsync()
+        public async Task AuthWithRefreshTokenAsync(string refreshToken)
         {
             try
             {
@@ -58,7 +60,7 @@ namespace Cobra.BuyList.Admin.Services
                   new LoginRequest
                   {
                       Username = _token.Nome,
-                      RefreshToken = _token.RefreshToken,
+                      RefreshToken = refreshToken,
                       GrantType = "refresh_token"
                   });
                 await _localStorageService.SetItem(_userKey, _token);
@@ -75,6 +77,14 @@ namespace Cobra.BuyList.Admin.Services
             await Task.Run(async () =>
             {
                 _token = await _localStorageService.GetItem<TokenResult>(_userKey);
+            });
+        }
+
+        public async Task Logoff()
+        {
+            await Task.Run(() =>
+            {
+                _token = null;
             });
         }
     }

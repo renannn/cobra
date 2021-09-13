@@ -12,6 +12,11 @@ namespace Cobra.Infrastructure.Data.Config.Identity
 
             builder.HasKey("Id")
                    .HasName("id_role");
+
+            builder.HasMany(x => x.Menus)
+                .WithOne(x => x.Role)
+                .HasForeignKey(x => x.RoleId);
+
         }
     }
 }

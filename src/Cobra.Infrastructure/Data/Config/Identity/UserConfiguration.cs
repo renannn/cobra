@@ -44,7 +44,6 @@ namespace Cobra.Infrastructure.Data.Config.Identity
             builder.HasMany(x => x.Payments)
                    .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
-
         }
     }
 }

@@ -12,6 +12,20 @@ namespace Cobra.Infrastructure.Data.Config.Administration
 
             builder.HasKey("Id")
                    .HasName("id_testimony");
+
+            builder.HasOne(x => x.ReceiverUser)
+                .WithMany(x => x.Testimonies)
+                .HasForeignKey(x => x.ReceiverUserId)
+                .HasConstraintName("cnst_testimonies_receiver_user")
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.ClientNoAction);
+
+            //builder.HasOne(x => x.SenderUser)
+            //    .WithMany(x => x.SendedTestimonies)
+            //    .HasForeignKey(x => x.SenderUserId)
+            //    .HasConstraintName("cnst_testimonies_sender_user")
+            //    .IsRequired(false)
+            //    .OnDelete(DeleteBehavior.ClientNoAction);
         }
     }
 }

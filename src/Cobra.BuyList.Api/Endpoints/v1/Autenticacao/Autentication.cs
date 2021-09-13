@@ -4,7 +4,6 @@ using Cobra.Entities.Administration;
 using Cobra.Infrastructure.Services.Contracts.Identity;
 using Cobra.Infrastructure.Services.Identity;
 using Cobra.Models.Identity;
-using Cobra.SharedKernel.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -44,7 +43,7 @@ namespace Cobra.BuyList.Api.Endpoints.v1.Autenticacao
         [HttpPost("/v1/auth")]
         [SwaggerOperation(
                  Summary = "",
-                 Description = "Upload novo arquivo de importação",
+                 Description = "",
                  OperationId = "Autenticacao.CreateToken",
                  Tags = new[] { "AutenticacaoEndpoints" })]
         public override async Task<ActionResult<TokenResult>> HandleAsync(LoginRequest request, CancellationToken cancellationToken = default)

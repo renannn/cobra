@@ -11,7 +11,11 @@ namespace Cobra.Entities.Administration
         public Decimal Ratting { get; set; }
         public DateTime? CreatedDateTime { get; set; }
         public string Observation { get; set; }
-        public Guid ReceiverUserId { get; set; } 
+
+        public Guid ReceiverUserId { get; set; }
+        public virtual User ReceiverUser { get; set; }
+
         public Guid SenderUserId { get; set; }
+        public virtual User /*SenderUser*/ { get; set; }
     }
 }

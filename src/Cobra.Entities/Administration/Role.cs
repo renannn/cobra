@@ -24,6 +24,7 @@ namespace Cobra.Entities.Administration
         public string Description { get; set; }
         public virtual List<UserRole> Users { get; set; } = new();
         public virtual List<RoleClaim> Claims { get; set; } = new();
+        public virtual List<Menu> Menus { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
         public bool IsDisabled { get; set; }
     }
