@@ -16,6 +16,6 @@ namespace Cobra.Entities.Administration
         public virtual User ReceiverUser { get; set; }
 
         public Guid SenderUserId { get; set; }
-        public virtual User /*SenderUser*/ { get; set; }
+        //public virtual User SenderUser { get; set; }
     }
 }
