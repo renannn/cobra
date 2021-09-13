@@ -7,16 +7,7 @@ using System;
 namespace Cobra.Infrastructure.Data
 {
     public static class SQLiteServiceCollectionExtensions
-    {
-        public static IServiceCollection AddConfiguredSQLiteDbContext(this IServiceCollection services,
-            SiteSettings siteSettings)
-        {
-            services.AddEntityFrameworkSqlite(); // It's added to access services from the dbcontext, remove it if you are using the normal `AddDbContext` and normal constructor dependency injection.
-            services.AddDbContextPool<AppDbContext, SQLiteDbContext>(
-                (serviceProvider, optionsBuilder) => optionsBuilder.UseConfiguredSQLite(siteSettings, serviceProvider));
-            return services;
-        }
-
+    {  
         public static void UseConfiguredSQLite(
             this DbContextOptionsBuilder optionsBuilder, SiteSettings siteSettings, IServiceProvider serviceProvider)
         {

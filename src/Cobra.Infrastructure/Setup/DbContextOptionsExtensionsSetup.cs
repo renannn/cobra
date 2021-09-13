@@ -14,17 +14,8 @@ namespace Cobra.Infrastructure.Setup
         {
             switch (siteSettings.ActiveDatabase)
             {
-                case ActiveDatabase.InMemoryDatabase:
-                    serviceCollection.AddConfiguredInMemoryDbContext(siteSettings);
-                    break;
-
-                case ActiveDatabase.LocalDb:
                 case ActiveDatabase.SqlServer:
                     serviceCollection.AddConfiguredMsSqlDbContext(siteSettings);
-                    break;
-
-                case ActiveDatabase.SQLite:
-                    serviceCollection.AddConfiguredSQLiteDbContext(siteSettings);
                     break;
 
                 default:
