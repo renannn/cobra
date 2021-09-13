@@ -87,7 +87,7 @@ namespace Cobra.Entities.Administration
         public virtual List<Payment> Payments { get; set; } = new();
 
         public virtual List<Testimony> Testimonies {  get; set; }
-        //public virtual List<Testimony> SendedTestimonies {  get; set; }
+        public virtual List<Testimony> SendedTestimonies { get; set; }
 
         public DateTime? CreatedDateTime { get; set; }
 
