@@ -25,7 +25,7 @@ namespace Cobra.Infrastructure.Services.Identity
         private readonly IApplicationUserManager _userManager;
         private readonly IApplicationSignInManager _signInManager;
         private readonly IRepository<Guid, User> _userRepository;
-        private readonly IRepository<Guid, UserToken> _userTokenRepository;
+        private readonly INoKeyRepository<UserToken> _userTokenRepository;
         private readonly IOptionsSnapshot<SiteSettings> _siteOptions;
         private readonly ISecurityService _securityService;
         private readonly IDistributedCache _cache;
@@ -36,7 +36,7 @@ namespace Cobra.Infrastructure.Services.Identity
             IApplicationUserManager userManager,
             ISecurityService securityService,
             IRepository<Guid, User> userRepository,
-            IRepository<Guid, UserToken> userTokenRepository,
+            INoKeyRepository<UserToken> userTokenRepository,
             ILogger<JWT> logger,
             IDistributedCache cache)
         {
@@ -161,7 +161,7 @@ namespace Cobra.Infrastructure.Services.Identity
             _cache.SetString(resultado.RefreshToken,
                 JsonConvert.SerializeObject(refreshTokenData),
                 opcoesCache);
-             
+
 
 
             await AddUserTokenAsync(userIdentity.Id, resultado.RefreshToken, token, dataExpiracao, RefreshTokenExpirationMinutes);
@@ -239,7 +239,7 @@ namespace Cobra.Infrastructure.Services.Identity
 
         private async Task AddUserTokenAsync(UserToken userToken)
         {
-            await _userTokenRepository.WriteRepository.AddAsync(userToken);
+            await _userTokenRepository.AddAsync(userToken);
         }
 
     }

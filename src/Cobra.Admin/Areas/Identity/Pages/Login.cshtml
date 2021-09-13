@@ -1,0 +1,58 @@
+﻿@page
+@model Cobra.Admin.Areas.Identity.Pages.LoginModel
+
+@{
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<!-- Authentication card start -->
+
+		<form class="md-float-material form-material"
+			  asp-route-returnurl="@ViewData["ReturnUrl"]"
+			  method="post"
+			  autocomplete="off">
+			<div class="text-center">
+				<img src="~/assets/images/logo.png" alt="logo.png">
+			</div>
+			<div class="auth-box card">
+				<div class="card-block">
+					<div class="row m-b-20">
+						<div class="col-md-12">
+							<h3 class="text-center">Login</h3>
+						</div>
+					</div>
+
+					<partial name="_CustomValidationSummary" />
+
+					<div class="form-group form-primary">
+						<input type="text" class="form-control" autofocus asp-for="PModel.Username">
+						<span class="form-bar"></span>
+						<label class="float-label">Nome de Usuario</label>
+						<span asp-validation-for="PModel.Username" class="text-danger"></span>
+					</div>
+					<div class="form-group form-primary">
+						<input type="password" class="form-control" asp-for="PModel.Password">
+						<span class="form-bar"></span>
+						<label class="float-label">Sua Senha</label>
+						<span asp-validation-for="PModel.Username" class="text-danger"></span>
+					</div>
+					<div class="row m-t-25 text-left">
+						<div class="col-12">
+							<div class="forgot-phone text-right f-right">
+								<a href="#" class="text-right f-w-600"> Esqueceu a senha?</a>
+							</div>
+						</div>
+					</div>
+					<div class="row m-t-30">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Entrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- end of form -->
+	</div>
+	<!-- end of col-sm-12 -->
+</div>

@@ -22,8 +22,6 @@
     <ProjectReference Include="..\Cobra.Entities\Cobra.Entities.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\Model\Model.projitems" Label="Shared" />
-
   <Import Project="..\Models\Models.projitems" Label="Shared" />
   
 

@@ -5,8 +5,8 @@ namespace Cobra.SharedKernel.Enums
     public enum BlockedState : byte
     {
         [Description("Bloqueado")]
-        IsBlocked = 0,
+        IsBlocked = 1,
         [Description("Desbloqueado")]
-        UnBloqued = 1
+        UnBloqued = 0
     }
 }

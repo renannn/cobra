@@ -1,0 +1,10 @@
+﻿@if (ViewData.ModelState.Any(keyValuePair => keyValuePair.Value.Errors.Any()))
+{
+     <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Erro</h4>
+             <p>Erros de validação</p>
+        <hr>
+        <div asp-validation-summary="ModelOnly"></div>
+     </div>
+
+}

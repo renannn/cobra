@@ -181,6 +181,10 @@ namespace Cobra.Infrastructure.Autofac
               .As(typeof(IRepository<,>))
               .InstancePerLifetimeScope();
 
+            builder.RegisterGeneric(typeof(NoKeyRepository<>))
+              .As(typeof(INoKeyRepository<>))
+              .InstancePerLifetimeScope();
+
             builder.RegisterGeneric(typeof(WriteRepository<,>))
               .As(typeof(IWriteRepository<,>))
               .InstancePerLifetimeScope();
