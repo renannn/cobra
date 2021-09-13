@@ -13,7 +13,6 @@ namespace Cobra.Infrastructure.Data.Config.Administration
             builder.HasKey("Id")
                    .HasName("id_email");
 
-
             builder.HasOne(x => x.EmailType)
                    .WithMany(x => x.Emails)
                    .HasForeignKey(x => x.EmailTypeId)

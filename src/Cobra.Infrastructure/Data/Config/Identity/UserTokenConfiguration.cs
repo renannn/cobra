@@ -10,6 +10,10 @@ namespace Cobra.Infrastructure.Data.Config.Identity
         {
             builder.ToTable("tbl_users_tokens", "dbo");
 
+
+            builder.HasKey("Id")
+                   .HasName("id_token");
+
             builder.HasOne(x => x.User)
                 .WithMany(x => x.Tokens)
                 .HasForeignKey(x => x.UserId);

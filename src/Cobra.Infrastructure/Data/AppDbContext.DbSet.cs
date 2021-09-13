@@ -15,7 +15,7 @@ namespace Cobra.Infrastructure.Data
         public DbSet<BuyListItem> BuyListItens { get; set; }
         public DbSet<Inspection> Inspections { get; set; }
         public DbSet<InspectionItem> InspectionItems { get; set; }
-        public DbSet<MensagemUser> MensagensUsers { get; set; }
+        public DbSet<MensageUser> MensagensUsers { get; set; }
         public DbSet<MessageBuyList> MessagesBuyLists { get; set; }
         public DbSet<MessageBuyListItem> MessagesBuyListItems { get; set; }
         public DbSet<Payment> Payments { get; set; }

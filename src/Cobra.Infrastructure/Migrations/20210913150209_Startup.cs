@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cobra.Infrastructure.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Startup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -303,6 +303,7 @@ namespace Cobra.Infrastructure.Migrations
                     PhotoFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDisabled = table.Column<bool>(type: "bit", nullable: false),
+                    IsEmailPublic = table.Column<bool>(type: "bit", nullable: false),
                     BlockedState = table.Column<byte>(type: "tinyint", nullable: false),
                     LastVisitDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -338,12 +339,12 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    body = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    date_send = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SenderUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    body = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date_send = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -594,6 +595,12 @@ namespace Cobra.Infrastructure.Migrations
                     table.ForeignKey(
                         name: "cnst_testimonies_receiver_user",
                         column: x => x.ReceiverUserId,
+                        principalSchema: "dbo",
+                        principalTable: "tbl_users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "cnst_testimonies_sender_user",
+                        column: x => x.SenderUserId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users",
                         principalColumn: "Id");
@@ -880,6 +887,11 @@ namespace Cobra.Infrastructure.Migrations
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AccessTokenExpiresDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AccessTokenHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshTokenIdHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RefreshTokenExpiresDateTime = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -1158,13 +1170,13 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     BuyListId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SenderUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1240,13 +1252,13 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     BuyListItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SenderUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    TargetUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1381,6 +1393,12 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 table: "tbl_user_testimonies",
                 column: "ReceiverUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_user_testimonies_SenderUserId",
+                schema: "dbo",
+                table: "tbl_user_testimonies",
+                column: "SenderUserId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",

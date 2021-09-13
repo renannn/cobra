@@ -168,7 +168,7 @@ namespace Cobra.Entities.AuditableEntity
             {
                 UserAgent = httpContext?.Request?.Headers["User-Agent"].ToString(),
                 UserIp = httpContext?.Connection?.RemoteIpAddress?.ToString(),
-                Now = DateTime.UtcNow,
+                Now = DateTime.Now,
                 UserId = getUserId(httpContext)
             };
         }

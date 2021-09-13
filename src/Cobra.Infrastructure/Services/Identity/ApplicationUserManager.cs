@@ -218,8 +218,8 @@ namespace Cobra.Infrastructure.Services.Identity
             if (user == null)
                 return "?".TextToImage(new TextToImageOptions());
 
-            //if (!user.IsEmailPublic)
-            //    return "?".TextToImage(new TextToImageOptions());
+            if (!user.IsEmailPublic)
+                return "?".TextToImage(new TextToImageOptions());
 
             return user.Email.TextToImage(new TextToImageOptions());
         }

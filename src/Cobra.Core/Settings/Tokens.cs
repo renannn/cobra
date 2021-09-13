@@ -7,5 +7,6 @@
         public string Key { get; set; }
         public short MinutesExpiration { get; set; }
         public short FinalExpiration { get; set; }
+        public short RefreshTokenExpirationMinutes { get; set; }
     }
 }

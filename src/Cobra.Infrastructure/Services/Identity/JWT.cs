@@ -24,15 +24,19 @@ namespace Cobra.Infrastructure.Services.Identity
         private readonly ILogger<JWT> _logger;
         private readonly IApplicationUserManager _userManager;
         private readonly IApplicationSignInManager _signInManager;
-        private readonly IReadRepository<Guid, User> _UserReadRepository;
+        private readonly IRepository<Guid, User> _userRepository;
+        private readonly IRepository<Guid, UserToken> _userTokenRepository;
         private readonly IOptionsSnapshot<SiteSettings> _siteOptions;
+        private readonly ISecurityService _securityService;
         private readonly IDistributedCache _cache;
 
 
         public JWT(IOptionsSnapshot<SiteSettings> siteOptions,
             IApplicationSignInManager signInManager,
             IApplicationUserManager userManager,
-            IReadRepository<Guid, User> UserReadRepository,
+            ISecurityService securityService,
+            IRepository<Guid, User> userRepository,
+            IRepository<Guid, UserToken> userTokenRepository,
             ILogger<JWT> logger,
             IDistributedCache cache)
         {
@@ -40,7 +44,9 @@ namespace Cobra.Infrastructure.Services.Identity
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _siteOptions = siteOptions ?? throw new ArgumentNullException(nameof(siteOptions));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _UserReadRepository = UserReadRepository ?? throw new ArgumentNullException(nameof(UserReadRepository));
+            _securityService = securityService ?? throw new ArgumentNullException(nameof(securityService));
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _userTokenRepository = userTokenRepository ?? throw new ArgumentNullException(nameof(userTokenRepository));
             _cache = cache ?? throw new ArgumentNullException(nameof(cache));
         }
 
@@ -102,6 +108,7 @@ namespace Cobra.Infrastructure.Services.Identity
 
             DateTime dataCriacao = DateTime.Now;
             DateTime dataExpiracao = dataCriacao + TimeSpan.FromMinutes(_siteOptions.Value.Security.Tokens.MinutesExpiration);
+            DateTime RefreshTokenExpirationMinutes = dataCriacao + TimeSpan.FromMinutes(_siteOptions.Value.Security.Tokens.RefreshTokenExpirationMinutes);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_siteOptions.Value.Security.Tokens.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
@@ -154,8 +161,10 @@ namespace Cobra.Infrastructure.Services.Identity
             _cache.SetString(resultado.RefreshToken,
                 JsonConvert.SerializeObject(refreshTokenData),
                 opcoesCache);
+             
 
-            _ = await _userManager.SetAuthenticationTokenAsync(userIdentity, "JWT", "JWT Token", token);
+
+            await AddUserTokenAsync(userIdentity.Id, resultado.RefreshToken, token, dataExpiracao, RefreshTokenExpirationMinutes);
 
             return resultado;
         }
@@ -202,7 +211,7 @@ namespace Cobra.Infrastructure.Services.Identity
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var accountId = Guid.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
-                return await _UserReadRepository.GetByIdAsync(accountId);
+                return await _userRepository.ReadRepository.GetByIdAsync(accountId);
             }
             catch
             {
@@ -211,6 +220,27 @@ namespace Cobra.Infrastructure.Services.Identity
             }
         }
 
+        private async Task AddUserTokenAsync(Guid userId, string refreshTokenSerial, string accessToken, DateTime finalExpiration, DateTime refreshTokenExpires)
+        {
+            var token = new UserToken
+            {
+                UserId = userId,
+                // Refresh token handles should be treated as secrets and should be stored hashed
+                RefreshTokenIdHash = _securityService.GetSha256Hash(refreshTokenSerial),
+                AccessTokenHash = _securityService.GetSha256Hash(accessToken),
+                Value = _securityService.GetSha256Hash(accessToken),
+                RefreshTokenExpiresDateTime = refreshTokenExpires,
+                AccessTokenExpiresDateTime = finalExpiration,
+                LoginProvider = "JWT",
+                Name = "JWT Token"
+            };
+            await AddUserTokenAsync(token);
+        }
+
+        private async Task AddUserTokenAsync(UserToken userToken)
+        {
+            await _userTokenRepository.WriteRepository.AddAsync(userToken);
+        }
 
     }
 }

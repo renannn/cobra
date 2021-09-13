@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cobra.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210913120944_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210913151041_FixMessages")]
+    partial class FixMessages
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -574,6 +574,8 @@ namespace Cobra.Infrastructure.Migrations
 
                     b.HasIndex("ReceiverUserId");
 
+                    b.HasIndex("SenderUserId");
+
                     b.ToTable("tbl_user_testimonies", "dbo");
                 });
 
@@ -641,6 +643,9 @@ namespace Cobra.Infrastructure.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDisabled")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsEmailPublic")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("LastVisitDateTime")
@@ -829,6 +834,21 @@ namespace Cobra.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("AccessTokenExpiresDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AccessTokenHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("RefreshTokenExpiresDateTime")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("RefreshTokenIdHash")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -1026,9 +1046,9 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Crm.MensagemUser", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<DateTime>("CreatedDateTime")
@@ -1054,9 +1074,9 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Crm.MessageBuyList", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<Guid>("BuyListId")
@@ -1065,10 +1085,10 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<DateTime?>("CreatedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("SenderUserId")
+                    b.Property<Guid>("ReceiverUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("TargetUserId")
+                    b.Property<Guid>("SenderUserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Value")
@@ -1078,14 +1098,18 @@ namespace Cobra.Infrastructure.Migrations
 
                     b.HasIndex("BuyListId");
 
+                    b.HasIndex("ReceiverUserId");
+
+                    b.HasIndex("SenderUserId");
+
                     b.ToTable("tbl_users_buylists_messagens", "dbo");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.MessageBuyListItem", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
+                        .HasColumnType("int")
                         .UseIdentityColumn();
 
                     b.Property<Guid>("BuyListItemId")
@@ -2180,9 +2204,17 @@ namespace Cobra.Infrastructure.Migrations
                         .WithMany("Testimonies")
                         .HasForeignKey("ReceiverUserId")
                         .HasConstraintName("cnst_testimonies_receiver_user")
-                        .OnDelete(DeleteBehavior.ClientNoAction);
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Cobra.Entities.Administration.User", "SenderUser")
+                        .WithMany("SendedTestimonies")
+                        .HasForeignKey("SenderUserId")
+                        .HasConstraintName("cnst_testimonies_sender_user")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("ReceiverUser");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Administration.UsedPassword", b =>
@@ -2316,7 +2348,23 @@ namespace Cobra.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Cobra.Entities.Administration.User", "ReceiverUser")
+                        .WithMany("ReceivedMessagesBuyList")
+                        .HasForeignKey("ReceiverUserId")
+                        .HasConstraintName("cnst_users_buylists_messagens_receiver_user")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.HasOne("Cobra.Entities.Administration.User", "SenderUser")
+                        .WithMany("SendedMessagesBuyList")
+                        .HasForeignKey("SenderUserId")
+                        .HasConstraintName("cnst_users_buylists_messagens_sender_user")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.Navigation("BuyList");
+
+                    b.Navigation("ReceiverUser");
+
+                    b.Navigation("SenderUser");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.MessageBuyListItem", b =>
@@ -2492,7 +2540,13 @@ namespace Cobra.Infrastructure.Migrations
 
                     b.Navigation("Phones");
 
+                    b.Navigation("ReceivedMessagesBuyList");
+
                     b.Navigation("Roles");
+
+                    b.Navigation("SendedMessagesBuyList");
+
+                    b.Navigation("SendedTestimonies");
 
                     b.Navigation("Testimonies");
 

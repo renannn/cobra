@@ -4,14 +4,16 @@ using Cobra.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cobra.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210913152221_FixMessages2")]
+    partial class FixMessages2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -824,9 +826,14 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Administration.UserToken", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("AccessTokenExpiresDateTime")
                         .HasColumnType("datetime2");
@@ -834,11 +841,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("AccessTokenHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("RefreshTokenExpiresDateTime")
                         .HasColumnType("datetimeoffset");
@@ -846,16 +850,10 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("RefreshTokenIdHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id")
-                        .HasName("id_token");
-
-                    b.HasIndex("UserId");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("tbl_users_tokens", "dbo");
                 });

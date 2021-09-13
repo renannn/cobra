@@ -193,6 +193,19 @@ namespace Cobra.Infrastructure.Autofac
                 .As<ITransationRepository>()
                 .InstancePerLifetimeScope();
 
+            builder.RegisterType<TokenValidatorService>()
+                .As<ITokenValidatorService>()
+                .InstancePerLifetimeScope();
+             
+            builder
+                .RegisterType<SecurityService>()
+                .As<ISecurityService>()
+                .InstancePerLifetimeScope();
+
+            builder
+                .RegisterType<TokenValidatorService>()
+                .As<ITokenValidatorService>()
+                .InstancePerLifetimeScope();
 
             builder
                 .RegisterType<Mediator>()

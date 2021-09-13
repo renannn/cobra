@@ -15,7 +15,11 @@ namespace Cobra.Entities.Administration
         IHasCreationDate,
         IHasDisabled,
         IHasName,
-        IHasSurname
+        IHasSurname,
+        IHasPhones<Phone>,
+        IHasEmails<Email>,
+        IHasBuyLists<BuyList>,
+        IHasTokens<UserToken>
     {
         #region Constructors
 
@@ -37,6 +41,7 @@ namespace Cobra.Entities.Administration
         public string PhotoFileName { get; set; }
         public DateTime? BirthDate { get; set; }
         public bool IsDisabled { get; set; }
+        public bool IsEmailPublic { get; set; }
         public BlockedState BlockedState { get; set; }
         public DateTime? LastVisitDateTime { get; set; }
 
@@ -56,7 +61,7 @@ namespace Cobra.Entities.Administration
         public virtual List<PaymentMethod> PaymentMethods { get; set; } = new();
         #endregion
 
-        #region IHasChange
+        #region IHasChange<AppLogItem>
         public virtual List<AppLogItem> Changes { get; set; } = new();
         #endregion
 
@@ -86,8 +91,33 @@ namespace Cobra.Entities.Administration
 
         public virtual List<Payment> Payments { get; set; } = new();
 
-        public virtual List<Testimony> Testimonies { get; set; }
-        public virtual List<Testimony> SendedTestimonies { get; set; }
+        #region Testimony
+
+        public virtual List<Testimony> Testimonies { get; set; } = new();
+        public virtual List<Testimony> SendedTestimonies { get; set; } = new();
+
+        #endregion
+
+        #region MessageBuyList
+
+        public virtual List<MessageBuyList> ReceivedMessagesBuyList { get; set; } = new();
+        public virtual List<MessageBuyList> SendedMessagesBuyList { get; set; } = new();
+
+        #endregion
+
+        #region MessageBuyListItem
+
+        public virtual List<MessageBuyListItem> ReceivedMessagesBuyListItem { get; set; } = new();
+        public virtual List<MessageBuyListItem> SendedMessagesBuyListItem { get; set; } = new();
+
+        #endregion
+
+        #region MensageUser
+
+        public virtual List<MensageUser> ReceivedMensagesUser { get; set; } = new();
+        public virtual List<MensageUser> SendedMensagesUser { get; set; } = new();
+
+        #endregion
 
         public DateTime? CreatedDateTime { get; set; }
 

@@ -9,6 +9,20 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         public void Configure(EntityTypeBuilder<MessageBuyList> builder)
         {
             builder.ToTable("tbl_users_buylists_messagens", "dbo");
+
+            builder.HasOne(x => x.ReceiverUser)
+                .WithMany(x => x.ReceivedMessagesBuyList)
+                .HasForeignKey(x => x.ReceiverUserId)
+                .HasConstraintName("cnst_users_buylists_messagens_receiver_user")
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder.HasOne(x => x.SenderUser)
+                .WithMany(x => x.SendedMessagesBuyList)
+                .HasForeignKey(x => x.SenderUserId)
+                .HasConstraintName("cnst_users_buylists_messagens_sender_user")
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

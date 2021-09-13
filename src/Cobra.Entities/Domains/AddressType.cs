@@ -12,6 +12,6 @@ namespace Cobra.Entities.Domains
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime? CreatedDateTime { get; set; }
-        public virtual List<Address> Addresses { get; set; }
+        public virtual List<Address> Addresses { get; set; } = new();
     }
 }

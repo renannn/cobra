@@ -14,7 +14,7 @@ namespace Cobra.Entities.Domains
         public int PhoneCode { get; set; }
         public bool Temporary { get; set; }
         public DateTime? CreatedDateTime { get; set; }
-        public virtual List<Address> Addresses { get; set; }
+        public virtual List<Address> Addresses { get; set; } = new();
         public virtual RegionalState State { get; set; }
         public string Sigla { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cobra.Entities.Administration;
+using System;
 
 namespace Cobra.Entities.Crm
 {
@@ -7,6 +8,8 @@ namespace Cobra.Entities.Crm
         public Guid BuyListItemId { get; set; }
         public virtual BuyListItem BuyListItem { get; set; }
         public Guid SenderUserId { get; set; }
-        public Guid TargetUserId { get; set; }
+        public virtual User SenderUser { get; set; }
+        public Guid ReceiverUserId { get; set; }
+        public virtual User ReceiverUser { get; set; }
     }
 }

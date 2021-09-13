@@ -1,10 +1,13 @@
 ﻿using Cobra.Core.Settings;
+using Cobra.Infrastructure.Services.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Cobra.Infrastructure.Setup
 {
@@ -54,6 +57,30 @@ namespace Cobra.Infrastructure.Setup
                              // caso haja problemas de sincronismo de horário entre diferentes
                              // computadores envolvidos no processo de comunicação)
                              ClockSkew = TimeSpan.Zero
+                         };
+                         cfg.Events = new JwtBearerEvents
+                         {
+                             OnAuthenticationFailed = context =>
+                             {
+                                 var logger = context.HttpContext.RequestServices.GetRequiredService<ILoggerFactory>().CreateLogger(nameof(JwtBearerEvents));
+                                 logger.LogError("Authentication failed.", context.Exception);
+                                 return Task.CompletedTask;
+                             },
+                             OnTokenValidated = context =>
+                             {
+                                 var tokenValidatorService = context.HttpContext.RequestServices.GetRequiredService<ITokenValidatorService>();
+                                 return tokenValidatorService.ValidateAsync(context);
+                             },
+                             OnMessageReceived = context =>
+                             {
+                                 return Task.CompletedTask;
+                             },
+                             OnChallenge = context =>
+                             {
+                                 var logger = context.HttpContext.RequestServices.GetRequiredService<ILoggerFactory>().CreateLogger(nameof(JwtBearerEvents));
+                                 logger.LogError("OnChallenge error", context.Error, context.ErrorDescription);
+                                 return Task.CompletedTask;
+                             }
                          };
                      });
             return services;
