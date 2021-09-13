@@ -1,0 +1,8 @@
+﻿@using Cobra.Core.Settings
+@using Microsoft.Extensions.Options
+@inject IOptionsSnapshot<SiteSettings> SiteSettings
+
+@if (SiteSettings.Value.Smtp.UsePickupFolder)
+{
+	<div>Sub para configurar o uso do PickupFolder para armazenar e-mails localmente, você pode visualizar este e-mail no caminho @SiteSettings.Value.Smtp.PickupFolder.</div>
+}

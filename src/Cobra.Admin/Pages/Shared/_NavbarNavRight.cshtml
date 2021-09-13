@@ -1,0 +1,27 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+
+	<ul class="nav-right">
+		<!-- . . . header right content hear . . .  -->
+	<li class="user-profile header-notification">
+			<a href="#!" class="waves-effect waves-light">
+				<span>
+					@User.Identity.Name		
+				</span>
+				<i class="ti-angle-down"></i>
+			</a>
+			<ul class="show-notification profile-notification">
+				<li class="waves-effect waves-light">
+					<a asp-page="/AlterarSenha">
+						<i class="ti-settings"></i> Alterar Senha
+					</a>
+				</li>
+				<li class="waves-effect waves-light">
+					<a asp-area="Identity" asp-page="LogOff">
+						<i class="ti-lock"></i> Logout
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+}

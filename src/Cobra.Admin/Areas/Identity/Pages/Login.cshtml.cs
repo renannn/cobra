@@ -81,7 +81,7 @@ namespace Cobra.Admin.Areas.Identity.Pages
 
                 if (result.RequiresTwoFactor)
                 {
-                    return RedirectToPage("TwoFactor", new { action = "TwoFactor" });
+                    return Redirect("/Identity/TwoFactor");
                 }
 
                 if (result.IsLockedOut)
