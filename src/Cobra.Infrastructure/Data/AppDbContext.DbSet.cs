@@ -38,8 +38,8 @@ namespace Cobra.Infrastructure.Data
         public DbSet<BuyListItemImage> BuyListItemImages { get; set; }
         public DbSet<InspectionItemImage> InspectionItemImages { get; set; }
         public DbSet<ModelImage> ModelImages { get; set; }
-        public DbSet<City> City { get; set; } 
-        public DbSet<Menu> Menu { get; set; } 
-        public DbSet<SubMenu> SubMenu { get; set; } 
+        public DbSet<City> City { get; set; }
+        public DbSet<Menu> Menu { get; set; }
+        public DbSet<SubMenu> SubMenu { get; set; }
     }
 }

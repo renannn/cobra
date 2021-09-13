@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Cobra.Entities.Crm;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Cobra.Entities.Crm;
 
 namespace Cobra.Infrastructure.Data.Config.CRM
 {

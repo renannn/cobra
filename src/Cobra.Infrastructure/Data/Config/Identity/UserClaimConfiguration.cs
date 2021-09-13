@@ -15,7 +15,7 @@ namespace Cobra.Infrastructure.Data.Config.Identity
 
             builder.HasOne(x => x.User)
                    .WithMany(x => x.Claims)
-                   .HasForeignKey(x=>x.UserId)
+                   .HasForeignKey(x => x.UserId)
                    .OnDelete(DeleteBehavior.Cascade);
 
         }

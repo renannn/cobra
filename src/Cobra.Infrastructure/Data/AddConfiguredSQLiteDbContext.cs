@@ -1,13 +1,12 @@
 ﻿using Cobra.Core.Settings;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ProjectOverlay.SharedKernel.WebToolkit;
 using System;
 
 namespace Cobra.Infrastructure.Data
 {
     public static class SQLiteServiceCollectionExtensions
-    {  
+    {
         public static void UseConfiguredSQLite(
             this DbContextOptionsBuilder optionsBuilder, SiteSettings siteSettings, IServiceProvider serviceProvider)
         {

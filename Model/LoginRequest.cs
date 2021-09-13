@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Cobra.Models.Identity
+﻿namespace Cobra.Models.Identity
 {
     public class LoginRequest
     {

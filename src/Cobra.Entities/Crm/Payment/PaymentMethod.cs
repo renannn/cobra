@@ -3,7 +3,6 @@ using Cobra.Entities.Domains;
 using Cobra.SharedKernel;
 using Cobra.SharedKernel.Interfaces;
 using System;
-using System.Collections.Generic;
 
 namespace Cobra.Entities.Crm
 {

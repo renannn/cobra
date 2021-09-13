@@ -83,10 +83,10 @@ namespace Cobra.Entities.Administration
         #region IHasAddress
         public virtual List<Address> Addresses { get; set; } = new();
         #endregion
-                        
+
         public virtual List<Payment> Payments { get; set; } = new();
 
-        public virtual List<Testimony> Testimonies {  get; set; }
+        public virtual List<Testimony> Testimonies { get; set; }
         public virtual List<Testimony> SendedTestimonies { get; set; }
 
         public DateTime? CreatedDateTime { get; set; }

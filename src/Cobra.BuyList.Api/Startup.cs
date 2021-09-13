@@ -1,7 +1,6 @@
 using Autofac;
 using Cobra.Common;
 using Cobra.Infrastructure.Autofac;
-using Cobra.Infrastructure.Data;
 using Cobra.Infrastructure.Services.Identity;
 using Cobra.Infrastructure.Setup;
 using MediatR;
@@ -12,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
-using System;
 
 namespace Cobra.BuyList.Api
 {
