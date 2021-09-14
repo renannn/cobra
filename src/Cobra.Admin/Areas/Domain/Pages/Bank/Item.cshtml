@@ -1,4 +1,42 @@
-﻿@page "{id:Guid?}"
-@model Cobra.Admin.Areas.Domain.Pages.Bank.ItemModel
+﻿@page "{id:?}"
+@model Cobra.Admin.Areas.Domain.Pages.BankPage.ItemModel
 @{
+	ViewData["Title"] = "Cadastro de Bancos";
 }
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card">
+			<div class="card-header">
+				<h5>Configurações de Notificações</h5>
+			</div>
+			<div class="card-block">
+
+				<form class="form-material" method="post"> 
+                    <input type="hidden" asp-for="PModel.Id">
+					
+					<partial name="_CustomValidationSummary" />
+					
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.Codigo">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.Codigo"></label>
+						<span class="text-danger" asp-validation-for="PModel.Codigo"></span>
+					</div>
+
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.Name">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.Name"></label>
+						<span class="text-danger" asp-validation-for="PModel.Name"></span>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary m-b-0">Salvar Registro</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>

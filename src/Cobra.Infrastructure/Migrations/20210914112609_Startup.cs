@@ -44,14 +44,22 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 columns: table => new
                 {
-                    CompanyName = table.Column<bool>(type: "bit", nullable: false),
-                    Telefone = table.Column<bool>(type: "bit", nullable: false),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CodeArea = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Ramal = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelefoneObservation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneTypeId = table.Column<short>(type: "smallint", nullable: false),
                     CNPJ = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RazaoSocial = table.Column<bool>(type: "bit", nullable: false),
-                    IE = table.Column<bool>(type: "bit", nullable: false),
+                    RazaoSocial = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IE = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NomeResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CPFResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataNascimentoResponsavel = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TelefoneResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RamalResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TelefoneObservationResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneTypeIdResponsavel = table.Column<short>(type: "smallint", nullable: false),
                     ImageLogo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -89,6 +97,7 @@ namespace Cobra.Infrastructure.Migrations
                 {
                     Id = table.Column<short>(type: "smallint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Codigo = table.Column<short>(type: "smallint", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },

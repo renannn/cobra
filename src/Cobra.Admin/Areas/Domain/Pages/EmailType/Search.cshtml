@@ -1,4 +1,72 @@
 ﻿@page
-@model Cobra.Admin.Areas.Domain.Pages.EmailType.SearchModel
+@model Cobra.Admin.Areas.Domain.Pages.EmailTypePage.SearchModel
 @{
+	ViewData["Title"] = "Consulta de Tipos de Email";
 }
+
+<div class="card">
+	<div class="card-header">
+		<h5>Filtro da Consulta</h5>
+	</div>
+	<div class="card-block">
+		<form class="form-material" method="post">
+			<div class="form-group form-default">
+				<div class="checkbox-zoom zoom-info">
+					<label>
+						<input type="checkbox" asp-for="ExibirDesativados">
+						<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+						<span> Exibir Desativados </span>
+					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10">
+					<a asp-page="Item" class="btn btn-primary m-b-0"><i class="fa fa-fw fa-plus-circle"></i>Adicionar Novo Tipo de Email</a>
+					<button type="submit" class="btn btn-primary m-b-0"><i class="fa fa-fw fa-search"></i> Atualizar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="card">
+	<div class="card-header">
+		<h5>@ViewData["Title"]</h5>
+	</div>
+	<div class="card-block table-border-style">
+		@if (Model.List.Any())
+		{
+			<div class="table-responsive">
+				<table class="table table-framed table-hover table-fixed">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nome</th>
+							<th>Descrição</th>
+							<th>Ativado</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@for (var i = 0; i < Model.List.Count; i++)
+						{
+							<tr>
+								<th scope="row">@(i+1)</th>
+								<td>@Model.List[i].Name</td>
+								<td>@Model.List[i].Description</td>
+								<td>Ativado</td>
+								<td>
+									<a asp-page="Item" asp-route-id="@Model.List[i].Id" class="b-b-primary text-primary">Editar</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		}
+		else
+		{
+			<p class="card-text">Nenhum registro encontrado.</p>
+		}
+	</div>
+</div>

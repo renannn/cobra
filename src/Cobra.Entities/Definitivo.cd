@@ -47,7 +47,7 @@
   <Class Name="Cobra.Entities.Domains.Bank" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="37.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAACAAQAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Domains\Bank.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -95,7 +95,7 @@
   <Class Name="Cobra.Entities.Domains.PaymentFieldMethodType" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="40.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAgAAAAACABEAQgAAAAAIAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAgAAgAAKABAAQoAAAAAIAAAACAAAAAAAA=</HashCode>
       <FileName>Domains\PaymentFieldMethodType.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -103,7 +103,7 @@
   <Class Name="Cobra.Entities.Domains.PaymentMethodType" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="44.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAACAAAAgAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAACAAAAgAAAAAAAAAAQAAAAAAIAAABAAAAAAAAA=</HashCode>
       <FileName>Domains\PaymentMethodType.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -130,7 +130,7 @@
       <HashCode>AAADAAABAAAAAAAMBEAQAAwAAAwAAIEAAAIABAAAAAA=</HashCode>
       <FileName>Administration\Address.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Cobra.Entities.Administration.AppDataProtectionKey" Collapsed="true">
     <Position X="40.75" Y="3.75" Width="1.5" />
@@ -172,7 +172,7 @@
   <Class Name="Cobra.Entities.Administration.Role" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="40.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAICAAABAgAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAICAAEBAgAAIAAAAAAAAAEAAAAIEAAAAAAAEAAAA=</HashCode>
       <FileName>Administration\Role.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -225,14 +225,15 @@
   <Class Name="Cobra.Entities.Administration.UserToken" Collapsed="true">
     <Position X="44.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BBABAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Administration\UserToken.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Cobra.Entities.Administration.User" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="37.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABEMAKAACBAAAgCIAAAABQABiAAAIMAAAAQJgAhAAA=</HashCode>
+      <HashCode>AABUMACAQCBAAAgSKCAIAhQABiAAEIMQAAAYJgAhAAA=</HashCode>
       <FileName>User.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -240,7 +241,7 @@
   <Class Name="Cobra.Entities.Crm.BuyList" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="40.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAEAAgQAAAAAAAAAwAAAAAAIEAAAAAAYAAQAA=</HashCode>
+      <HashCode>AAADAAAAEAAgQAAAAAAAAAwAAAAAAIEAACAAAYAAQAA=</HashCode>
       <FileName>Crm\Buylist\BuyList.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -248,7 +249,7 @@
   <Class Name="Cobra.Entities.Crm.BuyListItem" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="42.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAEQCgAAAAAAAAAIAAAhAAAJAAAAgAgQAEAAA=</HashCode>
+      <HashCode>AAACAAAAEQCgAAAAAAAAAIAAAhAAQJAAAAgAgQAEAAA=</HashCode>
       <FileName>Crm\Buylist\BuyListItem.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -287,14 +288,14 @@
   <Class Name="Cobra.Entities.Crm.MessageBuyList" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="28" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAhAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAgAAAAAAAAAhAAAAMAAAAAAAAAAAA=</HashCode>
       <FileName>Crm\Message\MessageBuyList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Cobra.Entities.Crm.MessageBuyListItem" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="30.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIAgA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAgAAAAAAAAAAAAAAMAAAAAAAAIAgA=</HashCode>
       <FileName>Crm\Message\MessageBuyListItem.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -309,7 +310,7 @@
   <Class Name="Cobra.Entities.Crm.PaymentMethod" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="42.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAADAAAAAAAgAAAAAIAAAAwIAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQADAAAAAAAgAAgAAIAAAAwIAAAAAIAAACAAAAAAAAA=</HashCode>
       <FileName>Crm\Payment\PaymentMethod.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -317,7 +318,7 @@
   <Class Name="Cobra.Entities.Crm.PaymentValueField" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="46" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgIQAAAAA=</HashCode>
+      <HashCode>AAADAAAAAAAACAAAAAAAAAAAAAAAAIAAAEAgIAAAAAA=</HashCode>
       <FileName>Crm\Payment\PaymentValueField.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -325,7 +326,7 @@
   <Class Name="Cobra.Entities.Crm.Model" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="47.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAoAgAAAAAAAEQAAAAAAJAAAAAAAAARCAA=</HashCode>
+      <HashCode>AAACAAAAAQAoAgAAAAAAAEQAAAAAAJAAAAAAAAARCAA=</HashCode>
       <FileName>Crm\Model.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -363,7 +364,7 @@
   <Class Name="Cobra.Entities.Administration.Menu" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="46" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAIQAAAgAAIAEAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAIQEAAgAAIAEAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Administration\Menu.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -371,10 +372,14 @@
   <Class Name="Cobra.Entities.Administration.SubMenu" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="44.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAgAAIAAAAAAAQAAAAIBIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAEAAgAAIAAAAAAAQAAAAIBIAAAAAAAAAAAAA=</HashCode>
       <FileName>Administration\SubMenu.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
+  <Interface Name="Cobra.SharedKernel.Interfaces.IHasObservation">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

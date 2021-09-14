@@ -192,8 +192,11 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("CPFResponsavel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("CompanyName")
-                        .HasColumnType("bit");
+                    b.Property<string>("CodeArea")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedByBrowserName")
                         .HasMaxLength(1000)
@@ -212,8 +215,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<DateTime>("DataNascimentoResponsavel")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IE")
-                        .HasColumnType("bit");
+                    b.Property<string>("IE")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageLogo")
                         .HasColumnType("nvarchar(max)");
@@ -235,11 +238,32 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("NomeResponsavel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("RazaoSocial")
-                        .HasColumnType("bit");
+                    b.Property<short>("PhoneTypeId")
+                        .HasColumnType("smallint");
 
-                    b.Property<bool>("Telefone")
-                        .HasColumnType("bit");
+                    b.Property<short>("PhoneTypeIdResponsavel")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("Ramal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RamalResponsavel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RazaoSocial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelefoneObservation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelefoneObservationResponsavel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelefoneResponsavel")
+                        .HasColumnType("nvarchar(max)");
 
                     b.ToTable("tbl_company_settings", "dbo");
                 });
@@ -1779,6 +1803,9 @@ namespace Cobra.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("smallint")
                         .UseIdentityColumn();
+
+                    b.Property<short>("Codigo")
+                        .HasColumnType("smallint");
 
                     b.Property<DateTime?>("CreatedDateTime")
                         .HasColumnType("datetime2");

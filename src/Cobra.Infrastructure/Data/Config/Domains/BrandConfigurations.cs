@@ -10,6 +10,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         {
             builder.ToTable("tbl_domains_brands", "dbo");
 
+            builder.HasKey("Id");
+
             builder.HasMany(x => x.Images)
                     .WithOne(x => x.Brand)
                     .HasForeignKey(x => x.BrandId);

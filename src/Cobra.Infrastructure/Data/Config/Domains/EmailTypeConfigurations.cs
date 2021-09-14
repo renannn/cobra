@@ -9,6 +9,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         public void Configure(EntityTypeBuilder<EmailType> builder)
         {
             builder.ToTable("tbl_domains_emails_types", "dbo");
+
+            builder.HasKey("Id");
         }
     }
 }

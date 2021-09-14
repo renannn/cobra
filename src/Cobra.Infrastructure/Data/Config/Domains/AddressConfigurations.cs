@@ -10,6 +10,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         {
             builder.ToTable("tbl_user_address", "dbo");
 
+            builder.HasKey("Id");
+
             builder.HasOne(x => x.State)
                 .WithMany(x => x.Addresses)
                 .HasForeignKey(x => x.Sigla);

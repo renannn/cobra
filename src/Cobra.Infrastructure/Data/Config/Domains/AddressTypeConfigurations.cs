@@ -9,6 +9,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         public void Configure(EntityTypeBuilder<AddressType> builder)
         {
             builder.ToTable("tbl_domains_addresses_type", "dbo");
+
+            builder.HasKey("Id");
         }
     }
 }

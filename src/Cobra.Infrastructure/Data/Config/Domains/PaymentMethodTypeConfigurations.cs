@@ -10,6 +10,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         {
             builder.ToTable("tbl_domains_payment_method_type", "dbo");
 
+            builder.HasKey("Id");
+
             builder.HasMany(x => x.PaymentMethods)
                    .WithOne(x => x.PaymentMethodType)
                    .HasForeignKey(x => x.PaymentMethodTypeId)

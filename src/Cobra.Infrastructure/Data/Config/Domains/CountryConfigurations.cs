@@ -9,6 +9,8 @@ namespace Cobra.Infrastructure.Data.Config.Domains
         public void Configure(EntityTypeBuilder<Country> builder)
         {
             builder.ToTable("tbl_domains_countries", "dbo");
+
+            builder.HasKey("Id");
         }
     }
 }
