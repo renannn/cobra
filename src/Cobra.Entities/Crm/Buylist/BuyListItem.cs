@@ -22,6 +22,7 @@ namespace Cobra.Entities.Crm
         public BuyListSituation Situation { get; set; }
         public virtual List<BuyListItemImage> Images { get; set; } = new();
         public virtual List<MessageBuyListItem> Messages { get; set; } = new();
+        public virtual List<ProductWithdrawalItem> ProductWithdrawalItens { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
     }
 }

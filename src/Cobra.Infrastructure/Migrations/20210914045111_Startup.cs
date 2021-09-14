@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cobra.Infrastructure.Migrations
 {
@@ -270,7 +270,11 @@ namespace Cobra.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Label = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Icon = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NormalizedPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDisabled = table.Column<bool>(type: "bit", nullable: false),
                     CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
@@ -393,15 +397,13 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.BrandId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_brands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_crm_models_tbl_domains_category_CategoryId",
                         column: x => x.CategoryId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_category",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -476,6 +478,7 @@ namespace Cobra.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Label = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -705,8 +708,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.EmailTypeId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_emails_types",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_users_emails_tbl_users_UserId",
                         column: x => x.UserId,
@@ -838,8 +840,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.CountryId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_countries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_users_phones_tbl_domains_phone_type_PhoneTypeId",
                         column: x => x.PhoneTypeId,
@@ -970,8 +971,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.ModelId,
                         principalSchema: "dbo",
                         principalTable: "tbl_crm_models",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_crm_models_prices_tbl_domains_conditions_ConditionId",
                         column: x => x.ConditionId,
@@ -1054,8 +1054,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.CityId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_cities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_users_addresses_tbl_domains_regional_state_Sigla",
                         column: x => x.Sigla,
@@ -1079,6 +1078,7 @@ namespace Cobra.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Label = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -1104,6 +1104,34 @@ namespace Cobra.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tbl_buylist_product_withdrawal",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    BuyListID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_buylist_product_withdrawal", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tbl_buylist_product_withdrawal_tbl_users_buylists_BuyListID",
+                        column: x => x.BuyListID,
+                        principalSchema: "dbo",
+                        principalTable: "tbl_users_buylists",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tbl_users_buylists_inspections",
                 schema: "dbo",
                 columns: table => new
@@ -1124,8 +1152,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.BuyListId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1158,22 +1185,19 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.ModelId,
                         principalSchema: "dbo",
                         principalTable: "tbl_crm_models",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_users_buylists_itens_tbl_domains_conditions_ConditionId",
                         column: x => x.ConditionId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_conditions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_tbl_users_buylists_itens_tbl_users_buylists_BuyListId",
                         column: x => x.BuyListId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1209,8 +1233,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.BuyListId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1235,8 +1258,40 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.InspectionId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists_inspections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_buylist_product_withdrawal_item",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    BuyListItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductWithdrawalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_buylist_product_withdrawal_item", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tbl_buylist_product_withdrawal_item_tbl_buylist_product_withdrawal_ProductWithdrawalId",
+                        column: x => x.ProductWithdrawalId,
+                        principalTable: "tbl_buylist_product_withdrawal",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_tbl_buylist_product_withdrawal_item_tbl_users_buylists_itens_BuyListItemId",
+                        column: x => x.BuyListItemId,
+                        principalSchema: "dbo",
+                        principalTable: "tbl_users_buylists_itens",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1266,8 +1321,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.BuyListItemId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists_itens",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1303,8 +1357,7 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.BuyListItemId,
                         principalSchema: "dbo",
                         principalTable: "tbl_users_buylists_itens",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -1338,10 +1391,102 @@ namespace Cobra.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "tbl_buylist_product_withdrawal_item_serial",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ProductWithdrawalItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_buylist_product_withdrawal_item_serial", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tbl_buylist_product_withdrawal_item_serial_tbl_buylist_product_withdrawal_item_ProductWithdrawalItemId",
+                        column: x => x.ProductWithdrawalItemId,
+                        principalTable: "tbl_buylist_product_withdrawal_item",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_images_product_withdrawal_serials",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SerialItemId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_images_product_withdrawal_serials", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_tbl_images_product_withdrawal_serials_tbl_buylist_product_withdrawal_item_serial_SerialItemId",
+                        column: x => x.SerialItemId,
+                        principalTable: "tbl_buylist_product_withdrawal_item_serial",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AppLogItems_UserId",
                 table: "AppLogItems",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "id_buylist_product_withdrawal",
+                table: "tbl_buylist_product_withdrawal",
+                column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_buylist_product_withdrawal_BuyListID",
+                table: "tbl_buylist_product_withdrawal",
+                column: "BuyListID");
+
+            migrationBuilder.CreateIndex(
+                name: "id_buylist_product_withdrawal_item",
+                table: "tbl_buylist_product_withdrawal_item",
+                column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_buylist_product_withdrawal_item_BuyListItemId",
+                table: "tbl_buylist_product_withdrawal_item",
+                column: "BuyListItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_buylist_product_withdrawal_item_ProductWithdrawalId",
+                table: "tbl_buylist_product_withdrawal_item",
+                column: "ProductWithdrawalId");
+
+            migrationBuilder.CreateIndex(
+                name: "id_buylist_product_withdrawal_item_serial",
+                table: "tbl_buylist_product_withdrawal_item_serial",
+                column: "Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_buylist_product_withdrawal_item_serial_ProductWithdrawalItemId",
+                table: "tbl_buylist_product_withdrawal_item_serial",
+                column: "ProductWithdrawalItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_crm_models_BrandId",
@@ -1396,6 +1541,12 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 table: "tbl_images_models",
                 column: "ModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_images_product_withdrawal_serials_SerialItemId",
+                schema: "dbo",
+                table: "tbl_images_product_withdrawal_serials",
+                column: "SerialItemId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_menu_RoleId",
@@ -1472,6 +1623,12 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 table: "tbl_users_addresses",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "id_buylist",
+                schema: "dbo",
+                table: "tbl_users_buylists",
+                column: "Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_users_buylists_UserId",
@@ -1679,6 +1836,10 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
+                name: "tbl_images_product_withdrawal_serials",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
                 name: "tbl_roles_clains",
                 schema: "dbo");
 
@@ -1751,6 +1912,9 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
+                name: "tbl_buylist_product_withdrawal_item_serial");
+
+            migrationBuilder.DropTable(
                 name: "tbl_menu",
                 schema: "dbo");
 
@@ -1760,10 +1924,6 @@ namespace Cobra.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_domains_cities",
-                schema: "dbo");
-
-            migrationBuilder.DropTable(
-                name: "tbl_users_buylists_itens",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
@@ -1791,11 +1951,21 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
+                name: "tbl_buylist_product_withdrawal_item");
+
+            migrationBuilder.DropTable(
                 name: "tbl_roles",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "tbl_domains_regional_state",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "tbl_buylist_product_withdrawal");
+
+            migrationBuilder.DropTable(
+                name: "tbl_users_buylists_itens",
                 schema: "dbo");
 
             migrationBuilder.DropTable(

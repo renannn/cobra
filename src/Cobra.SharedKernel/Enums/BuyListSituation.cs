@@ -34,9 +34,11 @@ namespace Cobra.SharedKernel.Enums
         PaymentMade = 13,
         [Description("Aguardando Retirada")]
         AwaitingWithdrawal = 14,
+        [Description("Erro na Retirada")]
+        ErrorOnWithdrawal = 15,
         [Description("Retirada Realizada")]
-        WithdrawalPerformed = 15,
+        WithdrawalPerformed = 16,
         [Description("Finalizado")]
-        Finalizado = 16
+        Finalizado = 17
     }
 }

@@ -16,7 +16,7 @@ namespace Cobra.Infrastructure.Data.Config.Administration
             builder.HasOne(x => x.EmailType)
                    .WithMany(x => x.Emails)
                    .HasForeignKey(x => x.EmailTypeId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.NoAction);
 
         }
     }

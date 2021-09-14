@@ -18,14 +18,14 @@ namespace Cobra.Infrastructure.Data.Config.Administration
                 .HasForeignKey(x => x.ReceiverUserId)
                 .HasConstraintName("cnst_testimonies_receiver_user")
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.NoAction);
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.SenderUser)
                 .WithMany(x => x.SendedTestimonies)
                 .HasForeignKey(x => x.SenderUserId)
                 .HasConstraintName("cnst_testimonies_sender_user")
                 .IsRequired(false)
-                .OnDelete(DeleteBehavior.NoAction);
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

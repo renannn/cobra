@@ -21,5 +21,6 @@ namespace Cobra.Entities.Crm
         public virtual List<BuyListItem> BuyListItens { get; set; } = new();
         public virtual List<Inspection> Inspections { get; set; } = new();
         public virtual List<MessageBuyList> Messages { get; set; } = new();
+        public virtual List<ProductWithdrawal> ProductsWithdrawal { get; set; } = new();
     }
 }

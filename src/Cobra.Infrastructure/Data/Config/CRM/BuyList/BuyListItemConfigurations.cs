@@ -13,20 +13,22 @@ namespace Cobra.Infrastructure.Data.Config.CRM
             builder.HasOne(x => x.Model)
                    .WithMany(x => x.ItensBuyList)
                    .HasForeignKey(x => x.ModelId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Condition)
                    .WithMany(x => x.ItensBuyList)
                    .HasForeignKey(x => x.ConditionId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Images)
                    .WithOne(x => x.BuyListItem)
-                   .HasForeignKey(x => x.BuyListItemId);
+                   .HasForeignKey(x => x.BuyListItemId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Messages)
                    .WithOne(x => x.BuyListItem)
-                   .HasForeignKey(x => x.BuyListItemId);
+                   .HasForeignKey(x => x.BuyListItemId)
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

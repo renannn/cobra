@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cobra.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210913214842_MenuFix")]
-    partial class MenuFix
+    [Migration("20210914045111_Startup")]
+    partial class Startup
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -271,6 +271,9 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Label")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ModifiedByBrowserName")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
@@ -498,6 +501,9 @@ namespace Cobra.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Label")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("MenuId")
@@ -920,6 +926,9 @@ namespace Cobra.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .HasDatabaseName("id_buylist");
 
                     b.HasIndex("UserId");
 
@@ -1434,6 +1443,167 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasIndex("PaymentFieldMethodTypeId");
 
                     b.ToTable("tbl_users_payment_methods_values", "dbo");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawal", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BuyListID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyListID");
+
+                    b.HasIndex("Id")
+                        .HasDatabaseName("id_buylist_product_withdrawal");
+
+                    b.ToTable("tbl_buylist_product_withdrawal");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawalItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BuyListItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProductWithdrawalId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BuyListItemId");
+
+                    b.HasIndex("Id")
+                        .HasDatabaseName("id_buylist_product_withdrawal_item");
+
+                    b.HasIndex("ProductWithdrawalId");
+
+                    b.ToTable("tbl_buylist_product_withdrawal_item");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.SerialItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProductWithdrawalItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .HasDatabaseName("id_buylist_product_withdrawal_item_serial");
+
+                    b.HasIndex("ProductWithdrawalItemId");
+
+                    b.ToTable("tbl_buylist_product_withdrawal_item_serial");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Domains.AddressType", b =>
@@ -2100,6 +2270,57 @@ namespace Cobra.Infrastructure.Migrations
                     b.ToTable("tbl_domains_regional_state", "dbo");
                 });
 
+            modelBuilder.Entity("Cobra.Entities.Domains.SerialItemImage", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("SerialItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SerialItemId");
+
+                    b.ToTable("tbl_images_product_withdrawal_serials", "dbo");
+                });
+
             modelBuilder.Entity("Cobra.Entities.Administration.Address", b =>
                 {
                     b.HasOne("Cobra.Entities.Domains.AddressType", null)
@@ -2111,7 +2332,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Domains.City", "City")
                         .WithMany("Addresses")
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Domains.RegionalState", "State")
@@ -2143,7 +2364,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Domains.EmailType", "EmailType")
                         .WithMany("Emails")
                         .HasForeignKey("EmailTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Administration.User", "User")
@@ -2173,7 +2394,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Domains.Country", "Country")
                         .WithMany("Phones")
                         .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Domains.PhoneType", null)
@@ -2313,19 +2534,19 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.BuyList", "BuyList")
                         .WithMany("BuyListItens")
                         .HasForeignKey("BuyListId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Domains.Condition", "Condition")
                         .WithMany("ItensBuyList")
                         .HasForeignKey("ConditionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Crm.Model", "Model")
                         .WithMany("ItensBuyList")
                         .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("BuyList");
@@ -2340,7 +2561,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.BuyList", "BuyList")
                         .WithMany("Inspections")
                         .HasForeignKey("BuyListId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("BuyList");
@@ -2351,7 +2572,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.Inspection", "Inspection")
                         .WithMany("InspectionItens")
                         .HasForeignKey("InspectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Inspection");
@@ -2381,7 +2602,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.BuyList", "BuyList")
                         .WithMany("Messages")
                         .HasForeignKey("BuyListId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Administration.User", "ReceiverUser")
@@ -2408,7 +2629,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.BuyListItem", "BuyListItem")
                         .WithMany("Messages")
                         .HasForeignKey("BuyListItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Administration.User", "ReceiverUser")
@@ -2435,13 +2656,13 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Domains.Brand", "Brand")
                         .WithMany("Models")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Domains.Category", "Category")
                         .WithMany("Models")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Brand");
@@ -2458,9 +2679,9 @@ namespace Cobra.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("Cobra.Entities.Crm.Model", "Model")
-                        .WithMany()
+                        .WithMany("Prices")
                         .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Condition");
@@ -2505,6 +2726,47 @@ namespace Cobra.Infrastructure.Migrations
                         .HasForeignKey("PaymentFieldMethodTypeId");
                 });
 
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawal", b =>
+                {
+                    b.HasOne("Cobra.Entities.Crm.BuyList", "BuyList")
+                        .WithMany("ProductsWithdrawal")
+                        .HasForeignKey("BuyListID")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("BuyList");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawalItem", b =>
+                {
+                    b.HasOne("Cobra.Entities.Crm.BuyListItem", "BuyListItem")
+                        .WithMany("ProductWithdrawalItens")
+                        .HasForeignKey("BuyListItemId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Cobra.Entities.Crm.ProductWithdrawal", "ProductWithdrawal")
+                        .WithMany("Itens")
+                        .HasForeignKey("ProductWithdrawalId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("BuyListItem");
+
+                    b.Navigation("ProductWithdrawal");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.SerialItem", b =>
+                {
+                    b.HasOne("Cobra.Entities.Crm.ProductWithdrawalItem", "ProductWithdrawalItem")
+                        .WithMany("Serials")
+                        .HasForeignKey("ProductWithdrawalItemId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("ProductWithdrawalItem");
+                });
+
             modelBuilder.Entity("Cobra.Entities.Domains.BrandImage", b =>
                 {
                     b.HasOne("Cobra.Entities.Domains.Brand", "Brand")
@@ -2521,7 +2783,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.BuyListItem", "BuyListItem")
                         .WithMany("Images")
                         .HasForeignKey("BuyListItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("BuyListItem");
@@ -2556,6 +2818,17 @@ namespace Cobra.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Model");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Domains.SerialItemImage", b =>
+                {
+                    b.HasOne("Cobra.Entities.Crm.SerialItem", "SerialItem")
+                        .WithMany("Images")
+                        .HasForeignKey("SerialItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SerialItem");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Administration.Menu", b =>
@@ -2622,6 +2895,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Navigation("Inspections");
 
                     b.Navigation("Messages");
+
+                    b.Navigation("ProductsWithdrawal");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.BuyListItem", b =>
@@ -2629,6 +2904,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Messages");
+
+                    b.Navigation("ProductWithdrawalItens");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.Inspection", b =>
@@ -2646,6 +2923,23 @@ namespace Cobra.Infrastructure.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("ItensBuyList");
+
+                    b.Navigation("Prices");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawal", b =>
+                {
+                    b.Navigation("Itens");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawalItem", b =>
+                {
+                    b.Navigation("Serials");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Crm.SerialItem", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Domains.AddressType", b =>

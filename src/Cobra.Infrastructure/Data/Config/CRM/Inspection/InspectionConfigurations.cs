@@ -13,7 +13,7 @@ namespace Cobra.Infrastructure.Data.Config.CRM
             builder.HasMany(x => x.InspectionItens)
                    .WithOne(x => x.Inspection)
                    .HasForeignKey(x => x.InspectionId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

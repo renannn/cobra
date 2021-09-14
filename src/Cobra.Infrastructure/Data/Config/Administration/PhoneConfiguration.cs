@@ -16,7 +16,7 @@ namespace Cobra.Infrastructure.Data.Config.Administration
             builder.HasOne(x => x.Country)
                 .WithMany(x => x.Phones)
                 .HasForeignKey(x => x.CountryId)
-                .OnDelete(DeleteBehavior.Cascade);
+                   .OnDelete(DeleteBehavior.NoAction);
 
         }
     }

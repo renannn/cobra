@@ -10,18 +10,22 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         {
             builder.ToTable("tbl_users_buylists", "dbo");
 
+            builder.HasIndex("Id").HasDatabaseName("id_buylist");
 
             builder.HasMany(x => x.BuyListItens)
                    .WithOne(x => x.BuyList)
-                   .HasForeignKey(x => x.BuyListId);
+                   .HasForeignKey(x => x.BuyListId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Inspections)
                    .WithOne(x => x.BuyList)
-                   .HasForeignKey(x => x.BuyListId);
+                   .HasForeignKey(x => x.BuyListId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasMany(x => x.Messages)
                    .WithOne(x => x.BuyList)
-                   .HasForeignKey(x => x.BuyListId);
+                   .HasForeignKey(x => x.BuyListId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
         }
     }

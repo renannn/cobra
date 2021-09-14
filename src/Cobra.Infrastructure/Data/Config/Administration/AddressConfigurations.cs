@@ -15,7 +15,8 @@ namespace Cobra.Infrastructure.Data.Config.Administration
 
             builder.HasOne(x => x.City)
                 .WithMany(x => x.Addresses)
-                .HasForeignKey(x => x.CityId);
+                .HasForeignKey(x => x.CityId)
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

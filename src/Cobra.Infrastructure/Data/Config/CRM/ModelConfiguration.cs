@@ -12,11 +12,13 @@ namespace Cobra.Infrastructure.Data.Config.CRM
 
             builder.HasOne(x => x.Category)
                    .WithMany(x => x.Models)
-                   .HasForeignKey(x => x.CategoryId);
+                   .HasForeignKey(x => x.CategoryId)
+                   .OnDelete(DeleteBehavior.NoAction);
 
             builder.HasOne(x => x.Brand)
                    .WithMany(x => x.Models)
-                   .HasForeignKey(x => x.BrandId);
+                   .HasForeignKey(x => x.BrandId)
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

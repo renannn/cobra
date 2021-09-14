@@ -9,6 +9,11 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         public void Configure(EntityTypeBuilder<ModelPrice> builder)
         {
             builder.ToTable("tbl_crm_models_prices", "dbo");
+
+            builder.HasOne(x => x.Model)
+                .WithMany(x => x.Prices)
+                .HasForeignKey(x => x.ModelId)
+                   .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

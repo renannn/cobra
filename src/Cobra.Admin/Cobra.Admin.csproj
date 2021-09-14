@@ -942,6 +942,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\CRM\Pages\Customer\" />
+    <Folder Include="Areas\CRM\Pages\BuyList\" />
+    <Folder Include="Areas\CRM\Pages\Model\" />
+    <Folder Include="Areas\CRM\Pages\Inspection\" />
+    <Folder Include="Areas\CRM\Pages\ProductWithdrawal\" />
+    <Folder Include="Areas\CRM\Pages\NotaFiscal\" />
+    <Folder Include="Areas\CRM\Pages\Payment\" />
+    <Folder Include="Areas\Reports\Pages\" />
     <Folder Include="wwwroot\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="wwwroot\assets\pages\j-pro\form_files\" />
   </ItemGroup>

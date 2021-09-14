@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Cobra.Entities.Crm
 {
-    public class Model : BaseEntity, IHasId<Guid>, IHasName, IHasDescription, IAuditableEntity, IHasCreationDate
+    public class Model : BaseEntity, IHasId<Guid>, IHasName, IHasDescription, IAuditableEntity, IHasCreationDate, IHasImage<ModelImage>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -17,7 +17,7 @@ namespace Cobra.Entities.Crm
         public int BrandId { get; set; }
         public virtual Brand Brand { get; set; }
         public virtual List<ModelImage> Images { get; set; } = new();
-        //public virtual List<ModelPrice> Prices { get; set; } = new();
+        public virtual List<ModelPrice> Prices { get; set; } = new();
         public virtual List<BuyListItem> ItensBuyList { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
     }
