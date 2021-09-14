@@ -28,7 +28,16 @@
 	</li>
 
 	@{
-		var rolesItem = applicationRoleManager.Roles.ToList();
+		var rolesItem = cacheRegras.GetCache("roles-item");
+		if (rolesItem == null)
+		{
+			rolesItem = applicationRoleManager.Roles.ToList();
+			cacheRegras.SetCache(new SharedKernel.CacheRequest<List<Role>>
+			{
+				key = "roles-item",
+				value = rolesItem
+			});
+		}
 	}
 
 	@foreach (var item in rolesItem)
@@ -58,7 +67,7 @@
 						<ul class="pcoded-submenu">
 							@foreach (var submenu in menu.SubMenus)
 							{
-								var t = currentPath.Contains((menuPath + "/" + submenu.Path).ToLowerInvariant().Replace("/index","")) ? "class=active pcoded-trigger" : "";
+								var t = currentPath.Contains((menuPath + "/" + submenu.Path).ToLowerInvariant().Replace("/index", "")) ? "class=active pcoded-trigger" : "";
 								<li @t>
 									@{
 										var link = "/" + menu.Path + "/" + submenu.Path;

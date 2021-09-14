@@ -1,10 +1,473 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+	<div class="col-sm-12 col-xl-3 m-b-30">
+		<h4 class="sub-title">Intervalo</h4>
+		<select name="select" class="form-control form-control-default">
+			<option value="opt1">Diário</option>
+			<option value="opt2">Semanal</option>
+			<option value="opt4">Últimos 15 Dias</option>
+			<option value="opt3">Mensal</option>
+			<option value="opt4">Últimos 30 Dias</option>
+			<option value="opt5">Semestral</option>
+			<option value="opt6">Anual</option>
+		</select>
+	</div>
 </div>
+
+
+<div class="row">
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">R$ 0,00</h4>
+						<h6 class="text-muted m-b-0">Total Poupado</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-green">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">R$ 0,00</h4>
+						<h6 class="text-muted m-b-0">Total Gasto</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-purple">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">R$ 0,00</h4>
+						<h6 class="text-muted m-b-0">Ticket Médio</h6></h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-purple">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-red">R$ 0,00</h4>
+						<h6 class="text-muted m-b-0">Valor Acima do Ticket Médio</h6></h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-red">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">0</h4>
+						<h6 class="text-muted m-b-0">Itens Ofertados</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-green">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">0</h4>
+						<h6 class="text-muted m-b-0">Itens Comprados</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-purple">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-red">0</h4>
+						<h6 class="text-muted m-b-0">Itens Recusados</h6></h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-bar-chart f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-red">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-green">0</h4>
+						<h6 class="text-muted m-b-0">Novas Listas de Compras</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-file-text-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-green">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-blue">0</h4>
+						<h6 class="text-muted m-b-0">Listas em Analise</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-file-text-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-blue">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-purple">0</h4>
+						<h6 class="text-muted m-b-0">Listas Aceitas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-file-text-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-purple">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-red">0</h4>
+						<h6 class="text-muted m-b-0">Listas Negadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-file-text-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-red">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-green">0</h4>
+						<h6 class="text-muted m-b-0">Vistorias Agendadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-calendar-check-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-green">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-blue">0</h4>
+						<h6 class="text-muted m-b-0">Vistorias Realizadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-hand-o-down f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-blue">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-red">0</h4>
+						<h6 class="text-muted m-b-0">Vistorias Não Realizadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-hand-o-down f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-red">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-green">0</h4>
+						<h6 class="text-muted m-b-0">Retiradas Agendadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-calendar-check-o f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-green">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-blue">0</h4>
+						<h6 class="text-muted m-b-0">Retiradas Realizadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-hand-o-down f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-blue">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xl-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="row align-items-center">
+					<div class="col-8">
+						<h4 class="text-c-red">0</h4>
+						<h6 class="text-muted m-b-0">Retiradas Não Realizadas</h6>
+					</div>
+					<div class="col-4 text-right">
+						<i class="fa fa-hand-o-down f-28"></i>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer bg-c-red">
+				<div class="row align-items-center">
+					<div class="col-9">
+						<p class="text-white m-b-0">% 0</p>
+					</div>
+					<div class="col-3 text-right">
+						<i class="fa fa-line-chart text-white f-16"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div> 
