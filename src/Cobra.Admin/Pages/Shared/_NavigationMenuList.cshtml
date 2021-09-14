@@ -1,1 +1,79 @@
-﻿
+﻿@using Cobra.Entities.Administration
+@using Cobra.Infrastructure.Services.Contracts.Identity
+@using Cobra.SharedKernel.Interfaces
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor httpContextAccessor
+@inject IApplicationRoleManager applicationRoleManager
+@inject ICache<List<Role>> cacheRegras
+
+
+<ul class="pcoded-item pcoded-left-item">
+
+	@{
+		var currentPath = httpContextAccessor.HttpContext.Request.Path.Value.ToLowerInvariant();
+		var root = currentPath.Equals("/") ? "class=active" : "";
+	}
+
+	<li @root>
+		<a href="/" class="waves-effect waves-dark">
+			<span class="pcoded-micon">
+				<i class="ti-layout-cta-right"></i><b>N</b>
+			</span>
+			<span class="pcoded-mtext">
+				Pagina Inicial
+			</span>
+			<span class="pcoded-mcaret"></span>
+		</a>
+	</li>
+
+	@{
+		var rolesItem = applicationRoleManager.Roles.ToList();
+	}
+
+	@foreach (var item in rolesItem)
+	{
+		if (!httpContextAccessor.HttpContext.User.IsInRole(item.Name)) continue;
+
+		var module = item.Path;
+		var currentPage = currentPath.Contains(module.ToLowerInvariant()) ? "active pcoded-trigger" : "";
+		<li class="pcoded-hasmenu @currentPage">
+			<a href="javascript:void(0)" class="waves-effect waves-dark">
+				<span class="pcoded-micon"><i class="@item.Icon"></i><b>D</b></span>
+				<span class="pcoded-mtext"> @item.Label </span>
+				<span class="pcoded-mcaret"></span>
+			</a>
+			<ul class="pcoded-submenu">
+				@foreach (var menu in item.Menus)
+				{
+					var menuPath = "/" + module + "/" + menu.Path;
+					var currentMenu = currentPath.Contains(menuPath.ToLowerInvariant()) ? " active pcoded-trigger" : "";
+
+					<li class='pcoded-hasmenu @currentMenu'>
+						<a href="javascript:void(0)" class="waves-effect waves-dark">
+							<span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+							<span class="pcoded-mtext">@menu.Label</span>
+							<span class="pcoded-mcaret"></span>
+						</a>
+						<ul class="pcoded-submenu">
+							@foreach (var submenu in menu.SubMenus)
+							{
+								var t = currentPath.Contains((menuPath + "/" + submenu.Path).ToLowerInvariant().Replace("/index","")) ? "class=active pcoded-trigger" : "";
+								<li @t>
+									@{
+										var link = "/" + menu.Path + "/" + submenu.Path;
+									}
+									<a asp-area="@item.Path" asp-page="@link" class="waves-effect waves-dark">
+										<span class="pcoded-micon"><i class="icon-chart"></i></span>
+										<span class="pcoded-mtext">@submenu.Label</span>
+										<span class="pcoded-mcaret"></span>
+									</a>
+								</li>
+							}
+						</ul>
+					</li>
+				}
+			</ul>
+		</li>
+	}
+</ul>

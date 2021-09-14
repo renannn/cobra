@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cobra.Infrastructure", "src
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ModelsIdentity", "src\Models\ModelsIdentity.shproj", "{5F2D9249-3A25-4B4E-BE6B-6187088C9A56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cobra.Admin", "src\Cobra.Admin\Cobra.Admin.csproj", "{C258F975-160B-482B-8141-10361509BB6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cobra.Admin", "src\Cobra.Admin\Cobra.Admin.csproj", "{C258F975-160B-482B-8141-10361509BB6B}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

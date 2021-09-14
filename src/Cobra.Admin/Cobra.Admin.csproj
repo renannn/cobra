@@ -5,8 +5,9 @@
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <UserSecretsId>e65a4462-22b9-43bf-bac0-16aa30c1a4d7</UserSecretsId>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <Content Include="wwwroot\bower_components\animate.css\css\animate.css" />
     <Content Include="wwwroot\bower_components\animate.css\css\animate.min.css" />

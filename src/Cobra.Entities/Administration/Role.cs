@@ -21,7 +21,11 @@ namespace Cobra.Entities.Administration
 
         #endregion
 
+        public string Label { get; set; }
+        public string Icon { get; set; }
         public string Description { get; set; }
+        public string Path { get; set; }
+        public string NormalizedPath { get; set; }
         public virtual List<UserRole> Users { get; set; } = new();
         public virtual List<RoleClaim> Claims { get; set; } = new();
         public virtual List<Menu> Menus { get; set; } = new();
