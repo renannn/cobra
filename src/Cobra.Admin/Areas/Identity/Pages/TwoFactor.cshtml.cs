@@ -1,10 +1,8 @@
-using Cobra.Core.Settings;
 using Cobra.Infrastructure.Services.Contracts.Identity;
 using Cobra.Models.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 

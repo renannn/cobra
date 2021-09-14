@@ -11,6 +11,6 @@ namespace Cobra.Entities.Administration
         public DateTime AccessTokenExpiresDateTime { get; set; }
         public string AccessTokenHash { get; set; }
         public string RefreshTokenIdHash { get; set; }
-        public DateTimeOffset RefreshTokenExpiresDateTime { get; set; } 
+        public DateTimeOffset RefreshTokenExpiresDateTime { get; set; }
     }
 }

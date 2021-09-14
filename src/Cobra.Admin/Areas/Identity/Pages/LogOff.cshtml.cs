@@ -1,10 +1,10 @@
-using System;
-using System.Threading.Tasks;
 using Cobra.Infrastructure.Services.Contracts.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace Cobra.Admin.Areas.Identity.Pages
 {

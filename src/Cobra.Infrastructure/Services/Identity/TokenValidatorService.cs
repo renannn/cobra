@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Cobra.Entities.Administration;
+using Cobra.SharedKernel.Enums;
+using Cobra.SharedKernel.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Cobra.Common.GuardToolkit;
-using Cobra.Entities.Administration;
-using Cobra.SharedKernel.Enums;
-using Cobra.SharedKernel.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Cobra.Infrastructure.Services.Identity
 {
@@ -18,10 +17,10 @@ namespace Cobra.Infrastructure.Services.Identity
 
     public class TokenValidatorService : ITokenValidatorService
     {
-        private readonly IRepository<Guid,User> _usersService;
+        private readonly IRepository<Guid, User> _usersService;
         private readonly ISecurityService _securityService;
 
-        public TokenValidatorService(IRepository<Guid, User> usersService,ISecurityService securityService)
+        public TokenValidatorService(IRepository<Guid, User> usersService, ISecurityService securityService)
         {
             _usersService = usersService;
             _securityService = securityService;
@@ -56,7 +55,7 @@ namespace Cobra.Infrastructure.Services.Identity
             }
 
             if (!(context.SecurityToken is JwtSecurityToken accessToken) || string.IsNullOrWhiteSpace(accessToken.RawData) ||
-                !await IsValidTokenAsync(user,accessToken.RawData))
+                !await IsValidTokenAsync(user, accessToken.RawData))
             {
                 context.Fail("This token is not in our database.");
                 return;
@@ -70,7 +69,7 @@ namespace Cobra.Infrastructure.Services.Identity
             var accessTokenHash = _securityService.GetSha256Hash(accessToken);
             var userToken = user.Tokens.FirstOrDefault(
                 x => x.AccessTokenHash == accessTokenHash);
-            return userToken?.AccessTokenExpiresDateTime >= DateTime.Now ;
+            return userToken?.AccessTokenExpiresDateTime >= DateTime.Now;
         }
     }
 }

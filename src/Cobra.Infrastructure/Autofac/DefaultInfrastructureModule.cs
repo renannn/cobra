@@ -200,7 +200,7 @@ namespace Cobra.Infrastructure.Autofac
             builder.RegisterType<TokenValidatorService>()
                 .As<ITokenValidatorService>()
                 .InstancePerLifetimeScope();
-             
+
             builder
                 .RegisterType<SecurityService>()
                 .As<ISecurityService>()

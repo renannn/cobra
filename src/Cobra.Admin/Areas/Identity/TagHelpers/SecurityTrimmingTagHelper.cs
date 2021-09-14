@@ -1,8 +1,8 @@
-﻿using System;
-using Cobra.Infrastructure.Services.Contracts.Identity;
+﻿using Cobra.Infrastructure.Services.Contracts.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System;
 
 namespace Cobra.Admin.Areas.Identity.TagHelpers
 {
