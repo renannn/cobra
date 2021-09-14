@@ -13,5 +13,6 @@ namespace Cobra.Entities.Domains
         public string Description { get; set; }
         public DateTime? CreatedDateTime { get; set; }
         public virtual List<PaymentMethod> PaymentMethods { get; set; } = new();
+        public virtual List<PaymentFieldMethodType> PaymentFieldMethodTypes { get; set; } = new();
     }
 }

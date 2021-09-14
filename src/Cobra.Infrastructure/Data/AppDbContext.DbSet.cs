@@ -41,5 +41,13 @@ namespace Cobra.Infrastructure.Data
         public DbSet<City> City { get; set; }
         public DbSet<Menu> Menu { get; set; }
         public DbSet<SubMenu> SubMenu { get; set; }
+
+        public DbSet<ProductWithdrawal> ProductWithdrawal { get; set; }
+        public DbSet<ProductWithdrawalItem> ProductWithdrawalItem { get; set; }
+        public DbSet<SerialItem> SerialItem { get; set; }
+
+        public DbSet<CompanySettings> CompanySettings { get; set; }
+        public DbSet<Notification> Notification { get; set; }
+        public DbSet<GeneralSettings> GeneralSettings { get; set; }
     }
 }

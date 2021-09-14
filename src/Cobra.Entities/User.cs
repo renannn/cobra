@@ -35,7 +35,8 @@ namespace Cobra.Entities.Administration
 
         public PersonType PersonType { get; set; }
         public string MainDocument { get; set; }
-        public string RG { get; set; }
+        public string RGIE { get; set; }
+        public string CPFCNPJ { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string PhotoFileName { get; set; }
@@ -44,6 +45,8 @@ namespace Cobra.Entities.Administration
         public bool IsEmailPublic { get; set; }
         public BlockedState BlockedState { get; set; }
         public DateTime? LastVisitDateTime { get; set; }
+
+        public bool IsCustomer { get; set; }
 
         #region IHasPhone
         public virtual List<Phone> Phones { get; set; } = new();

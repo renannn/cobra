@@ -15,7 +15,8 @@ namespace Cobra.Infrastructure.Data.Config.CRM
             builder.HasOne(x => x.PaymentMethod)
                 .WithMany(x => x.PaymentValuesFields)
                 .HasForeignKey(x => x.PaymentMethodId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.NoAction)
+                .HasConstraintName("ctx_teste_renan");
 
             builder.HasOne(x => x.PaymentFieldMethodType)
                 .WithMany(x => x.PaymentValuesFields)

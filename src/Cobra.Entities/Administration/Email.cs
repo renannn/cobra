@@ -5,7 +5,7 @@ using System;
 
 namespace Cobra.Entities.Administration
 {
-    public class Email : BaseEntity, IHasId<Guid>, IAuditableEntity, IBaseEntity, IHasValue<string>, IHasDisabled, IHasCreationDate, IHasObservation
+    public class Email : BaseEntity, IHasId<Guid>, IAuditableEntity, IHasValue<string>, IHasDisabled, IHasCreationDate, IHasObservation
     {
         public Guid Id { get; set; }
         public string Value { get; set; }

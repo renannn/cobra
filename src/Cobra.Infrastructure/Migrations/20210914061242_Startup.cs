@@ -40,6 +40,33 @@ namespace Cobra.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tbl_company_settings",
+                schema: "dbo",
+                columns: table => new
+                {
+                    CompanyName = table.Column<bool>(type: "bit", nullable: false),
+                    Telefone = table.Column<bool>(type: "bit", nullable: false),
+                    CNPJ = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RazaoSocial = table.Column<bool>(type: "bit", nullable: false),
+                    IE = table.Column<bool>(type: "bit", nullable: false),
+                    NomeResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CPFResponsavel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataNascimentoResponsavel = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ImageLogo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tbl_domains_addresses_type",
                 schema: "dbo",
                 columns: table => new
@@ -185,33 +212,6 @@ namespace Cobra.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tbl_domains_field_payment_method_type",
-                schema: "dbo",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Validation = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Mask = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MaxLenght = table.Column<int>(type: "int", nullable: false),
-                    IsRequired = table.Column<bool>(type: "bit", nullable: false),
-                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
-                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
-                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_tbl_domains_field_payment_method_type", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "tbl_domains_payment_method_type",
                 schema: "dbo",
                 columns: table => new
@@ -265,6 +265,46 @@ namespace Cobra.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tbl_general_settings",
+                schema: "dbo",
+                columns: table => new
+                {
+                    TermsOfUse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_notification_settings",
+                schema: "dbo",
+                columns: table => new
+                {
+                    IsEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    MerchantName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MerchantId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
                 name: "tbl_roles",
                 schema: "dbo",
                 columns: table => new
@@ -301,7 +341,8 @@ namespace Cobra.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PersonType = table.Column<short>(type: "smallint", nullable: false),
                     MainDocument = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RG = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RGIE = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CPFCNPJ = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhotoFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -310,6 +351,7 @@ namespace Cobra.Infrastructure.Migrations
                     IsEmailPublic = table.Column<bool>(type: "bit", nullable: false),
                     BlockedState = table.Column<byte>(type: "tinyint", nullable: false),
                     LastVisitDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsCustomer = table.Column<bool>(type: "bit", nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
                     CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
@@ -335,7 +377,7 @@ namespace Cobra.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("id_user", x => x.Id);
+                    table.PrimaryKey("user_id", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -403,6 +445,40 @@ namespace Cobra.Infrastructure.Migrations
                         column: x => x.CategoryId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_category",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_domains_field_payment_method_type",
+                schema: "dbo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Validation = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Mask = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MaxLenght = table.Column<int>(type: "int", nullable: false),
+                    IsRequired = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    PaymentMethodTypeId = table.Column<short>(type: "smallint", nullable: false),
+                    CreatedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    CreatedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedByBrowserName = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: true),
+                    ModifiedByIp = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
+                    ModifiedByUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    ModifiedDateTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("id_domains_field_payment_method_type", x => x.Id);
+                    table.ForeignKey(
+                        name: "ctx_teste_domains_field_payment_method_type",
+                        column: x => x.PaymentMethodTypeId,
+                        principalSchema: "dbo",
+                        principalTable: "tbl_domains_payment_method_type",
                         principalColumn: "Id");
                 });
 
@@ -1234,16 +1310,16 @@ namespace Cobra.Infrastructure.Migrations
                 {
                     table.PrimaryKey("id_users_payment_methods_values", x => x.Id);
                     table.ForeignKey(
+                        name: "ctx_teste_renan",
+                        column: x => x.PaymentMethodId,
+                        principalSchema: "dbo",
+                        principalTable: "tbl_users_payment_methods",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_tbl_users_payment_methods_values_tbl_domains_field_payment_method_type_PaymentFieldMethodTypeId",
                         column: x => x.PaymentFieldMethodTypeId,
                         principalSchema: "dbo",
                         principalTable: "tbl_domains_field_payment_method_type",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_tbl_users_payment_methods_values_tbl_users_payment_methods_PaymentMethodId",
-                        column: x => x.PaymentMethodId,
-                        principalSchema: "dbo",
-                        principalTable: "tbl_users_payment_methods",
                         principalColumn: "Id");
                 });
 
@@ -1489,6 +1565,12 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo",
                 table: "tbl_domains_cities",
                 column: "Sigla");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_tbl_domains_field_payment_method_type_PaymentMethodTypeId",
+                schema: "dbo",
+                table: "tbl_domains_field_payment_method_type",
+                column: "PaymentMethodTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_tbl_images_brands_BrandId",
@@ -1808,6 +1890,14 @@ namespace Cobra.Infrastructure.Migrations
                 name: "AppSqlCache");
 
             migrationBuilder.DropTable(
+                name: "tbl_company_settings",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "tbl_general_settings",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
                 name: "tbl_images_brands",
                 schema: "dbo");
 
@@ -1829,6 +1919,10 @@ namespace Cobra.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_models_prices",
+                schema: "dbo");
+
+            migrationBuilder.DropTable(
+                name: "tbl_notification_settings",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
@@ -1919,11 +2013,11 @@ namespace Cobra.Infrastructure.Migrations
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "tbl_domains_field_payment_method_type",
+                name: "tbl_users_payment_methods",
                 schema: "dbo");
 
             migrationBuilder.DropTable(
-                name: "tbl_users_payment_methods",
+                name: "tbl_domains_field_payment_method_type",
                 schema: "dbo");
 
             migrationBuilder.DropTable(

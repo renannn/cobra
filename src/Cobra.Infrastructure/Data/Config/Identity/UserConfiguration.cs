@@ -11,7 +11,7 @@ namespace Cobra.Infrastructure.Data.Config.Identity
             builder.ToTable("tbl_users", "dbo");
 
             builder.HasKey("Id")
-                   .HasName("id_user");
+                   .HasName("user_id");
 
             builder.HasMany(x => x.Phones)
                    .WithOne(x => x.User)

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Cobra.Infrastructure.Data.Config.Administration
 {
-    public class UsedPasswordConfigurations : IEntityTypeConfiguration<UsedPassword>
+    public class UsedPasswordConfiguration : IEntityTypeConfiguration<UsedPassword>
     {
         public void Configure(EntityTypeBuilder<UsedPassword> builder)
         {

@@ -184,6 +184,66 @@ namespace Cobra.Infrastructure.Migrations
                     b.ToTable("AppSqlCache");
                 });
 
+            modelBuilder.Entity("Cobra.Entities.Administration.CompanySettings", b =>
+                {
+                    b.Property<string>("CNPJ")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CPFResponsavel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("CompanyName")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataNascimentoResponsavel")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IE")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageLogo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NomeResponsavel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("RazaoSocial")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Telefone")
+                        .HasColumnType("bit");
+
+                    b.ToTable("tbl_company_settings", "dbo");
+                });
+
             modelBuilder.Entity("Cobra.Entities.Administration.Email", b =>
                 {
                     b.Property<Guid>("Id")
@@ -246,6 +306,42 @@ namespace Cobra.Infrastructure.Migrations
                     b.ToTable("tbl_users_emails", "dbo");
                 });
 
+            modelBuilder.Entity("Cobra.Entities.Administration.GeneralSettings", b =>
+                {
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TermsOfUse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("tbl_general_settings", "dbo");
+                });
+
             modelBuilder.Entity("Cobra.Entities.Administration.Menu", b =>
                 {
                     b.Property<Guid>("Id")
@@ -301,6 +397,48 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("tbl_menu", "dbo");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Administration.Notification", b =>
+                {
+                    b.Property<string>("CreatedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("CreatedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MerchantId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MerchantName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModifiedByBrowserName")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ModifiedByIp")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<Guid?>("ModifiedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifiedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.ToTable("tbl_notification_settings", "dbo");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Administration.Phone", b =>
@@ -633,6 +771,9 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<byte>("BlockedState")
                         .HasColumnType("tinyint");
 
+                    b.Property<string>("CPFCNPJ")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -656,6 +797,9 @@ namespace Cobra.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCustomer")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDisabled")
@@ -716,7 +860,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("PhotoFileName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RG")
+                    b.Property<string>("RGIE")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
@@ -733,7 +877,7 @@ namespace Cobra.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id")
-                        .HasName("id_user");
+                        .HasName("user_id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -2181,10 +2325,16 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<short>("PaymentMethodTypeId")
+                        .HasColumnType("smallint");
+
                     b.Property<string>("Validation")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_domains_field_payment_method_type");
+
+                    b.HasIndex("PaymentMethodTypeId");
 
                     b.ToTable("tbl_domains_field_payment_method_type", "dbo");
                 });
@@ -2740,6 +2890,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.HasOne("Cobra.Entities.Crm.PaymentMethod", "PaymentMethod")
                         .WithMany("PaymentValuesFields")
                         .HasForeignKey("PaymentMethodId")
+                        .HasConstraintName("ctx_teste_renan")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -2840,6 +2991,18 @@ namespace Cobra.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Model");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Domains.PaymentFieldMethodType", b =>
+                {
+                    b.HasOne("Cobra.Entities.Domains.PaymentMethodType", "PaymentMethodType")
+                        .WithMany("PaymentFieldMethodTypes")
+                        .HasForeignKey("PaymentMethodTypeId")
+                        .HasConstraintName("ctx_teste_domains_field_payment_method_type")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("PaymentMethodType");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Domains.SerialItemImage", b =>
@@ -3020,6 +3183,8 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Domains.PaymentMethodType", b =>
                 {
+                    b.Navigation("PaymentFieldMethodTypes");
+
                     b.Navigation("PaymentMethods");
                 });
 

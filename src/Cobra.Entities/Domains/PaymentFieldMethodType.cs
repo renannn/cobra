@@ -17,5 +17,8 @@ namespace Cobra.Entities.Domains
         public bool IsRequired { get; set; }
         public virtual List<PaymentValueField> PaymentValuesFields { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
+
+        public virtual PaymentMethodType PaymentMethodType {  get; set; } 
+        public short PaymentMethodTypeId {  get; set; } 
     }
 }
