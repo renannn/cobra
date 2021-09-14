@@ -9,6 +9,8 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         public void Configure(EntityTypeBuilder<Payment> builder)
         {
             builder.ToTable("tbl_users_buylists_payments", "dbo");
+
+            builder.HasKey("Id").HasName("id_users_buylists_payments");
         }
     }
 }

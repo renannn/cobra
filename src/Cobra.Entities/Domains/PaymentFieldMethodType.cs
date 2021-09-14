@@ -15,7 +15,7 @@ namespace Cobra.Entities.Domains
         public string Mask { get; set; }
         public int MaxLenght { get; set; }
         public bool IsRequired { get; set; }
-        public virtual List<PaymentValueField> ValuesPaymentFields { get; set; } = new();
+        public virtual List<PaymentValueField> PaymentValuesFields { get; set; } = new();
         public DateTime? CreatedDateTime { get; set; }
     }
 }

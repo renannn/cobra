@@ -10,6 +10,8 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         {
             builder.ToTable("tbl_users_buylists_inspections", "dbo");
 
+            builder.HasKey("Id").HasName("id_buylist_inspections");
+
             builder.HasMany(x => x.InspectionItens)
                    .WithOne(x => x.Inspection)
                    .HasForeignKey(x => x.InspectionId)

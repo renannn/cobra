@@ -923,10 +923,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .HasDatabaseName("id_buylist");
+                    b.HasKey("Id")
+                        .HasName("id_buylist");
 
                     b.HasIndex("UserId");
 
@@ -988,7 +986,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<byte>("Situation")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_item");
 
                     b.HasIndex("BuyListId");
 
@@ -1021,7 +1020,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<byte>("Situation")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_inspections");
 
                     b.HasIndex("BuyListId");
 
@@ -1053,7 +1053,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<byte>("Situation")
                         .HasColumnType("tinyint");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_inspections_itens");
 
                     b.HasIndex("InspectionId");
 
@@ -1114,7 +1115,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylists_messagens");
 
                     b.HasIndex("BuyListId");
 
@@ -1147,7 +1149,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_users_buylists_itens_messagens");
 
                     b.HasIndex("BuyListItemId");
 
@@ -1207,13 +1210,14 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_models");
 
                     b.HasIndex("BrandId");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("tbl_crm_models", "dbo");
+                    b.ToTable("tbl_models", "dbo");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.ModelPrice", b =>
@@ -1272,13 +1276,14 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id__models_prices");
 
                     b.HasIndex("ConditionId");
 
                     b.HasIndex("ModelId");
 
-                    b.ToTable("tbl_crm_models_prices", "dbo");
+                    b.ToTable("tbl_models_prices", "dbo");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.Payment", b =>
@@ -1327,7 +1332,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_users_buylists_payments");
 
                     b.HasIndex("UserId");
 
@@ -1339,6 +1345,9 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<short>("BankId")
+                        .HasColumnType("smallint");
 
                     b.Property<string>("CreatedByBrowserName")
                         .HasMaxLength(1000)
@@ -1380,7 +1389,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_users_payment_methods");
 
                     b.HasIndex("PaymentMethodTypeId");
 
@@ -1410,9 +1420,6 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<DateTime?>("CreatedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FieldPaymentMethodTypeID")
-                        .HasColumnType("int");
-
                     b.Property<string>("ModifiedByBrowserName")
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
@@ -1427,7 +1434,7 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<DateTime?>("ModifiedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("PaymentFieldMethodTypeId")
+                    b.Property<int>("PaymentFieldMethodTypeId")
                         .HasColumnType("int");
 
                     b.Property<Guid>("PaymentMethodId")
@@ -1436,9 +1443,12 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_users_payment_methods_values");
 
                     b.HasIndex("PaymentFieldMethodTypeId");
+
+                    b.HasIndex("PaymentMethodId");
 
                     b.ToTable("tbl_users_payment_methods_values", "dbo");
                 });
@@ -1486,12 +1496,10 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_product_withdrawal");
 
                     b.HasIndex("BuyListID");
-
-                    b.HasIndex("Id")
-                        .HasDatabaseName("id_buylist_product_withdrawal");
 
                     b.ToTable("tbl_buylist_product_withdrawal");
                 });
@@ -1539,12 +1547,10 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<Guid>("ProductWithdrawalId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_product_withdrawal_item");
 
                     b.HasIndex("BuyListItemId");
-
-                    b.HasIndex("Id")
-                        .HasDatabaseName("id_buylist_product_withdrawal_item");
 
                     b.HasIndex("ProductWithdrawalId");
 
@@ -1594,10 +1600,8 @@ namespace Cobra.Infrastructure.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .HasDatabaseName("id_buylist_product_withdrawal_item_serial");
+                    b.HasKey("Id")
+                        .HasName("id_buylist_product_withdrawal_item_serial");
 
                     b.HasIndex("ProductWithdrawalItemId");
 
@@ -2700,6 +2704,12 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Crm.PaymentMethod", b =>
                 {
+                    b.HasOne("Cobra.Entities.Domains.Bank", "Bank")
+                        .WithMany("PaymentMethods")
+                        .HasForeignKey("PaymentMethodTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("Cobra.Entities.Domains.PaymentMethodType", "PaymentMethodType")
                         .WithMany("PaymentMethods")
                         .HasForeignKey("PaymentMethodTypeId")
@@ -2712,6 +2722,8 @@ namespace Cobra.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Bank");
+
                     b.Navigation("PaymentMethodType");
 
                     b.Navigation("User");
@@ -2719,9 +2731,21 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Crm.PaymentValueField", b =>
                 {
-                    b.HasOne("Cobra.Entities.Domains.PaymentFieldMethodType", null)
-                        .WithMany("ValuesPaymentFields")
-                        .HasForeignKey("PaymentFieldMethodTypeId");
+                    b.HasOne("Cobra.Entities.Domains.PaymentFieldMethodType", "PaymentFieldMethodType")
+                        .WithMany("PaymentValuesFields")
+                        .HasForeignKey("PaymentFieldMethodTypeId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Cobra.Entities.Crm.PaymentMethod", "PaymentMethod")
+                        .WithMany("PaymentValuesFields")
+                        .HasForeignKey("PaymentMethodId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("PaymentFieldMethodType");
+
+                    b.Navigation("PaymentMethod");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawal", b =>
@@ -2925,6 +2949,11 @@ namespace Cobra.Infrastructure.Migrations
                     b.Navigation("Prices");
                 });
 
+            modelBuilder.Entity("Cobra.Entities.Crm.PaymentMethod", b =>
+                {
+                    b.Navigation("PaymentValuesFields");
+                });
+
             modelBuilder.Entity("Cobra.Entities.Crm.ProductWithdrawal", b =>
                 {
                     b.Navigation("Itens");
@@ -2943,6 +2972,11 @@ namespace Cobra.Infrastructure.Migrations
             modelBuilder.Entity("Cobra.Entities.Domains.AddressType", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("Cobra.Entities.Domains.Bank", b =>
+                {
+                    b.Navigation("PaymentMethods");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Domains.Brand", b =>
@@ -2981,7 +3015,7 @@ namespace Cobra.Infrastructure.Migrations
 
             modelBuilder.Entity("Cobra.Entities.Domains.PaymentFieldMethodType", b =>
                 {
-                    b.Navigation("ValuesPaymentFields");
+                    b.Navigation("PaymentValuesFields");
                 });
 
             modelBuilder.Entity("Cobra.Entities.Domains.PaymentMethodType", b =>

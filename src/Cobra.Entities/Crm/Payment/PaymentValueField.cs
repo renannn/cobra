@@ -1,4 +1,5 @@
-﻿using Cobra.SharedKernel;
+﻿using Cobra.Entities.Domains;
+using Cobra.SharedKernel;
 using Cobra.SharedKernel.Interfaces;
 using System;
 
@@ -8,10 +9,16 @@ namespace Cobra.Entities.Crm
     {
         public long Id { get; set; }
         public string Value { get; set; }
-        //public virtual FieldPaymentMethodType FieldPaymentMethodType { get; set; }
-        public int FieldPaymentMethodTypeID { get; set; }
-        //public virtual PaymentMethod PaymentMethod { get; set; }
-        public Guid PaymentMethodId { get; set; }
+
+
+        public virtual PaymentFieldMethodType PaymentFieldMethodType { get; set; }
+        public int PaymentFieldMethodTypeId { get; set; }
+
+
         public DateTime? CreatedDateTime { get; set; }
+
+
+        public virtual PaymentMethod PaymentMethod { get; set; }
+        public Guid PaymentMethodId { get; set; }
     }
 }

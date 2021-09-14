@@ -10,7 +10,7 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         {
             builder.ToTable("tbl_buylist_product_withdrawal_item");
 
-            builder.HasIndex("Id").HasDatabaseName("id_buylist_product_withdrawal_item");
+            builder.HasKey("Id").HasName("id_buylist_product_withdrawal_item");
 
             builder.HasOne(x => x.ProductWithdrawal)
                     .WithMany(x => x.Itens)

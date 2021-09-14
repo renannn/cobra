@@ -8,7 +8,9 @@ namespace Cobra.Infrastructure.Data.Config.CRM
     {
         public void Configure(EntityTypeBuilder<Model> builder)
         {
-            builder.ToTable("tbl_crm_models", "dbo");
+            builder.ToTable("tbl_models", "dbo");
+
+            builder.HasKey("Id").HasName("id_models");
 
             builder.HasOne(x => x.Category)
                    .WithMany(x => x.Models)

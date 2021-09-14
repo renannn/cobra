@@ -9,6 +9,13 @@ namespace Cobra.Infrastructure.Data.Config.CRM
         public void Configure(EntityTypeBuilder<PaymentMethod> builder)
         {
             builder.ToTable("tbl_users_payment_methods", "dbo");
+
+            builder.HasKey("Id").HasName("id_users_payment_methods");
+
+            builder.HasOne(x => x.Bank)
+                .WithMany(x => x.PaymentMethods)
+                .HasForeignKey(x => x.PaymentMethodTypeId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
