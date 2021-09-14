@@ -1,4 +1,192 @@
 ﻿@page
 @model Cobra.Admin.Areas.Admin.Pages.Parameters.CompanySettings.IndexModel
-@{
+@{ 
+    ViewData["Title"] = "Configurações da Empresa";
 }
+
+<form class="form-material" method="post">
+
+	<div class="row">
+		<div class="col-sm-6">
+			<!-- Basic Form Inputs card start -->
+			<div class="card">
+				<div class="card-header">
+					<h5>Configurações da Empresa</h5>
+				</div>
+				<div class="card-block">
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.CompanyName" autofocus>
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.CompanyName"></label>
+						<span asp-validation-for="PModel.CompanyName"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.CNPJ">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.CNPJ"></label>
+						<span asp-validation-for="PModel.CNPJ"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.Telefone">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.Telefone"></label>
+						<span asp-validation-for="PModel.Telefone"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.RazaoSocial">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.RazaoSocial"></label>
+						<span asp-validation-for="PModel.RazaoSocial"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.IE">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.IE"></label>
+						<span asp-validation-for="PModel.IE"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<!-- Basic Form Inputs card start -->
+			<div class="card">
+				<div class="card-header">
+					<h5>Dados de Contato da Empresa</h5>
+				</div>
+				<div class="card-block">
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.CodeArea">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.CodeArea"></label>
+						<span asp-validation-for="PModel.CodeArea"></span>
+					</div>
+
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.Telefone">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.Telefone"></label>
+						<span asp-validation-for="PModel.Telefone"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.Ramal">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.Ramal"></label>
+						<span asp-validation-for="PModel.Ramal"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.TelefoneObservation">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.TelefoneObservation"></label>
+						<span asp-validation-for="PModel.TelefoneObservation"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<!-- Basic Form Inputs card start -->
+			<div class="card">
+				<div class="card-header">
+					<h5>Responsavel Legal</h5>
+				</div>
+				<div class="card-block">
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.NomeResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.NomeResponsavel"></label>
+						<span asp-validation-for="PModel.NomeResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.RGResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.RGResponsavel"></label>
+						<span asp-validation-for="PModel.RGResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.CPFResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.CPFResponsavel"></label>
+						<span asp-validation-for="PModel.CPFResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.DataNascimentoResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.DataNascimentoResponsavel"></label>
+						<span asp-validation-for="PModel.DataNascimentoResponsavel"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<!-- Basic Form Inputs card start -->
+			<div class="card">
+				<div class="card-header">
+					<h5>Dados de Contato do Responsavel Legal</h5>
+				</div>
+				<div class="card-block">
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.CodeAreaResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.CodeAreaResponsavel"></label>
+						<span asp-validation-for="PModel.CodeAreaResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.TelefoneResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.TelefoneResponsavel"></label>
+						<span asp-validation-for="PModel.TelefoneResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.RamalResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.RamalResponsavel"></label>
+						<span asp-validation-for="PModel.RamalResponsavel"></span>
+					</div>
+
+					<div class="form-group form-default">
+						<input type="text" class="form-control" asp-for="PModel.TelefoneObservationResponsavel">
+						<span class="form-bar"></span>
+						<label class="float-label" asp-for="PModel.TelefoneObservationResponsavel"></label>
+						<span asp-validation-for="PModel.TelefoneObservationResponsavel"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-header">
+					<h5>Parametrização</h5>
+				</div>
+				<div class="card-block">
+					<div class="row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary m-b-0">Salvar Configurações</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
