@@ -3,65 +3,64 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
-namespace Cobra.Common.GuardToolkit
+namespace Cobra.Common.GuardToolkit;
+
+public static class GuardExt
 {
-    public static class GuardExt
+    /// <summary>
+    /// Checks if the argument is null.
+    /// </summary>
+    public static void CheckArgumentIsNull(this object o, string name)
     {
-        /// <summary>
-        /// Checks if the argument is null.
-        /// </summary>
-        public static void CheckArgumentIsNull(this object o, string name)
-        {
-            if (o == null)
-                throw new ArgumentNullException(name);
-        }
+        if (o == null)
+            throw new ArgumentNullException(name);
+    }
 
-        /// <summary>
-        /// Checks if the parameter is null.
-        /// </summary>
-        public static void CheckMandatoryOption(this string s, string name)
-        {
-            if (string.IsNullOrEmpty(s))
-                throw new ArgumentException(name);
-        }
+    /// <summary>
+    /// Checks if the parameter is null.
+    /// </summary>
+    public static void CheckMandatoryOption(this string s, string name)
+    {
+        if (string.IsNullOrEmpty(s))
+            throw new ArgumentException(name);
+    }
 
-        public static bool ContainsNumber(this string inputText)
-        {
-            return !string.IsNullOrWhiteSpace(inputText) && inputText.Any(char.IsDigit);
-        }
+    public static bool ContainsNumber(this string inputText)
+    {
+        return !string.IsNullOrWhiteSpace(inputText) && inputText.Any(char.IsDigit);
+    }
 
-        public static bool HasConsecutiveChars(this string inputText, int sequenceLength = 3)
+    public static bool HasConsecutiveChars(this string inputText, int sequenceLength = 3)
+    {
+        var charEnumerator = StringInfo.GetTextElementEnumerator(inputText);
+        var currentElement = string.Empty;
+        var count = 1;
+        while (charEnumerator.MoveNext())
         {
-            var charEnumerator = StringInfo.GetTextElementEnumerator(inputText);
-            var currentElement = string.Empty;
-            var count = 1;
-            while (charEnumerator.MoveNext())
+            if (currentElement == charEnumerator.GetTextElement())
             {
-                if (currentElement == charEnumerator.GetTextElement())
+                if (++count >= sequenceLength)
                 {
-                    if (++count >= sequenceLength)
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    count = 1;
-                    currentElement = charEnumerator.GetTextElement();
+                    return true;
                 }
             }
-            return false;
+            else
+            {
+                count = 1;
+                currentElement = charEnumerator.GetTextElement();
+            }
         }
+        return false;
+    }
 
-        public static bool IsEmailAddress(this string inputText)
-        {
-            return !string.IsNullOrWhiteSpace(inputText) && new EmailAddressAttribute().IsValid(inputText);
-        }
+    public static bool IsEmailAddress(this string inputText)
+    {
+        return !string.IsNullOrWhiteSpace(inputText) && new EmailAddressAttribute().IsValid(inputText);
+    }
 
-        public static bool IsNumeric(this string inputText)
-        {
-            if (string.IsNullOrWhiteSpace(inputText)) return false;
-            return long.TryParse(inputText, out _);
-        }
+    public static bool IsNumeric(this string inputText)
+    {
+        if (string.IsNullOrWhiteSpace(inputText)) return false;
+        return long.TryParse(inputText, out _);
     }
 }

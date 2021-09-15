@@ -35,7 +35,7 @@ namespace Cobra.SharedKernel.Helpers
                 return this;
             }
 
-            public ValueTask<bool> MoveNextAsync() => new ValueTask<bool>(result: false);
+            public ValueTask<bool> MoveNextAsync() => new(result: false);
         }
     }
 }

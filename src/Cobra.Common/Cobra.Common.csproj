@@ -5,6 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <NoWarn>RCS1090</NoWarn>
     <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" /> 
@@ -18,6 +19,7 @@
     <PackageReference Include="IPAddressRange" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" />
     <PackageReference Include="Ben.Demystifier" />
+    <PackageReference Include="Nito.AsyncEx" />
   </ItemGroup>
 
   <ItemGroup>

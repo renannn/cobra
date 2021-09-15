@@ -35,14 +35,13 @@ namespace Cobra.Admin
                     .AddSerilogLogging()
                     .AddCorsApplication()
                     .AddHealthChecksUI()
+                    .AddMemoryCacheService()
+                    .AddCloudscribePagination()
                     .AddHttpContextAccessor()
+                    .AddCommonWeb()
                     .AddMediatR(typeof(Startup))
-                    .AddCustomRazorPages();
-
-            services.AddCommonWeb();
-            services.AddFeatureManagement();
-            services.AddCloudscribePagination();
-            services.AddMemoryCacheService();
+                    .AddCustomRazorPages()
+                    .AddFeatureManagement();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)

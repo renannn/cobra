@@ -87,5 +87,6 @@
     <PackageReference Update="xunit" Version="2.4.1" />
     <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Update="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Update="Nito.AsyncEx" Version="5.1.0" />
   </ItemGroup>
 </Project>

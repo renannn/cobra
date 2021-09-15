@@ -1,5 +1,4 @@
-﻿using Cobra.Common.DependencyInjection;
-using Cobra.Core.Settings;
+﻿using Cobra.Core.Settings;
 using Cobra.Infrastructure.Services.Identity;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;

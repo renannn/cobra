@@ -1,5 +1,4 @@
-﻿using Cobra.Common.DependencyInjection;
-using Cobra.Core.Settings;
+﻿using Cobra.Core.Settings;
 using Cobra.Infrastructure.Data;
 using Cobra.Infrastructure.Services.Contracts.Identity;
 using Microsoft.Extensions.DependencyInjection;

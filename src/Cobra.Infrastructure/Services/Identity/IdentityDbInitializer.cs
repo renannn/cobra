@@ -1,5 +1,4 @@
-﻿using Cobra.Common.DependencyInjection;
-using Cobra.Common.GuardToolkit;
+﻿using Cobra.Common.GuardToolkit;
 using Cobra.Common.IdentityToolkit;
 using Cobra.Core.Settings;
 using Cobra.Entities.Administration;

@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace Cobra.Common
+
+namespace Cobra.Common;
+
+public static class HasEmailExtensions
 {
-    public static class HasEmailExtensions
+    public static bool IsValidEmail(this string source)
     {
-        public static bool IsValidEmail(this string source)
-        {
-            return new EmailAddressAttribute().IsValid(source);
-        }
+        return new EmailAddressAttribute().IsValid(source);
     }
 }

@@ -5,9 +5,9 @@ namespace Cobra.Infrastructure.Setup
 {
     public static class RazorPagesSetup
     {
-        public static IMvcBuilder AddCustomRazorPages(this IServiceCollection services)
+        public static IServiceCollection AddCustomRazorPages(this IServiceCollection services)
         {
-            return services.AddRazorPages(options =>
+            services.AddRazorPages(options =>
             {
                 // Administração
                 options.Conventions.AddAreaFolderApplicationModelConvention("Administracao", "/DatabaseConnections", cOption =>
@@ -106,9 +106,8 @@ namespace Cobra.Infrastructure.Setup
                 {
                     cOption.Filters.Add(new RazorPageFeatureGate("dominio-tipo-telefone"));
                 });
-
-
             });
+            return services;
         }
     }
 }

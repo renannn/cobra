@@ -17,13 +17,13 @@ namespace Cobra.Admin.Areas.Admin.Pages.Parameters.CompanySettings
         [Required(ErrorMessage = "(*)")]
         [Display(Name = "Telefone")]
         public string Telefone { get; set; }
-         
+
         [Display(Name = "Ramal")]
         public string Ramal { get; set; }
 
         [Display(Name = "Observação")]
         public string TelefoneObservation { get; set; }
-         
+
         [Required(ErrorMessage = "(*)")]
         [Display(Name = "Tipo de Telefone")]
         public short PhoneTypeId { get; set; }

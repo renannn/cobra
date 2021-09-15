@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Cobra.Common
+namespace Cobra.Common;
+
+public static class InterfacesExtensions
 {
-    public static class InterfacesExtensions
+    public static bool Implements<I>(this Type source) where I : class
     {
-        public static bool Implements<I>(this Type source) where I : class
-        {
-            return typeof(I).IsAssignableFrom(source);
-        }
+        return typeof(I).IsAssignableFrom(source);
     }
 }

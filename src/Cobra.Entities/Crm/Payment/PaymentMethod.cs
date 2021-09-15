@@ -18,8 +18,8 @@ namespace Cobra.Entities.Crm
         public Guid UserId { get; set; }
         public DateTime? CreatedDateTime { get; set; }
 
-        public virtual Bank Bank {  get; set; }
-        public short BankId { get; set;  }
+        public virtual Bank Bank { get; set; }
+        public short BankId { get; set; }
 
         public virtual List<PaymentValueField> PaymentValuesFields { get; set; } = new();
     }

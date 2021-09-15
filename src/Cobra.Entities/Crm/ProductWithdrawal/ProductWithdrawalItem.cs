@@ -14,5 +14,5 @@ public class ProductWithdrawalItem : BaseEntity, IHasId<Guid>, IHasDescription, 
     public virtual BuyListItem BuyListItem { get; set; }
     public virtual List<SerialItem> Serials { get; set; } = new();
     public Guid ProductWithdrawalId { get; set; }
-    public virtual ProductWithdrawal ProductWithdrawal {  get; set; }
+    public virtual ProductWithdrawal ProductWithdrawal { get; set; }
 }

@@ -1,5 +1,4 @@
-﻿using Cobra.Common.DependencyInjection;
-using Cobra.Core.Settings;
+﻿using Cobra.Core.Settings;
 using Cobra.Entities.Administration;
 using Cobra.Entities.AuditableEntity;
 using Cobra.SharedKernel.Interfaces;

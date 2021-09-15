@@ -1,6 +1,5 @@
 ﻿using Cobra.SharedKernel;
 using Cobra.SharedKernel.Interfaces;
-using System;
 
 namespace Cobra.Entities.Administration
 {

@@ -38,7 +38,9 @@ namespace Cobra.Common
             {
                 property.SetValueConverter(
                      new ValueConverter<DateTimeOffset?, DateTime>(
+#pragma warning disable CS8629 // Nullable value type may be null.
                           convertToProviderExpression: dateTimeOffset => dateTimeOffset.Value.UtcDateTime,
+#pragma warning restore CS8629 // Nullable value type may be null.
                           convertFromProviderExpression: dateTime => new DateTimeOffset(dateTime)
                     ));
             }
