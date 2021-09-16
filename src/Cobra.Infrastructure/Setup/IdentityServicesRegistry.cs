@@ -23,6 +23,7 @@ namespace Cobra.Infrastructure.Setup
             services.AddConfiguredDbContext(siteSettings);
             services.AddCustomTicketStore(siteSettings);
             services.AddDynamicPermissions();
+            services.AddHangFireDashboard(siteSettings);
             services.AddCustomDataProtection(siteSettings);
             return services;
         }

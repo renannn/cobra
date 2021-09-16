@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cobra.Common.Collections.Extensions;
+using System;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;

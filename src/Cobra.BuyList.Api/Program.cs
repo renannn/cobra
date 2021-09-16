@@ -1,13 +1,12 @@
 using Cobra.Infrastructure.Setup;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
 
 namespace Cobra.BuyList.Api
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
             host.Services.InitializeDb();

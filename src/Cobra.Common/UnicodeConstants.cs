@@ -1,4 +1,11 @@
-﻿namespace Cobra.SharedKernel
+﻿using Cobra.Common.Extensions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cobra.Common
 {
     /// <summary>
     /// Unicode Constants

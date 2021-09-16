@@ -6,6 +6,7 @@
     <NoWarn>RCS1090</NoWarn>
     <Nullable>enable</Nullable>
     <LangVersion>preview</LangVersion>
+    <UserSecretsId>Cobra-Common-894FDFC1-6482-4A56-926A-3C46C9FE0329</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" /> 
@@ -20,6 +21,7 @@
     <PackageReference Include="Microsoft.Extensions.Http.Polly" />
     <PackageReference Include="Ben.Demystifier" />
     <PackageReference Include="Nito.AsyncEx" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" />
   </ItemGroup>
 
   <ItemGroup>

@@ -88,5 +88,8 @@
     <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
     <PackageReference Update="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
     <PackageReference Update="Nito.AsyncEx" Version="5.1.0" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.AzureKeyVault" Version="3.1.19" />
+    <PackageReference Update="Hangfire.AspNetCore" Version="1.8.0-beta3" />
+    <PackageReference Update="Hangfire.SqlServer" Version="1.8.0-beta3" />
   </ItemGroup>
 </Project>

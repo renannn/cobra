@@ -1,3 +1,4 @@
+using Cobra.Common.DependencyInjection;
 using Cobra.Entities.Administration;
 using Cobra.SharedKernel.Interfaces;
 using Microsoft.AspNetCore.DataProtection.Repositories;

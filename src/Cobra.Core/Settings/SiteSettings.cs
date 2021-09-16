@@ -6,6 +6,7 @@ namespace Cobra.Core.Settings
 {
     public class SiteSettings
     {
+        public HangfireDashboard HangfireDashboard { get; set; }
         public Security Security { get; set; }
         public AdminUserSeed AdminUserSeed { get; set; }
         public Logging Logging { get; set; }

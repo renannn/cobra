@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Cobra.Admin
+namespace Cobra.Admin.Startup
 {
     public class Program
     {
@@ -40,6 +40,12 @@ namespace Cobra.Admin
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder
+                        .UseKestrel(opt =>
+                        {
+                            opt.AddServerHeader = false;
+                            opt.Limits.MaxRequestLineSize = 16 * 1024;
+                        })
+                        .UseIIS()
                         .UseIISIntegration()
                         .SetupSerilog()
                         .UseStartup<Startup>();
