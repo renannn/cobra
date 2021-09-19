@@ -6,7 +6,7 @@ using System;
 namespace Cobra.Admin.Areas.Admin.Pages.User;
 
 [Area(AreaConstants.IdentityArea)]
-[Authorize]
+[Authorize(Roles = "Admin")]
 public class ItemModel : PageModel
 {
     [BindProperty(SupportsGet = true)]

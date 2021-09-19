@@ -6,28 +6,14 @@
 
 <partial name="_SearchUsers" model="new SearchUsersViewModel()" />
 
-@if (Model.Users.Any())
+@if (Model!= null && Model.Users.Any())
 {
 	foreach (var user in Model.Users)
 	{
-		<div id="usercard-@user.Id">
-			<div class="card mt-5">
-				<div class="card-body">
-					<div>
-						<div class="row">
-							<div class="col-md-12">
-								<h2>
-									<a asp-page="Item" asp-page-handler="Editar" asp-route-id="@user.Id">@user.DisplayName()</a>
-								</h2>
-							</div>
-						</div>
-						<div>
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		 <div id="usercard-@user.Id">
+            <partial name="_UserCardItem"
+                     model="new UserCardItemViewModel { User = user, ShowAdminParts = true, Roles = Model.Roles, ActiveTab = UserCardItemActiveTab.UserInfo }" />
+        </div>
 	}
 }
 else

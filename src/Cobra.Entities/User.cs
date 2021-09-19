@@ -46,6 +46,7 @@ namespace Cobra.Entities.Administration
         public BlockedState BlockedState { get; set; }
         public DateTime? LastVisitDateTime { get; set; }
 
+        public bool IsActive { get; set; }
         public bool IsCustomer { get; set; }
 
         #region IHasPhone

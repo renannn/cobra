@@ -11,9 +11,9 @@ namespace Cobra.Models.Identity
             Paging = new PaginationSettings();
         }
 
-        public List<User> Users { get; set; }
+        public List<User> Users { get; set; } = new();
 
-        public List<Role> Roles { get; set; }
+        public List<Role> Roles { get; set; } = new();
 
         public PaginationSettings Paging { get; set; }
     }

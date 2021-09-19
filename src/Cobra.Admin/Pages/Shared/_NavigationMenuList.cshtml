@@ -28,16 +28,7 @@
 	</li>
 
 	@{
-		var rolesItem = cacheRegras.GetCache("roles-item");
-		if (rolesItem == null)
-		{
-			rolesItem = applicationRoleManager.Roles.ToList();
-			cacheRegras.SetCache(new SharedKernel.CacheRequest<List<Role>>
-			{
-				key = "roles-item",
-				value = rolesItem
-			});
-		}
+		var rolesItem = applicationRoleManager.Roles.ToList();	
 	}
 
 	@foreach (var item in rolesItem)
