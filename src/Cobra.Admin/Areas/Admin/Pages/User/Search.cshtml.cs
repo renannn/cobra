@@ -69,7 +69,7 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
     [AjaxOnly]
@@ -87,7 +87,7 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
     [AjaxOnly]
@@ -105,7 +105,7 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
     [AjaxOnly]
@@ -123,7 +123,7 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
     [AjaxOnly]
@@ -141,7 +141,7 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
     [AjaxOnly]
@@ -155,10 +155,10 @@ public class SearchModel : PageModel
             return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
         }
 
-        return await returnUserCardPartialView(thisUser);
+        return await ReturnUserCardPartialView(thisUser);
     }
 
-    private async Task<IActionResult> returnUserCardPartialView(Entities.Administration.User thisUser)
+    private async Task<IActionResult> ReturnUserCardPartialView(Entities.Administration.User thisUser)
     {
         var roles = await _roleManager.GetAllCustomRolesAsync();
         return Partial("~/Areas/Admin/Pages/User/_UserCardItem.cshtml",

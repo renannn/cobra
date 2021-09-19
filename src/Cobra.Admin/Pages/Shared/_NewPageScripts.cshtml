@@ -1,43 +1,43 @@
 ﻿ <!-- Older IE warning message -->
-    <!--[if lt IE 10]>
+<!--[if lt IE 10]>
 <div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="~/assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="~/assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="~/assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="~/assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="~/assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
+	<h1>Warning!!</h1>
+	<p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+	<div class="iew-container">
+		<ul class="iew-download">
+			<li>
+				<a href="http://www.google.com/chrome/">
+					<img src="~/assets/images/browser/chrome.png" alt="Chrome">
+					<div>Chrome</div>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.mozilla.org/en-US/firefox/new/">
+					<img src="~/assets/images/browser/firefox.png" alt="Firefox">
+					<div>Firefox</div>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.opera.com">
+					<img src="~/assets/images/browser/opera.png" alt="Opera">
+					<div>Opera</div>
+				</a>
+			</li>
+			<li>
+				<a href="https://www.apple.com/safari/">
+					<img src="~/assets/images/browser/safari.png" alt="Safari">
+					<div>Safari</div>
+				</a>
+			</li>
+			<li>
+				<a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+					<img src="~/assets/images/browser/ie.png" alt="">
+					<div>IE (9 & above)</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<p>Sorry for the inconvenience!</p>
 </div>
 <![endif]-->
 <!-- Warning Section Ends -->
@@ -58,36 +58,36 @@
 
 @if (Convert.ToBoolean(ViewData["tagsinput"]))
 {
-    <!-- Tags js -->
-    <script type="text/javascript" src="~/Dep/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+	<!-- Tags js -->
+	<script type="text/javascript" src="~/Dep/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 }
 
 @if (Convert.ToBoolean(ViewData["bootstrap-maxlength"]))
 {
-    <!-- Max-length js -->
-    <script type="text/javascript" src="~/Dep/bootstrap-maxlength/js/bootstrap-maxlength.js"></script>
+	<!-- Max-length js -->
+	<script type="text/javascript" src="~/Dep/bootstrap-maxlength/js/bootstrap-maxlength.js"></script>
 }
 
 <!-- Custom js -->
 @if (Convert.ToBoolean(ViewData["swithces"]))
 {
-    <script type="text/javascript" src="~/assets/pages/advance-elements/swithces.js"></script>
+	<script type="text/javascript" src="~/assets/pages/advance-elements/swithces.js"></script>
 }
 
 @if (Convert.ToBoolean(ViewData["select2"]))
 {
-    <!-- Select 2 js -->
-    <script type="text/javascript" src="~/Dep/select2/js/select2.full.min.js"></script>
+	<!-- Select 2 js -->
+	<script type="text/javascript" src="~/Dep/select2/js/select2.full.min.js"></script>
 }
 
-    <script type="text/javascript" src="~/Dep/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+<script type="text/javascript" src="~/Dep/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
 
 
 @if (Convert.ToBoolean(ViewData["bootstrap-multiselect"]))
 {
-    <!-- Multiselect js -->
-    <script type="text/javascript" src="~/assets/js/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+	<!-- Multiselect js -->
+	<script type="text/javascript" src="~/assets/js/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
 }
 
 <script type="text/javascript" src="~/assets/js/jquery.quicksearch.js"></script>
@@ -102,7 +102,7 @@
 <script type="text/javascript" src="~/assets/pages/form-validation/form-validation.js"></script>
 
 <script type="text/javascript" src="~/assets/pages/j-pro/js/custom/subscrbe-form.js"></script>
- 
+
 <script type="text/javascript" src="~/assets/js/modal.js"></script>
 
 <script src="~/assets/js/classie.js"></script>
@@ -114,7 +114,18 @@
 <script type="text/javascript" src="~/assets/js/script.js"></script>
 
 <script type="text/javascript">
-    function dataAjaxBegin(){
 
-    }
+	function dataAjaxBegin() {
+		alert('dataAjaxBegin')
+		return true;
+	}
+
+	function dataAjaxSuccess() {
+		alert('dataAjaxSuccess')
+	}
+
+	function dataAjaxFailure(n) {
+		alert('dataAjaxFailure')
+	}
+
 </script>

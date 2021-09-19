@@ -6,40 +6,54 @@
 	var userPartIsActive = Model.ActiveTab == UserCardItemActiveTab.UserInfo ? "active" : "";
 }
 
-<div class="card mt-5">
-	<div class="card-body">
-		<div>
-			<div class="row">
-				<div class="col-md-12">
-					<h2>
-						<a asp-page="Item" asp-page-handler="Editar" asp-route-id="@user.Id">@user.DisplayName()</a>
-					</h2>
-				</div>
-			</div>
-			<div>
-				<ul class="nav nav-tabs mt-5" id="ucTab" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link @userPartIsActive" href="#info-@user.Id" aria-controls="info-@user.Id" role="tab" data-toggle="tab">Especificações</a>
-					</li>
-					@if (Model.ShowAdminParts)
-					{
-						<li class="nav-item">
-							<a class="nav-link @adminPartIsActive" href="#admin-@user.Id" aria-controls="admin-@user.Id" role="tab" data-toggle="tab">Gerenciamento de Usuários</a>
-						</li>
-					}
-				</ul>
-				<div class="tab-content" id="ucTabContent">
-					<div role="tabpanel" class="tab-pane @userPartIsActive" id="info-@user.Id">
-						<partial name="_UserInfoPart" model="Model" />
-					</div>
-					@if (Model.ShowAdminParts)
-					{
-						<div role="tabpanel" class="tab-pane @adminPartIsActive" id="admin-@user.Id">
-							<partial name="_UserAdminPart" model="Model" />
-						</div>
-					}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<tr id="usercard-@user.Id">
+	<th scope="row">
+		@user.UserName
+	</th>
+	<td>
+		 
+	</td>
+	<td>@user.DisplayName()</td>
+	<td>
+		@if (user.IsEmailPublic)
+		{
+			@user.Email
+		}
+	</td>
+	<td class="text-center">
+		@if (user.IsActive)
+		{
+			<span class="badge badge-success badge-pill text-white">Ativado</span>
+		}
+		else
+		{
+			<span class="badge badge-warning badge-pill text-white">Desactivado</span>
+		}
+	</td>
+	<td class="text-center">
+		@if (user.EmailConfirmed)
+		{
+			<span class="badge badge-success badge-pill text-white">Confirmado</span>
+		}
+		else
+		{
+			<span class="badge badge-warning badge-pill text-white">Não confirmado</span>
+		}
+	</td>
+	<td class="text-center">
+		@if (user.LockoutEnabled)
+		{
+			<span class="badge badge-warning badge-pill text-white">Conta bloqueada</span>
+		}
+		else
+		{
+			<span class="badge badge-success badge-pill text-white">Conta não bloqueada</span>
+		}
+	</td>
+	<td>
+		@if (user.LastVisitDateTime != null)
+		{
+			@user.LastVisitDateTime.Value
+		}
+	</td>
+</tr>

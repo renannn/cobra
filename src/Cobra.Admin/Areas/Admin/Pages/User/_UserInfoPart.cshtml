@@ -18,11 +18,11 @@
 		<div class="col-md-6">
 			<ul class="list-unstyled">
 				<li>
-					<span aria-hidden="true" class="ti-user"></span>
+					<span aria-hidden="true" class="ti-id-badge"></span>
 					<strong>Código de usuário:</strong> @user.Id
 				</li>
 				<li>
-					<span aria-hidden="true" class="fas fa-clock"></span>
+					<span aria-hidden="true" class="ti-time"></span>
 					<strong>Data de cadastro:</strong><span>
 						<abbr title="@user.CreatedDateTime.Value">
 							@user.CreatedDateTime.Value
@@ -33,8 +33,8 @@
 				@if (user.IsEmailPublic)
 				{
 					<li>
-						<span aria-hidden="true" class="fas fa-envelope"></span>
-						<img src="@Url.Action(action: "EmailToImage", controller:"UserCard", values: new { id = user.Id })"
+						<span aria-hidden="true" class="ti-email"></span>
+						<img src="#"
 						 asp-append-version="true"
 						 alt="@user.DisplayName Email" />
 					</li>
@@ -45,7 +45,7 @@
 				@if (user.LastVisitDateTime != null)
 				{
 					<li>
-						<span aria-hidden="true" class="fas fa-calendar-check"></span>
+						<span aria-hidden="true" class="ti-calendar"></span>
 						<strong>Última visita:</strong>
 						@user.LastVisitDateTime.Value
 					</li>
@@ -58,7 +58,7 @@
 				@if (user.BirthDate.HasValue)
 				{
 					<li>
-						<span aria-hidden="true" class="fas fa-calendar"></span>
+						<span aria-hidden="true" class="ti-calendar"></span>
 						<strong>Idade:</strong>
 						<abbr title="@user.BirthDate.Value.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture), @user.BirthDate.Value">
 							@user.BirthDate.Value.GetAge()

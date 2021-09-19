@@ -2,14 +2,16 @@
 @model Cobra.Admin.Areas.Admin.Pages.User.SearchModel
 
 @{
-    ViewData["Title"] = "Gerenciamento de Usuários";
+	ViewData["Title"] = "Gerenciamento de Usuários";
 }
 
 <h2>
-    @ViewData["Title"]
-    <a class="btn btn-success btn-sm" asp-page="Item" asp-page-handler="Cadastro">Adicione um novo usuário</a>
+	@ViewData["Title"]
+	<a class="btn btn-success btn-sm" asp-page="Item" asp-page-handler="Cadastro">Adicione um novo usuário</a>
 </h2>
 
+<partial name="_SearchUsers" model="new SearchUsersViewModel()" />
+
 <div id="gridcontainer" class="mt-5">
-    <partial name="_UsersList" model="Model.PModel" />
+	<partial name="_UsersList" model="Model.PModel" />
 </div>

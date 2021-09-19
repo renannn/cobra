@@ -1,20 +1,50 @@
 ﻿@model PagedUsersListViewModel
 
-@{
-	ViewData["Title"] = "Gerenciamento de Usuários";
-}
-
-<partial name="_SearchUsers" model="new SearchUsersViewModel()" />
-
-@if (Model!= null && Model.Users.Any())
+@if (Model != null && Model.Users.Any())
 {
-	foreach (var user in Model.Users)
-	{
-		 <div id="usercard-@user.Id">
-            <partial name="_UserCardItem"
-                     model="new UserCardItemViewModel { User = user, ShowAdminParts = true, Roles = Model.Roles, ActiveTab = UserCardItemActiveTab.UserInfo }" />
-        </div>
-	}
+	<div class="card">
+		<div class="card-header">
+			<h5>Basic Table</h5>
+			<span>use class <code>table</code> inside table element</span>
+		</div>
+		<div class="card-block table-border-style">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							Nome de usuário
+						</th>
+						<th>
+						</th>
+						<th>
+							Nome completo
+						</th>
+						<th>
+							Email
+						</th>
+						<th class="text-center">
+							Status do usuário
+						</th>
+						<th class="text-center">
+							Status de email
+						</th>
+						<th class="text-center">
+							Status de lockdown
+						</th>
+						<th>
+							Última visita
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var user in Model.Users)
+					{
+						<partial name="_UserCardItem" model="new UserCardItemViewModel { User = user, ShowAdminParts = true, Roles = Model.Roles, ActiveTab = UserCardItemActiveTab.UserInfo }" />
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 }
 else
 {
