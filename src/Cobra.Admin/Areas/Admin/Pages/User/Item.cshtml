@@ -1,4 +1,79 @@
 ﻿@page "{handler?}/{id:Guid?}"
 @model Cobra.Admin.Areas.Admin.Pages.User.ItemModel
 @{
+	ViewData["Title"] = "Configurações do usuário";
+	var changePasswordUrl = Url.Page("ChangePassword");
 }
+
+
+<div class="card mt-5">
+	<div class="card-header">
+		<h5 class="card-title">@ViewData["Title"]</h5>
+	</div>
+	<div class="card-body">
+		@if (Model.PModel.IsPasswordTooOld)
+		{
+			<div class="alert alert-warning" role="alert">
+				<a href="#" class="close" data-dismiss="alert">×</a>
+				Sua senha é muito antiga. Por favor, para substituí-lo. <a href="@changePasswordUrl">Clique Aqui</a>.
+			</div>
+		}
+		<form method="post"
+			  enctype="multipart/form-data">
+			<partial name="_CustomValidationSummary" />
+
+
+			<div class="form-group form-default form-static-label">
+				<input class="form-control" asp-for="PModel.UserName">
+				<span class="form-bar"></span>
+				<label class="float-label" asp-for="PModel.UserName"></label>
+				<span asp-validation-for="PModel.UserName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group form-default form-static-label">
+				<input class="form-control" asp-for="PModel.FirstName">
+				<span class="form-bar"></span>
+				<label class="float-label" asp-for="PModel.FirstName"></label>
+				<span asp-validation-for="PModel.FirstName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group form-default form-static-label">
+				<input class="form-control" asp-for="PModel.LastName">
+				<span class="form-bar"></span>
+				<label class="float-label" asp-for="PModel.LastName"></label>
+				<span asp-validation-for="PModel.LastName" class="text-danger"></span>
+			</div>
+
+			<div class="form-group form-default form-static-label">
+				<input class="form-control" asp-for="PModel.Email">
+				<span class="form-bar"></span>
+				<label class="float-label" asp-for="PModel.Email"></label>
+				<span asp-validation-for="PModel.Email" class="text-danger"></span>
+			</div>
+
+			<div class="form-group form-default">
+				<div class="checkbox-zoom zoom-info">
+					<label>
+						<input type="checkbox" asp-for="PModel.IsEmailPublic">
+						<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+						<label asp-for="PModel.IsEmailPublic"></label>
+					</label>
+				</div>
+			</div>
+			
+			<div class="form-group form-default">
+				<div class="checkbox-zoom zoom-info">
+					<label>
+						<input type="checkbox" asp-for="PModel.TwoFactorEnabled">
+						<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+						<label asp-for="PModel.TwoFactorEnabled"></label>
+					</label>
+				</div>
+			</div>
+
+
+
+
+		</form>
+	</div>
+</div>

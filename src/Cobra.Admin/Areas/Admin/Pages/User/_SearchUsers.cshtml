@@ -13,96 +13,119 @@
 						</div>
 						<div class="card-block">
 							<div class="view-info">
-								<form 
-									  method="post"
+								<form method="post"
 									  data-ajax="true"
 									  data-ajax-failure="dataAjaxFailure"
 									  data-ajax-update="gridcontainer"
-									  class="mt-5">
+									  class="form-material">
+
 									<partial name="_CustomValidationSummary" />
-									<div class="form-group row">
-										<label asp-for="TextToFind" class="col-md-2 col-form-label"></label>
-										<div class="col-md-10">
-											<input asp-for="TextToFind" class="form-control" />
-											<span class="optional-label">(Opcional)</span>
-										</div>
+
+									<div class="form-group form-default form-static-label">
+										<input class="form-control" asp-for="TextToFind" placeholder="(Opcional)">
+										<span class="form-bar"></span>
+										<label class="float-label" asp-for="TextToFind"></label>
 									</div>
-									<div class="form-group row">
-										<label asp-for="MaxNumberOfRows" class="col-md-2 col-form-label"></label>
-										<div class="col-md-10">
-											<input asp-for="MaxNumberOfRows" class="form-control" />
-											<span asp-validation-for="MaxNumberOfRows" class="text-danger"></span>
-										</div>
+
+									<div class="form-group form-default form-static-label">
+										<input class="form-control" asp-for="MaxNumberOfRows">
+										<span class="form-bar"></span>
+										<label class="float-label" asp-for="MaxNumberOfRows"></label>
+										<span asp-validation-for="MaxNumberOfRows" class="text-danger"></span>
 									</div>
+
 									<div class="form-group row">
-										<div class="col-md-2"></div>
 										<div class="col-md-10">
 											<h5>Pesquisar</h5>
 											<hr />
-											<div>
-												<div class="form-check">
-													<input asp-for="IsPartOfEmail" />
-													<label asp-for="IsPartOfEmail"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="IsPartOfEmail">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="IsPartOfEmail"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="IsUserId" />
-													<label asp-for="IsUserId"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="IsUserId">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="IsUserId"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="IsPartOfName" />
-													<label asp-for="IsPartOfName"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="IsPartOfName">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="IsPartOfName"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="IsPartOfLastName" />
-													<label asp-for="IsPartOfLastName"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="IsPartOfLastName">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="IsPartOfLastName"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="IsPartOfUserName" />
-													<label asp-for="IsPartOfUserName"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="IsPartOfUserName">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="IsPartOfUserName"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="IsPartOfLocation" />
-													<label asp-for="IsPartOfLocation"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="HasEmailConfirmed">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="HasEmailConfirmed"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="HasEmailConfirmed" />
-													<label asp-for="HasEmailConfirmed"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="UserIsActive">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="UserIsActive"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="UserIsActive" />
-													<label asp-for="UserIsActive"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="ShowAllUsers">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="ShowAllUsers"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="ShowAllUsers" />
-													<label asp-for="ShowAllUsers"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="UserIsLockedOut">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="UserIsLockedOut"></label>
+													</label>
 												</div>
 											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="UserIsLockedOut" />
-													<label asp-for="UserIsLockedOut"></label>
-												</div>
-											</div>
-											<div>
-												<div class="form-check">
-													<input asp-for="HasTwoFactorEnabled" />
-													<label asp-for="HasTwoFactorEnabled"></label>
+											<div class="form-group form-default">
+												<div class="checkbox-zoom zoom-info">
+													<label>
+														<input type="checkbox" asp-for="HasTwoFactorEnabled">
+														<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+														<label asp-for="HasTwoFactorEnabled"></label>
+													</label>
 												</div>
 											</div>
 										</div>

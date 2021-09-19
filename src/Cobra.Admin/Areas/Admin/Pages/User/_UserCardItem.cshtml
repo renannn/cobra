@@ -8,10 +8,12 @@
 
 <tr id="usercard-@user.Id">
 	<th scope="row">
-		@user.UserName
+
+		<abbr title="@user.Id">
+			@user.UserName
+		</abbr>
 	</th>
 	<td>
-		 
 	</td>
 	<td>@user.DisplayName()</td>
 	<td>
@@ -51,9 +53,19 @@
 		}
 	</td>
 	<td>
+		@if (@user.CreatedDateTime.HasValue)
+		{
+			<abbr title="@user.CreatedDateTime.Value">
+				@user.CreatedDateTime.Value
+			</abbr>
+		}
+	</td>
+	<td>
 		@if (user.LastVisitDateTime != null)
 		{
-			@user.LastVisitDateTime.Value
+			<abbr title="@user.LastVisitDateTime.Value">
+				@user.LastVisitDateTime.Value
+			</abbr>
 		}
 	</td>
 </tr>

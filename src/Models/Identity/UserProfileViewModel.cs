@@ -11,9 +11,6 @@ namespace Cobra.Models.Identity
 
         [Required(ErrorMessage = "(*)")]
         [Display(Name = "Nome do usuário")]
-        [Remote("ValidateUsername", "UserProfile",
-            AdditionalFields = nameof(Email) + "," + ViewModelConstants.AntiForgeryToken + "," + nameof(Pid),
-            HttpMethod = "POST")]
         public string UserName { get; set; }
 
         [Display(Name = "Nome")]
@@ -27,9 +24,6 @@ namespace Cobra.Models.Identity
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "(*)")]
-        [Remote("ValidateUsername", "UserProfile",
-            AdditionalFields = nameof(UserName) + "," + ViewModelConstants.AntiForgeryToken + "," + nameof(Pid),
-            HttpMethod = "POST")]
         [EmailAddress(ErrorMessage = "Por favor insira um endereço de e-mail válido.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -38,8 +32,7 @@ namespace Cobra.Models.Identity
         [StringLength(maximumLength: 1000, ErrorMessage = "O comprimento máximo do endereço da imagem é de 1000 caracteres.")]
         public string PhotoFileName { set; get; }
 
-        [UploadFileExtensions(AllowedImages,
-            ErrorMessage = "Por favor, apenas uma imagem do formato " + AllowedImages + "pode ser enviada.")]
+        [UploadFileExtensions(AllowedImages, ErrorMessage = "Por favor, apenas uma imagem do formato " + AllowedImages + "pode ser enviada.")]
         [DataType(DataType.Upload)]
         public IFormFile Photo { get; set; }
 

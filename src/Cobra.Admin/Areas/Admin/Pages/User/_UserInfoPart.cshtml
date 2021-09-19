@@ -39,9 +39,7 @@
 						 alt="@user.DisplayName Email" />
 					</li>
 				}
-
-
-
+				 
 				@if (user.LastVisitDateTime != null)
 				{
 					<li>
@@ -60,7 +58,7 @@
 					<li>
 						<span aria-hidden="true" class="ti-calendar"></span>
 						<strong>Idade:</strong>
-						<abbr title="@user.BirthDate.Value.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture), @user.BirthDate.Value">
+						<abbr title="@user.BirthDate.Value.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), @user.BirthDate.Value">
 							@user.BirthDate.Value.GetAge()
 						</abbr>
 					</li>

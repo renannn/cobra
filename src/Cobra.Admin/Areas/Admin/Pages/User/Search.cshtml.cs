@@ -25,6 +25,7 @@ public class SearchModel : PageModel
         _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
     }
 
+    [BindProperty]
     public PagedUsersListViewModel PModel { get; set; }
 
     public async Task OnGetAsync(int? page = 1, string field = "Id", SortOrder order = SortOrder.Ascending)
