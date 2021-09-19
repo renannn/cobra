@@ -63,5 +63,22 @@ namespace Cobra.Infrastructure.Data
                     throw new NotSupportedException("Please set the ActiveDatabase in appsettings.json file to `LocalDb` or `SqlServer`.");
             }
         }
+
+        public static string GetHangfireDashboardConnectionString(this SiteSettings siteSettingsValue)
+        {
+            if (siteSettingsValue == null)
+            {
+                throw new ArgumentNullException(nameof(siteSettingsValue));
+            }
+
+            switch (siteSettingsValue.HangfireDashboard.ActiveDatabase)
+            {
+                case ActiveDatabase.SqlServer:
+                    return siteSettingsValue.ConnectionStrings.SqlServer.HangfireDashboardDbContextConnection;
+
+                default:
+                    throw new NotSupportedException("Please set the ActiveDatabase in appsettings.json file to `LocalDb` or `SqlServer`.");
+            }
+        }
     }
 }

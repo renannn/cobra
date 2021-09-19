@@ -16,8 +16,9 @@ namespace Cobra.Infrastructure.Setup
     public static class CustomDataProtectionExtensions
     {
         public static IServiceCollection AddCustomDataProtection(
-            this IServiceCollection services, SiteSettings siteSettings)
+            this IServiceCollection services)
         {
+            SiteSettings siteSettings = services.GetSiteSettings();
             services.AddSingleton<IXmlRepository, DataProtectionKeyService>();
             services.AddSingleton<IConfigureOptions<KeyManagementOptions>>(serviceProvider =>
             {

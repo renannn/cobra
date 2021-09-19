@@ -9,10 +9,10 @@ namespace Cobra.Infrastructure.Setup
     {
         public static IServiceCollection AddDbContextPrincipal(this IServiceCollection services)
         {
-            var settings = services.GetSiteSettings();
+            var siteSettings = services.GetSiteSettings();
             return services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(settings.GetMsSqlDbConnectionString(), sqlServerOptionsBuilder =>
+                options.UseSqlServer(siteSettings.GetMsSqlDbConnectionString(), sqlServerOptionsBuilder =>
                 {
                     sqlServerOptionsBuilder.CommandTimeout((int)TimeSpan.FromMinutes(3).TotalSeconds);
                     sqlServerOptionsBuilder.EnableRetryOnFailure();

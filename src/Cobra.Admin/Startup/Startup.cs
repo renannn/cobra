@@ -47,23 +47,9 @@ namespace Cobra.Admin.Startup
                     .AddCommonWeb()
                     .AddMediatR(typeof(Startup))
                     .AddCustomRazorPages()
-                    .AddFeatureManagement();
-
-            if (bool.Parse(_appConfiguration["KestrelServer:IsEnabled"]))
-            {
-                ConfigureKestrel(services);
-            }
-            
-            if (bool.Parse(_appConfiguration["KestrelServer:IsEnabled"]))
-            {
-                //Hangfire(Enable to use Hangfire instead of default job manager)
-                services.AddHangfire(config =>
-                {
-                    config.UseSqlServerStorage(_appConfiguration.GetConnectionString("Default"));
-                });
-            }
-
-        }
+                    .ConfigureKestrel()
+                    .ConfigureHangfire()
+                    .AddFeatureManagement();        }
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
@@ -91,6 +77,7 @@ namespace Cobra.Admin.Startup
                .UseStaticFiles()
                .UseContentSecurityPolicy()
                .UseRouting()
+               .ConfigureHangFireDashboard(_appConfiguration)
                .UseAuthentication()
                .UseAuthorization()
                .UseNoBrowserCache()
@@ -98,36 +85,6 @@ namespace Cobra.Admin.Startup
                {
                    endpoints.MapRazorPages();
                });
-
-            if (bool.Parse(_appConfiguration["HangfireDashboard:IsEnabled"]))
-            {
-                //Hangfire dashboard &server(Enable to use Hangfire instead of default job manager)
-                app.UseHangfireDashboard("/hangfire", new DashboardOptions
-                {
-                    Authorization = new[]
-                        {new AuthorizationFilter("Admin")}
-                });
-                app.UseHangfireServer();
-            }
-        }
-
-        private void ConfigureKestrel(IServiceCollection services)
-        {
-            services.Configure<Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions>(options =>
-            {
-                options.Listen(new System.Net.IPEndPoint(System.Net.IPAddress.Any, 443),
-                    listenOptions =>
-                    {
-                        var certPassword = _appConfiguration.GetValue<string>("Kestrel:Certificates:Default:Password");
-                        var certPath = _appConfiguration.GetValue<string>("Kestrel:Certificates:Default:Path");
-                        var cert = new System.Security.Cryptography.X509Certificates.X509Certificate2(certPath,
-                            certPassword);
-                        listenOptions.UseHttps(new HttpsConnectionAdapterOptions()
-                        {
-                            ServerCertificate = cert
-                        });
-                    });
-            });
         }
     }
 }

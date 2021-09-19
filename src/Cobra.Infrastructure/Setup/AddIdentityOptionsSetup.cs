@@ -16,10 +16,9 @@ namespace Cobra.Infrastructure.Setup
         public const string EmailConfirmationTokenProviderName = "ConfirmEmail";
 
         public static IServiceCollection AddIdentityOptions(
-            this IServiceCollection services, SiteSettings siteSettings)
+            this IServiceCollection services)
         {
-            if (siteSettings == null) throw new ArgumentNullException(nameof(siteSettings));
-
+            var siteSettings = services.GetSiteSettings();
             services.addConfirmEmailDataProtectorTokenOptions(siteSettings);
             services.AddIdentity<User, Role>(identityOptions =>
             {

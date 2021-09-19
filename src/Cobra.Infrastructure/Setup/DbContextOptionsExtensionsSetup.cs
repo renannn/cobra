@@ -10,33 +10,35 @@ namespace Cobra.Infrastructure.Setup
 {
     public static class DbContextOptionsExtensionsSetup
     {
-        public static IServiceCollection AddConfiguredDbContext(this IServiceCollection serviceCollection, SiteSettings siteSettings)
+        public static IServiceCollection AddConfiguredDbContext(this IServiceCollection services)
         {
+            var siteSettings = services.GetSiteSettings();
             switch (siteSettings.ActiveDatabase)
             {
                 case ActiveDatabase.SqlServer:
-                    serviceCollection.AddConfiguredMsSqlDbContext(siteSettings);
+                    services.AddConfiguredMsSqlDbContext(siteSettings);
                     break;
 
                 default:
                     throw new NotSupportedException("Please set the ActiveDatabase in appsettings.json file.");
             }
 
-            return serviceCollection;
+            return services;
         }
 
-        public static IServiceCollection AddHangFireDashboard(this IServiceCollection serviceCollection, SiteSettings siteSettings)
+        public static IServiceCollection AddHangFireDashboard(this IServiceCollection services)
         {
+            var siteSettings = services.GetSiteSettings();
             if (siteSettings.HangfireDashboard.IsEnabled)
             {
                 //Hangfire(Enable to use Hangfire instead of default job manager)
-                serviceCollection.AddHangfire(config =>
+                services.AddHangfire(config =>
                 {
                     config.UseSqlServerStorage(siteSettings.GetMsSqlDbConnectionString());
                 });
             }
 
-            return serviceCollection;
+            return services;
         }
 
         /// <summary>

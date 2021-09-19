@@ -32,5 +32,6 @@ namespace Cobra.Core.Settings
         public string DiretorioArquivo { get; set; }
         public string SiteUrl { get; set; }
         public string ApiUri { get; set; }
+        public KestelServer Kestrel {  get; set; }
     }
 }

@@ -1,9 +1,7 @@
-﻿using Cobra.Core.Settings;
-using Cobra.Infrastructure.Services.Identity;
+﻿using Cobra.Infrastructure.Services.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Text;
@@ -18,14 +16,12 @@ namespace Cobra.Infrastructure.Setup
         /// </summary>
         public static IServiceCollection AddCustomIdentityServices(this IServiceCollection services)
         {
-            var siteSettings = GetSiteSettings(services);
-            services.AddIdentityOptions(siteSettings);
-            services.AddConfiguredDbContext(siteSettings);
-            services.AddCustomTicketStore(siteSettings);
-            services.AddDynamicPermissions();
-            services.AddHangFireDashboard(siteSettings);
-            services.AddCustomDataProtection(siteSettings);
-            return services;
+            return services.AddIdentityOptions()
+             .AddConfiguredDbContext()
+             .AddCustomTicketStore()
+             .AddDynamicPermissions()
+             .AddHangFireDashboard()
+             .AddCustomDataProtection();
         }
 
         /// <summary>
@@ -33,7 +29,7 @@ namespace Cobra.Infrastructure.Setup
         /// </summary>
         public static IServiceCollection AddCustomIdentityWebApiServices(this IServiceCollection services)
         {
-            var siteSettings = GetSiteSettings(services);
+            var siteSettings = services.GetSiteSettings();
             services.AddCustomIdentityServices()
                     .AddAuthentication(x =>
                     {
@@ -85,15 +81,6 @@ namespace Cobra.Infrastructure.Setup
                          };
                      });
             return services;
-        }
-
-        public static SiteSettings GetSiteSettings(this IServiceCollection services)
-        {
-            var provider = services.BuildServiceProvider();
-            var siteSettingsOptions = provider.GetRequiredService<IOptionsSnapshot<SiteSettings>>();
-            var siteSettings = siteSettingsOptions.Value;
-            if (siteSettings == null) throw new ArgumentNullException(nameof(siteSettings));
-            return siteSettings;
         }
     }
 }

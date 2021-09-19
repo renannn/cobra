@@ -14,15 +14,15 @@ namespace Cobra.Infrastructure.Hangfire
 
         public bool Authorize(DashboardContext context)
         {
-            if (!IsLoggedIn(context))
-            {
-                return false;
-            }
+            //if (!IsLoggedIn(context))
+            //{
+            //    return false;
+            //}
 
-            if (!_requiredPermissionName.IsNullOrEmpty() && !IsPermissionGranted(context, _requiredPermissionName))
-            {
-                return false;
-            }
+            //if (!_requiredPermissionName.IsNullOrEmpty() && !IsPermissionGranted(context, _requiredPermissionName))
+            //{
+            //    return false;
+            //}
 
             return true;
         }

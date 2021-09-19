@@ -10,8 +10,9 @@ namespace Cobra.Infrastructure.Setup
     public static class CustomTicketStoreSetup
     {
         public static IServiceCollection AddCustomTicketStore(
-            this IServiceCollection services, SiteSettings siteSettings)
+            this IServiceCollection services)
         {
+            SiteSettings siteSettings = services.GetSiteSettings();
             // To manage large identity cookies
             var cookieOptions = siteSettings.CookieOptions;
             if (!cookieOptions.UseDistributedCacheTicketStore)
