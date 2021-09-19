@@ -12,7 +12,12 @@ public class ItemModel : PageModel
     [BindProperty(SupportsGet = true)]
     public Guid? Id { get; set; }
 
-    public IActionResult OnGet()
+    public IActionResult OnGetCadastro()
+    {
+        return Page();
+    }
+
+    public IActionResult OnGetEditar()
     {
         if (Id.HasValue)
         {

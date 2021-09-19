@@ -41,7 +41,6 @@ namespace Cobra.Infrastructure.Setup
                 app.UseHangfireServer();
             }
 
-
             return app;
         }
     }

@@ -1,4 +1,4 @@
-﻿    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+﻿<!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 10]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -34,13 +34,18 @@
 <!-- Switch component css -->
 <link rel="stylesheet" type="text/css" href="~/Dep/switchery/switchery.min.css">
 
-<!-- Select 2 css -->
-<link rel="stylesheet" href="~/Dep/select2/css/select2.min.css" />
-<!-- Multi Select css -->
-<link rel="stylesheet" type="text/css" href="~/Dep/bootstrap-multiselect/css/bootstrap-multiselect.css" />
+@if (Convert.ToBoolean(ViewData["select2"]))
+{
+	<!-- Select 2 css -->
+	<link rel="stylesheet" href="~/Dep/select2/css/select2.min.css" />
+}
 
-<!-- Tags css -->
-<link rel="stylesheet" type="text/css" href="~/Dep/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+@if (Convert.ToBoolean(ViewData["tagsinput"]))
+{
+	<!-- Tags css -->
+	<link rel="stylesheet" type="text/css" href="~/Dep/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+}
+
 <!-- Style.css -->
 <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
 <link rel="stylesheet" type="text/css" href="~/assets/css/jquery.mCustomScrollbar.css">
