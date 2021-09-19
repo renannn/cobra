@@ -3,68 +3,69 @@
 @model UserCardItemViewModel
 
 @{
-    var user = Model.User;
+	var user = Model.User;
 }
 
 <div class="mt-5">
-   <div class="row">
-        <div class="col-md-4">
-            <img class="img-thumbnail" src="#" alt="@user.DisplayName" asp-append-version="true"
-                     onerror="this.style.visibility = 'hidden';this.width=0; this.height=0;" />
-        </div>
-   </div>
-   <div class="row mt-4">
-      <div class="col-md-6">
-        <ul class="list-unstyled">
-            <li>
-                <span aria-hidden="true" class="ti-user"></span>
-                <strong>Código de usuário:</strong> @user.Id
-            </li>
-            <li>
-                <span aria-hidden="true" class="fas fa-clock"></span>
-                <strong>Data de cadastro:</strong><span>
-                    <abbr title="@user.CreatedDateTime.Value">
-                        @user.CreatedDateTime.Value
-                    </abbr>
-                </span>
-            </li>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="profile-image">
+				<img class="user-img img-radius" style="width:160px;" src="~/Images/User.jpg" alt="@user.DisplayName()" asp-append-version="true" onerror="this.style.visibility = 'hidden';this.width=0; this.height=0;" />
+			</div>
+		</div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-md-6">
+			<ul class="list-unstyled">
+				<li>
+					<span aria-hidden="true" class="ti-user"></span>
+					<strong>Código de usuário:</strong> @user.Id
+				</li>
+				<li>
+					<span aria-hidden="true" class="fas fa-clock"></span>
+					<strong>Data de cadastro:</strong><span>
+						<abbr title="@user.CreatedDateTime.Value">
+							@user.CreatedDateTime.Value
+						</abbr>
+					</span>
+				</li>
 
-            @if (user.IsEmailPublic)
-            {
-                <li>
-                    <span aria-hidden="true" class="fas fa-envelope"></span>
-                    <img src="@Url.Action(action: "EmailToImage", controller:"UserCard", values: new { id = user.Id })"
-                         asp-append-version="true"
-                         alt="@user.DisplayName Email" />
-                </li>
-            }
+				@if (user.IsEmailPublic)
+				{
+					<li>
+						<span aria-hidden="true" class="fas fa-envelope"></span>
+						<img src="@Url.Action(action: "EmailToImage", controller:"UserCard", values: new { id = user.Id })"
+						 asp-append-version="true"
+						 alt="@user.DisplayName Email" />
+					</li>
+				}
 
-           
 
-            @if (user.LastVisitDateTime != null)
-            {
-                <li>
-                    <span aria-hidden="true" class="fas fa-calendar-check"></span>
-                    <strong>Última visita:</strong>
-                    @user.LastVisitDateTime.Value
-                </li>
-            }
-        </ul>
 
-    </div>
-    <div class="col-md-6">
-        <ul class="list-unstyled">
-            @if (user.BirthDate.HasValue)
-            {
-                <li>
-                    <span aria-hidden="true" class="fas fa-calendar"></span>
-                    <strong>Idade:</strong>
-                    <abbr title="@user.BirthDate.Value.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture), @user.BirthDate.Value">
-                        @user.BirthDate.Value.GetAge()
-                    </abbr>
-                </li>
-            }
-        </ul>
-    </div>
-   </div>
+				@if (user.LastVisitDateTime != null)
+				{
+					<li>
+						<span aria-hidden="true" class="fas fa-calendar-check"></span>
+						<strong>Última visita:</strong>
+						@user.LastVisitDateTime.Value
+					</li>
+				}
+			</ul>
+
+		</div>
+		<div class="col-md-6">
+			<ul class="list-unstyled">
+				@if (user.BirthDate.HasValue)
+				{
+					<li>
+						<span aria-hidden="true" class="fas fa-calendar"></span>
+						<strong>Idade:</strong>
+						<abbr title="@user.BirthDate.Value.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture), @user.BirthDate.Value">
+							@user.BirthDate.Value.GetAge()
+						</abbr>
+					</li>
+				}
+			</ul>
+		</div>
+	</div>
 </div>
