@@ -19,9 +19,9 @@
 			</div>
 		}
 		<form method="post"
-			  enctype="multipart/form-data">
+			  enctype="multipart/form-data"
+			  class="form-material">
 			<partial name="_CustomValidationSummary" />
-
 
 			<div class="form-group form-default form-static-label">
 				<input class="form-control" asp-for="PModel.UserName">
@@ -60,7 +60,7 @@
 					</label>
 				</div>
 			</div>
-			
+
 			<div class="form-group form-default">
 				<div class="checkbox-zoom zoom-info">
 					<label>
@@ -71,8 +71,12 @@
 				</div>
 			</div>
 
-
-
+			<div class="form-group row">
+				<div class=" col col-md-9">
+					<input type="file" asp-for="PModel.Photo" class="form-control" />
+					<span asp-validation-for="PModel.Photo" class="text-danger"></span>
+				</div>
+			</div>
 
 		</form>
 	</div>

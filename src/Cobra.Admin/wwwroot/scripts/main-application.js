@@ -24,15 +24,23 @@ $(function () {
 		});
 	});
 
-	placeholderElement.on('click', '[data-save="modal"]', function (event) {
-		event.preventDefault();
-
+	placeholderElement.on('click', '[data-save="modal"]', function (e) {
+		e.preventDefault();
 		var form = $(this).parents('.modal').find('form');
 		var actionUrl = form.attr('action');
 		var dataToSend = form.serialize();
 
 		$.post(actionUrl, dataToSend).done(function (data) {
 			placeholderElement.find('.modal').modal('hide');
+		});
+	});
+
+	$('a[asp-ajax="true"]').on('click', function (e) {
+		var url = $(this).attr('href');
+		debugger;
+		e.preventDefault();
+		$.get(url).done(function (data) {
+			$("form").submit();
 		});
 	});
 });
