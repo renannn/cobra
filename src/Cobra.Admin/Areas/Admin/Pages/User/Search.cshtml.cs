@@ -1,10 +1,13 @@
-using Cobra.Common;
+﻿using Cobra.Common;
 using Cobra.Common.IdentityToolkit;
+using Cobra.Core.Settings;
 using Cobra.Infrastructure.Services.Contracts.Identity;
 using Cobra.Models.Identity;
+using Cobra.Models.Identity.Emails;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 
@@ -18,11 +21,20 @@ public class SearchModel : PageModel
 
     private readonly IApplicationRoleManager _roleManager;
     private readonly IApplicationUserManager _userManager;
+    private readonly IUsedPasswordsService _usedPasswordsService;
+    private readonly IApplicationSignInManager _signInManager;
+    private readonly IEmailSender _emailSender;
+    private readonly IOptionsSnapshot<SiteSettings> _siteOptions;
 
-    public SearchModel(IApplicationUserManager userManager, IApplicationRoleManager roleManager)
+    public SearchModel(IApplicationUserManager userManager, IApplicationRoleManager roleManager, IUsedPasswordsService usedPasswordsService, IEmailSender emailSender, IApplicationSignInManager signInManager,
+            IOptionsSnapshot<SiteSettings> siteOptions)
     {
+        _emailSender = emailSender ?? throw new ArgumentNullException(nameof(emailSender));
+        _signInManager = signInManager ?? throw new ArgumentNullException(nameof(signInManager));
         _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
+        _usedPasswordsService = usedPasswordsService ?? throw new ArgumentNullException(nameof(usedPasswordsService));
+        _siteOptions = siteOptions ?? throw new ArgumentNullException(nameof(siteOptions));
     }
 
     [BindProperty]
@@ -145,20 +157,6 @@ public class SearchModel : PageModel
         return await ReturnUserCardPartialView(thisUser);
     }
 
-    [AjaxOnly]
-    public async Task<IActionResult> OnPostChangeUserRoles(Guid userId, Guid[] roleIds)
-    {
-        Entities.Administration.User thisUser = null;
-        var result = await _userManager.AddOrUpdateUserRolesAsync(
-            userId, roleIds, user => thisUser = user);
-        if (!result.Succeeded)
-        {
-            return BadRequest(error: result.DumpErrors(useHtmlNewLine: true));
-        }
-
-        return await ReturnUserCardPartialView(thisUser);
-    }
-
     private async Task<IActionResult> ReturnUserCardPartialView(Entities.Administration.User thisUser)
     {
         var roles = await _roleManager.GetAllCustomRolesAsync();
@@ -170,5 +168,65 @@ public class SearchModel : PageModel
                 Roles = roles,
                 ActiveTab = UserCardItemActiveTab.UserAdmin
             });
+    }
+
+
+    public async Task<PartialViewResult> OnGetUserRolesAsync(Guid userId)
+    {
+        var user = await _userManager.FindByIdIncludeUserRolesAsync(userId);
+        var roles = await _roleManager.GetAllCustomRolesAsync();
+        return Partial("_UserRolesPart",
+            new UserRolesModel
+            {
+                User = user,
+                Roles = roles
+            });
+    }
+
+    [AjaxOnly]
+    public async Task OnPostChangeUserRolesAsync(Guid userId, Guid[] roleIds)
+    {
+        var user = await _userManager.FindByIdIncludeUserRolesAsync(userId);
+        Entities.Administration.User thisUser = null;
+        var result = await _userManager.AddOrUpdateUserRolesAsync(
+            userId, roleIds, user => thisUser = user);
+    }
+
+    public async Task<IActionResult> OnGetAlterarSenhaAsync(Guid userId)
+    {
+        var passwordChangeDate = await _usedPasswordsService.GetLastUserPasswordChangeDateAsync(userId);
+        return Partial("_ChangeUserPasswordPart",
+            new ChangePasswordViewModel
+            {
+                UserId = userId,
+                LastUserPasswordChangeDate = passwordChangeDate
+            });
+    }
+
+    [AjaxOnly]
+    public async Task OnPostAlterarSenhaAsync(ChangePasswordViewModel model)
+    {
+        var user = await _userManager.FindByIdIncludeUserRolesAsync(model.UserId);
+
+        var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+        if (result.Succeeded)
+        {
+
+            await _userManager.UpdateSecurityStampAsync(user);
+
+            // reflect the changes in the Identity cookie
+            await _signInManager.RefreshSignInAsync(user);
+
+            await _emailSender.SendEmailAsync(
+                       email: user.Email,
+                       subject: "Notificação para alterar senhas",
+                       viewNameOrPath: "~/Areas/Identity/Pages/EmailTemplates/_ChangePasswordNotification.cshtml",
+                       model: new ChangePasswordNotificationViewModel
+                       {
+                           User = user,
+                           EmailSignature = _siteOptions.Value.Smtp.FromName,
+                           MessageDateTime = DateTime.Now.ToString("G")
+                       });
+        }
     }
 }

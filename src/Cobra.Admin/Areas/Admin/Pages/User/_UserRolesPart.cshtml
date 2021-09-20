@@ -1,0 +1,58 @@
+﻿@using Cobra.Admin.Areas.Admin.Pages.User
+@model UserRolesModel
+
+<!-- Modal -->
+<div class="modal fade" id="add-contact" tabindex="-1" role="dialog" aria-labelledby="addContactLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="addContactLabel">Regras do sistema - @Model.User.UserName</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<form method="post"
+					  role="form"
+					  data-ajax="true" ,
+					  asp-page="Search"
+					  asp-page-handler="ChangeUserRoles">
+					<input name="userId" value="@Model.User.Id" type="hidden" />
+					<div class="table-responsive">
+						<table id="all-roles-list" class="table table-hover table-bordered">
+							<thead class="thead-light">
+								<tr>
+									<th class="text-center">
+										Nome da regra
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var role in Model.Roles)
+								{
+									var selected = Model.User.Roles.Any(userRole => userRole.RoleId == role.Id) ? "checked" : "";
+									<tr>
+										<td>
+											<div class="checkbox-zoom zoom-info">
+												<label>
+													<input type="checkbox" name="roleIds" value="@role.Id" @selected />
+													<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-info"></i></span>
+													<label>@role.Name</label>
+												</label>
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" data-save="modal">Save</button>
+			</div>
+		</div>
+	</div>
+</div>

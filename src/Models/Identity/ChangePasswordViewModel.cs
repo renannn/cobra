@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Cobra.Entities.Administration;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cobra.Models.Identity
 {
 	public class ChangePasswordViewModel
     {
+        public Guid UserId {  get; set; }
+
         [Required(ErrorMessage = "(*)")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha atual")]

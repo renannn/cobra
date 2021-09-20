@@ -27,6 +27,7 @@ public class ItemModel : PageModel
         if (Id.HasValue)
         {
 
+            PModel = new UserProfileViewModel();
         }
 
         return Page();
